@@ -2,20 +2,21 @@
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html>
+
+<html lang="ko-kr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><spring:message code="title.sample" /></title>
-    <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
-    <script>
-    </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ALLSOTV CMS</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/css.jsp"></jsp:include>
 </head>
 
-<body>
-	<div>
-		hello world
-	</div>
-	<div>
+<body class="hold-transition tv_color sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section>
 		<form action="<spring:message code="url.login" />" method="post">
 			<input type="hidden" name="token" value="1234" />
 			id:<br>
@@ -26,6 +27,17 @@
 			<input type="number" name="age" /><br>
 			<button type="submit" >로그인</button>
 		</form>
-	</div>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+</div>  
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
+<script>
+</script>
+
 </body>
 </html>
