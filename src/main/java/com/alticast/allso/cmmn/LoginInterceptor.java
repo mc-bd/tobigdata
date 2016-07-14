@@ -1,4 +1,4 @@
-package com.t1t1.example.cmmn;
+package com.alticast.allso.cmmn;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -19,8 +19,6 @@
  	<bean class="egovframework.rte.psl.dataaccess.mapper.MapperConfigurer">
 <!--  	    
 		<property name="basePackage" value="egovframework.example.sample.service.impl" />
-		<property name="basePackage" value="com.t1t1.example" />
-		<property name="basePackage" value="com.t1t1.example.login.service.impl" />
  -->		
 		<property name="basePackage" value="**.*.impl" />
 	</bean>
