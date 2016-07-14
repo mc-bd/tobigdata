@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.login.service.LoginService;
 
 @Controller
@@ -25,7 +26,7 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		return "/login/loginForm";
+		return CmmnUtil.sendJSP("/login/loginForm");
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -35,7 +36,7 @@ public class LoginController {
 			req.getSession().setAttribute("login", user);
 		}
 		// TODO redirect; 로그인 실패 시 메시지 어떻게 노출?
-		return "redirect:/home";
+		return CmmnUtil.sendRedirect("/home");
 	}
 	
 	// TODO URL 정리 필요; login/logout; 이상함;
@@ -46,7 +47,7 @@ public class LoginController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/home";
+		return CmmnUtil.sendRedirect("/home");
 	}
 
 }

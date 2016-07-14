@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alticast.allso.cmmn.util.CmmnUtil;
+
 @Controller
 @RequestMapping("/home")
 public class HomeController {
@@ -18,9 +20,7 @@ public class HomeController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String homeGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		log.debug("start: {}", "homeGet");
-		log.debug("paramMap: {}", paramMap.toString());
-		return "/home/home";
+		return CmmnUtil.sendJSP("/home/home");
 	}
 
 }
