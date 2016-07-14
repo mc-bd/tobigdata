@@ -51,7 +51,7 @@
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="<spring:message code="url.logout" />" data-toggle="control-sidebar"> <button type="button" class="btn btn-block btn-default btn-xs">로그아웃</button></a>
+            <a href="#" data-toggle="control-sidebar"> <button type="button" class="btn btn-block btn-default btn-xs logout">로그아웃</button></a>
           </li>
         </ul>
       </div>
@@ -265,6 +265,16 @@
 <script src="/pub/tv_style/js/tv_style.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/pub/dist/js/app.min.js"></script>
+
+<script>
+	(function() {
+		$(document).ready(function() {
+			$('body').on('click', 'button.logout', function() {
+				location.href = '<spring:message code="url.logout" />';
+			});
+		});
+	})();
+</script>
 
 </body>
 </html>
