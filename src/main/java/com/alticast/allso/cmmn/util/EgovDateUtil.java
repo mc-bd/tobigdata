@@ -14,7 +14,7 @@ import java.util.TimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ibm.icu.util.ChineseCalendar;
+//import com.ibm.icu.util.ChineseCalendar;
 
 /**
  *
@@ -526,6 +526,7 @@ public class EgovDateUtil {
 	 * @param sDate 양력일자
 	 * @return 음력일자
 	 */
+/*	
 	public static Map<String, String> toLunar(String sDate) {
 		String dateStr = validChkDate(sDate);
 
@@ -568,13 +569,15 @@ public class EgovDateUtil {
 
 		return hm;
 	}
-
+*/
+	
 	/**
 	 * 입력받은 음력일자를 변환하여 양력일자로 반환
 	 * @param sDate 음력일자
 	 * @param iLeapMonth 음력윤달여부(IS_LEAP_MONTH)
 	 * @return 양력일자
 	 */
+/*	
 	public static String toSolar(String sDate, int iLeapMonth) {
 		String dateStr = validChkDate(sDate);
 
@@ -604,7 +607,8 @@ public class EgovDateUtil {
 
 		return retYear + retMonth + retDay;
 	}
-
+*/
+	
 	/**
 	 * 입력받은 요일의 영문명을 국문명의 요일로 반환
 	 * @param sWeek 영문 요일명
