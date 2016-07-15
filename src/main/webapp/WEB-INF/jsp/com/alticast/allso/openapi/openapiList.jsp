@@ -43,6 +43,20 @@
 				location.href = '<spring:message code="url.logout" />';
 			});
 			// 
+			var testData = {
+					key1: '111',
+					key2: 2,
+					key3: {
+						key1: '111',
+						key2: 2,
+					},
+					key4: {
+						key1: '111',
+						key2: 2,
+						key5: [{1: '일'},{2: '이'}],
+					},
+					key5: [{1: '일1'},{2: '이2'}],
+			}
 			$.ajax({
 				url: '/openapi',
 				async: true,
@@ -51,15 +65,9 @@
 				dataType: 'json',
 /* 				
  */				
-				data: JSON.stringify({
-					key1: '111',
-					key2: 2
-				}),
+				data: JSON.stringify(testData),
 /* 				
-				data: {
-					key1: '111',
-					key2: 2
-				},
+				data: testData,
  */				
 // 				beforeSend: {},
 				success: function(data, textStatus, jqXHR) {

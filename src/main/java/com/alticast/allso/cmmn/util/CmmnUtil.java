@@ -1,7 +1,13 @@
 package com.alticast.allso.cmmn.util;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class CmmnUtil {
@@ -18,7 +24,25 @@ public class CmmnUtil {
 	}
 	
 //	public static <T> List<T> jsonToList() {
-	public static List<HashMap<String, Object>> jsonToList() {
+//	public static List<Map<String, Object>> jsonToList() {
+	public static Map<String, Object> jsonToMap(String content) {
+		try {
+//			Map<String, Object> map = new LinkedHashMap<>();
+			return new ObjectMapper().readValue(content, LinkedHashMap.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static String mapToJson(Object object) {
+		try {
+			return new ObjectMapper().writeValueAsString(object);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

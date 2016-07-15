@@ -1,6 +1,7 @@
 package com.alticast.allso.let.openapi.web;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,7 @@ public class OpenapiController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody String openapiPost(HttpServletRequest req
+//	public @ResponseBody Map<String, Object> openapiPost(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 //			, @RequestBody(required = false) HashMap<String, Object> jsonMap
@@ -40,10 +42,13 @@ public class OpenapiController {
 //			, @RequestBody MultiValueMap<String, String> jsonMap
 			, @RequestBody String requestBody
 			) throws Exception {
-//		log.debug("paramMap: {}", paramMap);
+		log.debug("paramMap: {}", paramMap);
 //		log.debug("jsonMap: {}", jsonMap);
-		log.debug("body: {}", requestBody);
-		return "{'A': 'a', 'B': 2}";
+		Map<String, Object> jsonMap = CmmnUtil.jsonToMap(requestBody);
+		log.debug("jsonMap: {}", jsonMap);
+		log.debug("requestBody: {}", requestBody);
+		jsonMap.put("status", 200);
+		return CmmnUtil.mapToJson(jsonMap);
 	}
 
 }
