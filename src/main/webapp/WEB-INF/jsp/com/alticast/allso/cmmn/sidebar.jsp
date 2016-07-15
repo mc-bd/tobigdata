@@ -19,7 +19,7 @@
         <li class="treeview">
          <a href="#"><i class="fa fa-unlock"></i> <span>Open API</span> <i class="fa fa-angle-left pull-right"></i></a>
           	<ul class="treeview-menu">
-         	  	<li><a href="#">- 사이트 관리</a></li>
+         	  	<li><a href="/openapi">- 사이트 관리</a></li>
           	</ul>
         </li>
         <li class="treeview">
