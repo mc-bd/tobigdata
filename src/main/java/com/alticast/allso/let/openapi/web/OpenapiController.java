@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +36,8 @@ public class OpenapiController {
 //	@RequestMapping(method = RequestMethod.POST)
 //	@RequestMapping(method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-//	public @ResponseBody String openapiPost(HttpServletRequest req
-	public @ResponseBody Ajax openapiPost(HttpServletRequest req
+	public @ResponseBody String openapiPost(HttpServletRequest req
+//	public @ResponseBody Ajax openapiPost(HttpServletRequest req
 //	public @ResponseBody Map<String, Object> openapiPost(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
@@ -51,13 +52,15 @@ public class OpenapiController {
 		Map<String, Object> jsonMap = CmmnUtil.jsonToMap(requestBody);
 		log.debug("jsonMap: {}", jsonMap);
 		log.debug("requestBody: {}", requestBody);
-		jsonMap.put("status", 200);
 //		resp.setContentType("application/json;charset=UTF-8");
 //		resp.setContentType("text/plain;charset=UTF-8");
 //		resp.setCharacterEncoding("UTF-8");
 //		return jsonMap;
 //		return CmmnUtil.mapToJson(jsonMap);
-		return new Ajax().setData(jsonMap);
+//		return new Ajax().setData(jsonMap);
+//		return CmmnUtil.sendJSON(jsonMap);
+//		return CmmnUtil.sendJSON(new Ajax().setData(jsonMap));
+		return new Ajax().setData(jsonMap).toJSON();
 	}
 
 }

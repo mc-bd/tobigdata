@@ -1,9 +1,7 @@
 package com.alticast.allso.cmmn.util;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -36,11 +34,10 @@ public class CmmnUtil {
 		return null;
 	}
 	
-	public static String mapToJson(Object object) {
+	public static String convertJSON(Object object) {
 		try {
 			return new ObjectMapper().writeValueAsString(object);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
