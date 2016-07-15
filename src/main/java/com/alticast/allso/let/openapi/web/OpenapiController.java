@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alticast.allso.cmmn.Ajax;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.openapi.service.OpenapiService;
 
@@ -34,7 +35,8 @@ public class OpenapiController {
 //	@RequestMapping(method = RequestMethod.POST)
 //	@RequestMapping(method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiPost(HttpServletRequest req
+//	public @ResponseBody String openapiPost(HttpServletRequest req
+	public @ResponseBody Ajax openapiPost(HttpServletRequest req
 //	public @ResponseBody Map<String, Object> openapiPost(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
@@ -54,7 +56,8 @@ public class OpenapiController {
 //		resp.setContentType("text/plain;charset=UTF-8");
 //		resp.setCharacterEncoding("UTF-8");
 //		return jsonMap;
-		return CmmnUtil.mapToJson(jsonMap);
+//		return CmmnUtil.mapToJson(jsonMap);
+		return new Ajax().setData(jsonMap);
 	}
 
 }
