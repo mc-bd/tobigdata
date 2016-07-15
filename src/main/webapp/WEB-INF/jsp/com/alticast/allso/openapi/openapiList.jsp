@@ -42,8 +42,12 @@
 			$('body').on('click', 'button.logout', function() {
 				location.href = '<spring:message code="url.logout" />';
 			});
+			
 			// 
-			var testData = {
+			__.ajax({
+				url: '/openapi',
+				method: 'POST',
+				data: {
 					key1: '111',
 					key2: 2,
 					key3: {
@@ -56,27 +60,11 @@
 						key5: [{1: '일'},{2: '이'}],
 					},
 					key5: [{1: '일1'},{2: '이2'}],
-			}
-			$.ajax({
-				url: '/openapi',
-				async: true,
-				method: 'POST',
-				contentType: "application/json; charset=UTF-8",
-				dataType: 'json',
-/* 				
- */				
-				data: JSON.stringify(testData),
-/* 				
-				data: testData,
- */				
-// 				beforeSend: {},
-				success: function(data, textStatus, jqXHR) {
-					debugger;
-					console.dir(data)
 				},
-// 				error: {},
-// 				complete: {},
-			});
+				success: function(data) {
+					alert(JSON.stringify(data));
+				}
+			})
 			
 		});
 	})();

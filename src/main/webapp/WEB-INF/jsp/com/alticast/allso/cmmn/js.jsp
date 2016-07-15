@@ -5,3 +5,5 @@
 <script src="/pub/tv_style/js/tv_style.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/pub/dist/js/app.min.js"></script>
+<!-- CMMN -->
+<script src="/js/cmmn/doubleunderscore.js"></script>
