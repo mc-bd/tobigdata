@@ -46,7 +46,11 @@
 			// 
 			__.ajax({
 				url: '/openapi',
-				method: 'POST',
+// 				method: 'GET',
+// 				method: 'POST',
+// 				method: 'PUT',
+				method: 'DELETE',
+/* 				
 				data: {
 					key1: '111',
 					key2: 2,
@@ -60,6 +64,10 @@
 						key5: [{1: '일'},{2: '이'}],
 					},
 					key5: [{1: '일1'},{2: '이2'}],
+				},
+ */				
+				data: {
+					serviceId: 1,
 				},
 				success: function(data) {
 					alert(JSON.stringify(data));

@@ -1,6 +1,6 @@
 package com.alticast.allso.let.openapi.service.impl;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -16,8 +16,31 @@ public class OpenapiServiceImpl implements OpenapiService {
 	private OpenapiMapper openapiDao;
 
 	@Override
-	public Map<String, Object> openapiUser(HashMap<String, Object> paramMap) throws Exception {
-		return openapiDao.openapiUser(paramMap);
+	public List<Map<String, Object>> selectSites(
+			Map<String, Object> paramMap) throws Exception {
+		return openapiDao.selectSites(paramMap);
 	}
+
+	@Override
+	public Map<String, Object> selectSite(Map<String, Object> paramMap)
+			throws Exception {
+		return openapiDao.selectSite(paramMap);
+	}
+
+	@Override
+	public int insertSite(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.insertSite(paramMap);
+	}
+
+	@Override
+	public int updateSite(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.updateSite(paramMap);
+	}
+
+	@Override
+	public int deleteSite(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.deleteSite(paramMap);
+	}
+
 
 }
