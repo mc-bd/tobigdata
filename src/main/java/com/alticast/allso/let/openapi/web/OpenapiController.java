@@ -31,7 +31,9 @@ public class OpenapiController {
 		return CmmnUtil.sendJSP("/openapi/openapiList");
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+//	@RequestMapping(method = RequestMethod.POST)
+//	@RequestMapping(method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiPost(HttpServletRequest req
 //	public @ResponseBody Map<String, Object> openapiPost(HttpServletRequest req
 			, HttpServletResponse resp
@@ -48,6 +50,10 @@ public class OpenapiController {
 		log.debug("jsonMap: {}", jsonMap);
 		log.debug("requestBody: {}", requestBody);
 		jsonMap.put("status", 200);
+//		resp.setContentType("application/json;charset=UTF-8");
+//		resp.setContentType("text/plain;charset=UTF-8");
+//		resp.setCharacterEncoding("UTF-8");
+//		return jsonMap;
 		return CmmnUtil.mapToJson(jsonMap);
 	}
 
