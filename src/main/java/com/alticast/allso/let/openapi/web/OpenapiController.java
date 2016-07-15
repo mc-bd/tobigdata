@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.openapi.service.OpenapiService;
@@ -29,8 +31,19 @@ public class OpenapiController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String openapiPost(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		return CmmnUtil.sendRedirect("/openapi");
+	public @ResponseBody String openapiPost(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestParam HashMap<String, Object> paramMap
+//			, @RequestBody(required = false) HashMap<String, Object> jsonMap
+//			, @RequestBody(required = false) HashMap<Object, Object> jsonMap
+//			, @RequestBody HashMap<String, Object> jsonMap
+//			, @RequestBody MultiValueMap<String, String> jsonMap
+			, @RequestBody String requestBody
+			) throws Exception {
+//		log.debug("paramMap: {}", paramMap);
+//		log.debug("jsonMap: {}", jsonMap);
+		log.debug("body: {}", requestBody);
+		return "{'A': 'a', 'B': 2}";
 	}
 
 }

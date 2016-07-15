@@ -38,9 +38,38 @@
 <script>
 	(function() {
 		$(document).ready(function() {
+			// 
 			$('body').on('click', 'button.logout', function() {
 				location.href = '<spring:message code="url.logout" />';
 			});
+			// 
+			$.ajax({
+				url: '/openapi',
+				async: true,
+				method: 'POST',
+				contentType: "application/json; charset=UTF-8",
+				dataType: 'json',
+/* 				
+ */				
+				data: JSON.stringify({
+					key1: '111',
+					key2: 2
+				}),
+/* 				
+				data: {
+					key1: '111',
+					key2: 2
+				},
+ */				
+// 				beforeSend: {},
+				success: function(data, textStatus, jqXHR) {
+					debugger;
+					console.dir(data)
+				},
+// 				error: {},
+// 				complete: {},
+			});
+			
 		});
 	})();
 </script>
