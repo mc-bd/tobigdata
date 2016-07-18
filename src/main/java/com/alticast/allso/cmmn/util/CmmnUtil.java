@@ -54,5 +54,12 @@ public class CmmnUtil {
 		}
 		return false;
 	}
+	
+	public static Map<String, Object> getData(String requestBody) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		return data;
+	}
 
 }
