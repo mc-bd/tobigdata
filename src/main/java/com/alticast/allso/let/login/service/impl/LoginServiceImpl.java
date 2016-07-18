@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	private LoginMapper loginDao;
 
 	@Override
-	public Map<String, Object> loginUser(HashMap<String, Object> paramMap)
+	public Map<String, Object> loginUser(Map<String, Object> paramMap)
 			throws Exception {
 		return loginDao.loginUser(paramMap);
 	}

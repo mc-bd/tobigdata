@@ -26,6 +26,9 @@
 				
 				// send
 				$.ajax(_settings);
+			},
+			isBlank: function(element) {
+				return '' == $.trim($(element).val());
 			}
 	};
 	window.__ = __;

@@ -10,6 +10,7 @@ public class Ajax {
 	
 	private Map<String, Object> data;
 	private String message;
+	private String redirect;
 	
 	private HttpStatus status;
 	private int statusCode;
@@ -34,6 +35,15 @@ public class Ajax {
 
 	public Ajax setMessage(String message) {
 		this.message = message;
+		return this;
+	}
+	
+	public String getRedirect() {
+		return redirect;
+	}
+
+	public Ajax setRedirect(String redirect) {
+		this.redirect = redirect;
 		return this;
 	}
 
