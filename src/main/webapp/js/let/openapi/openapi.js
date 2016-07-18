@@ -4,8 +4,13 @@
 (function() {
 	
 	$(document).ready(function() {
-		
-		// 
+		openapiGetList();
+	});
+	
+	function openapiGet() {
+		location.href = '/openapi';
+	};
+	function openapiGetList() {
 		__.ajax({
 			url: '/openapi',
 			method: 'GET',
@@ -16,7 +21,24 @@
 				alert(JSON.stringify(data));
 			}
 		});
-		
+	} ;
+	function openapiGetDetailByPost() {
+		// 
+		__.ajax({
+			url: '/openapi',
+			method: 'POST',
+			async: false,
+			data: {
+				"serviceId": "11",
+			},
+			success: function(data) {
+				alert(JSON.stringify(data));
+			}
+		});
+	};
+	function openapiCreateGet() {
+	};
+	function openapiCreatePost() {
 		//
 		__.ajax({
 			url: '/openapi/create',
@@ -35,20 +57,8 @@
 				alert(JSON.stringify(data));
 			}
 		});
-		
-		// 
-		__.ajax({
-			url: '/openapi',
-			method: 'POST',
-			async: false,
-			data: {
-				"serviceId": "11",
-			},
-			success: function(data) {
-				alert(JSON.stringify(data));
-			}
-		});
-		
+	};
+	function openapiPut() {
 		//
 		__.ajax({
 			url: '/openapi',
@@ -67,7 +77,8 @@
 				alert(JSON.stringify(data));
 			}
 		});
-		
+	};
+	function openapiDelete() {
 		//
 		__.ajax({
 			url: '/openapi',
@@ -80,7 +91,6 @@
 				alert(JSON.stringify(data));
 			}
 		});
-		
-	});
+	};
 	
 })();
