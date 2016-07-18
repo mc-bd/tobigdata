@@ -12,18 +12,26 @@
 			SELECT
 				*
 			FROM tb_service_site
-			WHERE SERVICE_ID=#{serviceId}
+			WHERE SERVICE_ID = #{serviceId}
 	</select>
 
     <insert id="insertSite" parameterType="Map">
         INSERT INTO tb_service_site 
         (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
         VALUES 
-        ('11', '22', '33', '44', '55', '66', '77')
+        (
+		  #{serviceId}
+		, #{serviceName}
+		, #{managerName}
+		, #{managerTel}
+		, #{managerEmail}
+		, #{serviceIp}
+		, #{permissionKey}        
+        )
     </insert>
     
     <update id="updateSite" parameterType="Map">
-		UPDATE `social`.`tb_service_site` SET `SERVICE_ID`='1' WHERE  `SERVICE_ID`='11'
+		UPDATE `social`.`tb_service_site` SET `MANAGER_NAME`= #{serviceName} WHERE  `SERVICE_ID`= #{serviceId}
     </update>
     
     <delete id="deleteSite" parameterType="Map">
