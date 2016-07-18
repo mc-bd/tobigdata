@@ -16,28 +16,33 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
+<!--   
     <a href="../../index2.html"><b>ALLSO</b>TV</a>
+ -->    
+    <a href="#"><b>ALLSO</b>TV</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">ALLSOTV LOGIN</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="<spring:message code="url.login" />" method="post">
       <div class="form-group has-feedback">
-        <input type="ID" class="form-control" placeholder="ID">
+        <input type="text" id="id" name="id" class="form-control" placeholder="ID">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
+<!--         
           <div class="checkbox icheck">
             <label>
               <input type="checkbox"> 로그인 상태 유지
             </label>
           </div>
+ -->          
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -52,7 +57,9 @@
 </div>
 
 <!-- /.login-box -->
+<!-- 
 <p class="txt_align_center"><strong>안내문구</strong><br>안내문구 상세</p>
+ -->
 
 <!-- REQUIRED JS SCRIPTS -->
 
