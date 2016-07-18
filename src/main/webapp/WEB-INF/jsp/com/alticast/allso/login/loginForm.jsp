@@ -25,7 +25,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">ALLSOTV LOGIN</p>
 
-    <form action="<spring:message code="url.login" />" method="post">
+    <form action="" method="post">
       <div class="form-group has-feedback">
         <input type="text" id="id" name="id" class="form-control" placeholder="ID">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -46,7 +46,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
+          <button type="button" id="login" class="btn btn-primary btn-block btn-flat">로그인</button>
         </div>
         <!-- /.col -->
       </div>
@@ -64,8 +64,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
-<script>
-</script>
+<script src="/js/let/login/login.js"></script>
 
 </body>
 </html>
