@@ -6,5 +6,6 @@
 <!-- AdminLTE App -->
 <script src="/pub/dist/js/app.min.js"></script>
 <!-- CMMN -->
+<script src="/js/lib/underscore.js"></script>
 <script src="/js/cmmn/doubleunderscore.js"></script>
 <script src="/js/cmmn/iife.js"></script>
