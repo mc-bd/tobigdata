@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-    <section class="content">
+    <section class="content-table">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
