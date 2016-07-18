@@ -42,8 +42,8 @@ public class OpenapiController {
 		return CmmnUtil.sendJSP("/openapi/openapiList");
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiGetList(HttpServletRequest req
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
@@ -76,7 +76,7 @@ public class OpenapiController {
 		return new Ajax().setData(data).toJSON();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = {"/view", "/edit"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
@@ -89,7 +89,7 @@ public class OpenapiController {
 	}
 	
 	@RequestMapping(value = {"/create", "/view", "/edit"}, method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public @ResponseBody String openapiCreateGet(HttpServletRequest req
+	public @ResponseBody String openapiEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 			) throws Exception {
