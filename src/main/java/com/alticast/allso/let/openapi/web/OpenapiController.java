@@ -30,9 +30,10 @@ public class OpenapiController {
 	private OpenapiService openapiService;
 	
 	@RequestMapping(method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String openapiGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-//		openapiService.insertSite(paramMap);
-//		openapiService.updateSite(paramMap);
+	public String openapiGet(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestParam HashMap<String, Object> paramMap
+			) throws Exception {
 		return CmmnUtil.sendJSP("/openapi/openapiList");
 	}
 	
@@ -48,30 +49,36 @@ public class OpenapiController {
 		return new Ajax().setData(data).toJSON();
 	}
 	
-	@RequestMapping(value = {"/{id}"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiGetDetail(HttpServletRequest req
-			, HttpServletResponse resp
-			, @PathVariable String id
-			) throws Exception {
-		return new Ajax().toJSON();
-	}
-	
-	@RequestMapping(value = {"/{id}"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp
-			, @PathVariable String id
-			) throws Exception {
-		return new Ajax().toJSON();
-	}
-	
-	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiPost(HttpServletRequest req
-			, HttpServletResponse resp
-			, @RequestParam HashMap<String, Object> paramMap
 			, @RequestBody String requestBody
 			) throws Exception {
-		Map<String, Object> jsonMap = CmmnUtil.jsonToMap(requestBody);
-		return new Ajax().setData(jsonMap).toJSON();
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		data.put("result", openapiService.insertSite(paramMap));
+		return new Ajax().setData(data).toJSON();
+	}
+	
+	@RequestMapping(value = {"/create", "/view", "/edit"}, method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public @ResponseBody String openapiCreateGet(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestParam HashMap<String, Object> paramMap
+			) throws Exception {
+		return CmmnUtil.sendJSP("/openapi/openapiEdit");
+	}
+	
+	@RequestMapping(value = {"/{create}"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String openapiCreatePost(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		data.put("result", openapiService.insertSite(paramMap));
+		return new Ajax().setData(data).toJSON();
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
@@ -79,8 +86,11 @@ public class OpenapiController {
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			) throws Exception {
-		Map<String, Object> jsonMap = CmmnUtil.jsonToMap(requestBody);
-		return new Ajax().setData(jsonMap).toJSON();
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		data.put("result", openapiService.updateSite(paramMap));
+		return new Ajax().setData(data).toJSON();
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, produces = "application/json;charset=UTF-8")
