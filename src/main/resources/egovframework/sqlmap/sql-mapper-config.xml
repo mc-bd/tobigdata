@@ -3,6 +3,9 @@
 
 <configuration>
     <typeAliases>
+		<typeAlias alias="map" type="java.util.Map"/>
+		<typeAlias alias="hashMap" type="java.util.HashMap"/>
+		<typeAlias alias="linkedHashMap" type="java.util.LinkedHashMap"/>
 		<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 		<typeAlias alias="searchVO" type="egovframework.example.sample.service.SampleDefaultVO"/>
 		<typeAlias alias="sampleVO" type="egovframework.example.sample.service.SampleVO"/>

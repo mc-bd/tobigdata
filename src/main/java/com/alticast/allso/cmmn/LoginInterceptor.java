@@ -15,6 +15,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		try {
+/* 헤더 확인
+			Enumeration<String> headerNames = request.getHeaderNames();
+			while (headerNames.hasMoreElements()) {
+				String headerName = (String) headerNames.nextElement();
+				log.debug("headerName: {}", headerName);
+				log.debug("request.getHeaders(headerName): {}", request.getHeaders(headerName));
+			}
+*/			
 			log.debug("request URL: {}", request.getRequestURI());
 			log.debug("start LoginInterceptor: {}");
 			if (request.getSession().getAttribute("login") != null) {
