@@ -14,6 +14,7 @@
 		var _pageIndex = 1;
 		__.ajax({
 			url: '/openapi',
+			contentType: "text/html; charset=UTF-8",
 			method: 'POST',
 			data: {
 				serviceId: $('#serviceId').val(),
@@ -23,7 +24,8 @@
 				pageIndex: _pageIndex
 			},
 			success: function(data) {
-				alert(JSON.stringify(data));
+				var _html = JSON.stringify(data);
+				$('.content-table').html(_html);
 			}
 		});
 	} ;

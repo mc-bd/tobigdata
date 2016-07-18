@@ -42,8 +42,43 @@ public class OpenapiController {
 		return CmmnUtil.sendJSP("/openapi/openapiList");
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiPostList(HttpServletRequest req
+	
+//	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+//	public @ResponseBody String openapiPostList(HttpServletRequest req
+//			, HttpServletResponse resp
+//			, @RequestBody String requestBody
+//			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
+//			) throws Exception {
+//		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+//		Map<String, Object> data = new LinkedHashMap<>();
+//		data.put("params", paramMap);
+//		
+//		/* paginationInfo */
+//		PaginationInfo paginationInfo = new PaginationInfo();
+//		searchVO.setPageIndex((int) paramMap.get("pageIndex"));
+//		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
+//		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
+//		paginationInfo.setPageSize(searchVO.getPageSize());
+//
+//		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+//		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+//		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+//		
+//		paramMap.put("searchVO", searchVO);
+//		log.debug("searchVO: {}", searchVO);
+//		log.debug("paramMap: {}", paramMap);
+//		List<?> sites = openapiService.selectSites(paramMap);
+//		data.put("result", sites);
+//
+//		paginationInfo.setTotalRecordCount(sites.size());
+//		data.put("paginationInfo", paginationInfo);
+//		/* // paginationInfo */
+//		
+//		return new Ajax().setData(data).toJSON();
+//	}
+	
+	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	public String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
@@ -73,7 +108,7 @@ public class OpenapiController {
 		data.put("paginationInfo", paginationInfo);
 		/* // paginationInfo */
 		
-		return new Ajax().setData(data).toJSON();
+		return CmmnUtil.sendJSP("/home");
 	}
 	
 	@RequestMapping(value = {"/view", "/edit"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
