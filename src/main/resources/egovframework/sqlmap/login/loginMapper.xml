@@ -3,12 +3,11 @@
 <mapper namespace="com.alticast.allso.let.login.service.impl.LoginMapper">
 
 	<select id="loginUser" resultType="egovMap">
-
 			SELECT
 				*
 			FROM tb_allsotv_user
-			WHERE USER_ID=#{id}
-
+			WHERE USER_ID = #{id}
+				AND USER_PASSWORD = #{password}
 	</select>
 
 </mapper>
