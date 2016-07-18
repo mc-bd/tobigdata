@@ -4,18 +4,23 @@
 (function() {
 	
 	$(document).ready(function() {
-		openapiGetList();
+		openapiPostList();
 	});
 	
 	function openapiGet() {
 		location.href = '/openapi';
 	};
-	function openapiGetList() {
+	function openapiPostList() {
+		var _pageIndex = 1;
 		__.ajax({
 			url: '/openapi',
-			method: 'GET',
-			async: false,
+			method: 'POST',
 			data: {
+				serviceId: $('#serviceId').val(),
+				serviceName: $('#serviceName').val(),
+				managerName: $('#managerName').val(),
+				serviceIp: $('#serviceIp').val(),
+				pageIndex: _pageIndex
 			},
 			success: function(data) {
 				alert(JSON.stringify(data));
@@ -27,7 +32,6 @@
 		__.ajax({
 			url: '/openapi',
 			method: 'POST',
-			async: false,
 			data: {
 				"serviceId": "11",
 			},
@@ -43,7 +47,6 @@
 		__.ajax({
 			url: '/openapi/create',
 			method: 'POST',
-			async: false,
 			data: {
 				"serviceId": "11",
 				"serviceName": "22",
@@ -63,7 +66,6 @@
 		__.ajax({
 			url: '/openapi',
 			method: 'PUT',
-			async: false,
 			data: {
 				"serviceId": "11",
 				"serviceName": "2",
@@ -83,7 +85,6 @@
 		__.ajax({
 			url: '/openapi',
 			method: 'DELETE',
-			async: false,
 			data: {
 				"serviceId": "11",
 			},

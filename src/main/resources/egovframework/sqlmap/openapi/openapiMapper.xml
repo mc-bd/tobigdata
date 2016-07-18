@@ -2,10 +2,67 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alticast.allso.let.openapi.service.impl.OpenapiMapper">
     
-	<select id="selectSites" parameterType="Map" resultType="egovMap">
+   	<select id="selectSampleList" parameterType="searchVO" resultType="egovMap">
+
 			SELECT
-				*
-			FROM tb_service_site
+				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+			FROM SAMPLE
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						AND	ID LIKE '%' || #{searchKeyword} || '%'
+					</when>
+		            <when test="searchCondition == 1">
+						AND	NAME LIKE '%' || #{searchKeyword} || '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY ID ASC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+
+	<select id="selectSampleListTotCnt" parameterType="searchVO" resultType="int">
+
+			SELECT COUNT(*) totcnt
+			FROM SAMPLE
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						AND ID LIKE '%' || #{searchKeyword} || '%'
+					</when>
+		            <when test="searchCondition == 1">
+						AND	NAME LIKE '%' || #{searchKeyword} || '%'
+					</when>
+				</choose>
+			</if>
+	</select>
+    
+	<select id="selectSites" parameterType="Map" resultType="egovMap">
+			SELECT SERVICE_ID,
+			       SERVICE_NAME,
+			       MANAGER_NAME,
+			       MANAGER_TEL,
+			       MANAGER_EMAIL,
+			       SERVICE_IP,
+			       PERMISSION_KEY
+			  FROM social.tb_service_site
+			  WHERE 1=1
+			<if test="serviceId != null and serviceId != ''">
+				AND	SERVICE_ID LIKE '%' || #{serviceId} || '%'
+			</if>
+			<if test="serviceName != null and serviceName != ''">
+				AND	SERVICE_NAME LIKE '%' || #{serviceName} || '%'
+			</if>
+			<if test="managerName != null and managerName != ''">
+				AND	MANAGER_NAME LIKE '%' || #{managerName} || '%'
+			</if>
+			<if test="serviceIp != null and serviceIp != ''">
+				AND	SERVICE_IP LIKE '%' || #{serviceIp} || '%'
+			</if>
+			ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+			LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
 	</select>
 	
 	<select id="selectSite" parameterType="Map" resultType="egovMap">
