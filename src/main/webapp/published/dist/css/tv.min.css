@@ -22,7 +22,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-f
 #pop{position: relative;width: 600px;overflow: hidden;padding: 20px 20px;}
 .pop_btn{padding-top:20px; text-align:center;}
 .txt_align_center{position:relative; text-align:center;color:#fff;}
-
+.table_mar{margin:0px 0px 0px 100px;}
 
 .fixed .main-header,.fixed .main-sidebar,.fixed .left-side{position:fixed}.fixed 
 .main-header{top:0;right:0;left:0}.fixed .content-wrapper,.fixed .right-side{padding-top:50px}

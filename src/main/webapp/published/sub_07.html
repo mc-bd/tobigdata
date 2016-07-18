@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="ko-kr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ALLSOTV O&M </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- tv_style 3.3.6 -->
+  <link rel="stylesheet" href="tv_style/css/tv_style.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/tv.min.css">
+  <link rel="stylesheet" href="dist/css/skins/tv_color.min.css">
+</head>
+
+
+<body class="hold-transition tv_color sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>ALLSOTV</b>O&M </span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">Admin (홍길동)님 접속중</span>
+            </a>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"> <button type="button" class="btn btn-block btn-default btn-xs">로그아웃</button></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+   <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <!-- Optionally, you can add icons to the links -->
+        <li class="treeview">
+         <a href="#"><i class="fa fa-user"></i> <span>사용자 관리</span> <i class="fa fa-angle-left pull-right"></i></a>
+          	<ul class="treeview-menu">
+         	  	<li><a href="#">- 사용자 조회</a></li>
+            	<li><a href="#">- 사용자 통계</a></li>
+          	</ul>
+        </li>
+        <li class="treeview">
+         <a href="#"><i class="fa fa-server"></i> <span>서비스 관리</span> <i class="fa fa-angle-left pull-right"></i></a>
+          	<ul class="treeview-menu">
+         	  	<li><a href="#">- 키워드 관리</a></li>
+               	<li><a href="#">- 검색 내역</a></li>
+          	</ul>
+        </li>
+        <li class="treeview">
+         <a href="#"><i class="fa fa-pie-chart"></i> <span>콘텐츠 관리</span> <i class="fa fa-angle-left pull-right"></i></a>
+          	<ul class="treeview-menu">
+         	  	<li><a href="#">- 프로그램</a></li>
+              	<li><a href="#">- 동영상</a></li>
+          	</ul>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        사용자 통계
+        <small>사용자 통계를 확인 할 수 있습니다.</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 홈</a></li>
+        <li class="active">사용자 관리</li>
+        <li class="active">사용자 통계</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <!-- /.row -->
+    <section class="content">
+      <div class="box">
+           <div class="box-header with-border">
+              <h3 class="box-title">가입자 통계</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table>
+                <tr>
+                  <th style="width:10px" ></th>
+                  <th style="width:100px" >총가입자수:</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px" ></th>
+                  <th style="width:100px" >TV가입자수:</th>
+                  <td style="width:90px">1,500명</td>
+                  <th style="width:10px" ></th>
+                  <th style="width:100px" >APP가입자수:</th>
+                  <td style="width:90px">1,000명</td>
+                </tr>
+                <tr>
+                  <td style="height:20px"></td>
+                </tr>
+              </table>
+           </div> 
+         </div>
+      </section>   
+      
+     <section class="content">
+      <div class="box">
+           <div class="box-header with-border">
+              <h3 class="box-title">성별 통계</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table>
+                <tr>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">남자:</th>
+                  <td style="width:90px">800명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">여자:</th>
+                  <td style="width:90px">700명</td>
+                </tr>
+                <tr>
+                  <td style="height:20px"></td>
+                </tr>
+              </table>
+           </div> 
+         </div>
+      </section>  
+      
+      <section class="content">
+      <div class="box">
+           <div class="box-header with-border">
+              <h3 class="box-title">나이 통계</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table>
+                <tr>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:120px">57세(1960년생):</th>
+                  <td style="width:90px">2,500명</td>
+                </tr>
+                <tr>
+                  <td style="height:20px"></td>
+                </tr>
+              </table>
+           </div> 
+         </div>
+      </section>    
+       
+            
+      <section class="content">
+      <div class="box">
+           <div class="box-header with-border">
+              <h3 class="box-title">응원팀 통계</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table>
+                <tr>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                  <th style="width:10px"></th>
+                  <th style="width:60px">넥센:</th>
+                  <td style="width:100px">2,500명</td>
+                </tr>
+                <tr>
+                  <td style="height:20px"></td>
+                </tr>
+              </table>
+           </div> 
+         </div>
+      </section> 
+   </div>
+
+    <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+     Raonmind
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2016 <a href="#">WAVEM</a>.</strong> All rights reserved.
+  </footer>
+</div>    
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.0 -->
+<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- tv_style 3.3.6 -->
+<script src="tv_style/js/tv_style.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+
+</body>
+</html>
