@@ -25,7 +25,9 @@ public class CmmnUtil {
 //	public static List<Map<String, Object>> jsonToList() {
 	public static Map<String, Object> jsonToMap(String content) {
 		try {
-//			Map<String, Object> map = new LinkedHashMap<>();
+			if (isBlank(content)) {
+				return new LinkedHashMap<>();
+			}
 			return new ObjectMapper().readValue(content, LinkedHashMap.class);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -41,6 +43,16 @@ public class CmmnUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static boolean isBlank(String content) {
+		if (content == null) {
+			return true;
+		}
+		if ("".equals(content)) {
+			return true;
+		}
+		return false;
 	}
 
 }
