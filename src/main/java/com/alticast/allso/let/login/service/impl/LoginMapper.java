@@ -8,6 +8,6 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Mapper("loginMapper")
 public interface LoginMapper {
 	
-	public Map<String, Object> loginUser(HashMap<String, Object> paramMap) throws Exception;
+	public Map<String, Object> loginUser(Map<String, Object> paramMap) throws Exception;
 
 }

@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface LoginService {
 
-	Map<String, Object> loginUser(HashMap<String, Object> paramMap) throws Exception;
+	Map<String, Object> loginUser(Map<String, Object> paramMap) throws Exception;
 
 }
