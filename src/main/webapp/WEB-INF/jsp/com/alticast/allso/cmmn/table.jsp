@@ -60,7 +60,6 @@
             <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
           </div>
           <!-- /.box -->
-          </div>
         </div>
       </div>
     </section>

@@ -22,14 +22,12 @@
     <!-- Content Header (Page header) -->
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/navigation.jsp"></jsp:include>
     <!-- Main content -->
-	<section>
-		<h1>openapi</h1>
-	</section>
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/search.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/table.jsp"></jsp:include>
   </div>
   <!-- /.content-wrapper -->
   <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/footer.jsp"></jsp:include>
+</div>  
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
