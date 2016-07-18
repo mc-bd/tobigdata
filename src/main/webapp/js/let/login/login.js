@@ -12,7 +12,6 @@
 			if (!isValid()) {
 				return;
 			}
-			debugger;
 			__.ajax({
 				url: '/login',
 				method: 'POST',
