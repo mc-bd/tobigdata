@@ -46,31 +46,21 @@
 			// 
 			__.ajax({
 				url: '/openapi',
-				method: 'GET',
+// 				url: '/openapi/create',
+// 				url: '/openapi/view',
+// 				method: 'GET',
 // 				method: 'POST',
 // 				method: 'PUT',
-// 				method: 'DELETE',
-/* 				
+				method: 'DELETE',
 				data: {
-					key1: '111',
-					key2: 2,
-					key3: {
-						key1: '111',
-						key2: 2,
-					},
-					key4: {
-						key1: '111',
-						key2: 2,
-						key5: [{1: '일'},{2: '이'}],
-					},
-					key5: [{1: '일1'},{2: '이2'}],
+					"serviceID": "1",
+					"serviceName": "22",
+					"managerName": "33",
+					"managerTel": "44",
+					"managerEmail": "55",
+					"serviceIp": "66",
+					"permissionKey": "77"
 				},
- */				
-/*  
-				data: {
-					serviceId: 1,
-				},
- */				
 				success: function(data) {
 					alert(JSON.stringify(data));
 				}
