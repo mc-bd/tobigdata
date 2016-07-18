@@ -57,7 +57,7 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.insertSite(paramMap));
+		data.put("result", openapiService.selectSite(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
