@@ -18,8 +18,8 @@
   <h4>사이트 관리</h4>
   <hr>
   <div class="box-body">
+  	<input type="hidden" id="serviceId">
     <table class="table table-bordered">
-    	
       <tr>
         <th style="width: 25%" bgcolor="#eeeeee">서비스 명</th>
         <td style="width: 25%"><input class="form-control" type="text" placeholder="" id="serviceName"></td>
@@ -44,8 +44,8 @@
   <div class="pop_btn">
     <button type="button" class="btn btn-confirm none" id="insert">저장</button>
     <button type="button" class="btn btn-confirm none" id="edit">수정</button>
-    <button type="button" class="btn btn-confirm none" id="delete">삭제</button>
     <button type="button" class="btn btn-confirm none" id="update">저장</button>
+    <button type="button" class="btn btn-confirm none" id="delete">삭제</button>
     <button type="button" class="btn btn-default none" id="close">취소</button>
     <button type="button" class="btn btn-default none" id="cansel">취소</button>
   </div>
@@ -58,6 +58,7 @@
 	$(document).ready(function() {
 		page.showButton();
 		page.showData();
+		openapi.openapiGetDetailByPost();
 	});
 	(function() {
 		var _page = {
@@ -75,6 +76,7 @@
 						break;
 					case 'U':
 						$('#update').show();
+						$('#delete').show();
 						$('#close').show();
 						break;
 					default:
@@ -82,7 +84,7 @@
 					}
 				},
 				showData: function() {
-					
+					__._notice(JSON.stringify(__.getParams()));
 				}
 		} 
 		window.page = _page;

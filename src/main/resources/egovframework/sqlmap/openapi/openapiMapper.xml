@@ -92,11 +92,19 @@
     </insert>
     
     <update id="updateSite" parameterType="Map">
-		UPDATE `social`.`tb_service_site` SET `MANAGER_NAME`= #{serviceName} WHERE  `SERVICE_ID`= #{serviceId}
+		UPDATE social.tb_service_site
+		   SET   SERVICE_NAME = #{serviceName}
+		       , MANAGER_NAME = #{managerName}
+		       , MANAGER_TEL = #{managerTel}
+		       , MANAGER_EMAIL = #{managerEmail}
+		       , SERVICE_IP = #{serviceIp}
+		       , PERMISSION_KEY = #{permissionKey}
+		WHERE  SERVICE_ID = #{serviceId}        
     </update>
     
     <delete id="deleteSite" parameterType="Map">
-		DELETE FROM tb_service_site WHERE  SERVICE_ID = #{serviceId}
+		DELETE FROM tb_service_site 
+		WHERE  SERVICE_ID = #{serviceId}
     </delete>
     
 </mapper>
