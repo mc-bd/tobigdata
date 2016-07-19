@@ -126,7 +126,7 @@ public class OpenapiController {
 	}
 	
 	@RequestMapping(value = {"/create", "/view", "/edit"}, method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public @ResponseBody String openapiEdit(HttpServletRequest req
+	public String openapiEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 			) throws Exception {
