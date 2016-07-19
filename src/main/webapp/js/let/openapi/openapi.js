@@ -18,7 +18,7 @@
 					height: 400
 				});
 			});
-			$('#save').on('click', this.openapiCreatePost);
+			$('#insert').on('click', this.openapiCreatePost);
 			$('#close').on('click', __.close);
 			$('section.content-table').on('click', 'tbody > tr', function(e) {
 				var _data = $(e.target).parents('tr').data();

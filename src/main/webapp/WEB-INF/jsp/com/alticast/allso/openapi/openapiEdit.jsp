@@ -19,6 +19,7 @@
   <hr>
   <div class="box-body">
     <table class="table table-bordered">
+    	
       <tr>
         <th style="width: 25%" bgcolor="#eeeeee">서비스 명</th>
         <td style="width: 25%"><input class="form-control" type="text" placeholder="" id="serviceName"></td>
@@ -41,8 +42,12 @@
   </div>  
    
   <div class="pop_btn">
-    <button type="button" class="btn btn-confirm" id="save">저장</button>
-    <button type="button" class="btn btn-default" id="close">취소</button>
+    <button type="button" class="btn btn-confirm none" id="insert">저장</button>
+    <button type="button" class="btn btn-confirm none" id="edit">수정</button>
+    <button type="button" class="btn btn-confirm none" id="delete">삭제</button>
+    <button type="button" class="btn btn-confirm none" id="update">저장</button>
+    <button type="button" class="btn btn-default none" id="close">취소</button>
+    <button type="button" class="btn btn-default none" id="cansel">취소</button>
   </div>
 </div>
 
@@ -51,7 +56,37 @@
 <script src="/js/let/openapi/openapi.js"></script>
 <script>
 	$(document).ready(function() {
+		page.showButton();
+		page.showData();
 	});
+	(function() {
+		var _page = {
+				showButton: function() {
+					var mode = __.getMode();
+					switch (mode) {
+					case 'C':
+						$('#insert').show();
+						$('#close').show();
+						break;
+					case 'R':
+						$('#edit').show();
+						$('#delete').show();
+						$('#close').show();
+						break;
+					case 'U':
+						$('#update').show();
+						$('#close').show();
+						break;
+					default:
+						break;
+					}
+				},
+				showData: function() {
+					
+				}
+		} 
+		window.page = _page;
+	})();
 </script>
 
 </body>

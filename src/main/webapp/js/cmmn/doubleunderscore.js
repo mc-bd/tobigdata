@@ -88,6 +88,19 @@
 				_urlBuilder.push(url);
 				_urlBuilder.push(_queryStringBuilder.join('&'));
 				return _urlBuilder.join('?'); 
+			},
+			getMode: function() {
+				var _pathName = location.pathname;
+				if (_pathName.indexOf("create") > -1) {
+					return "C"
+				}
+				if (_pathName.indexOf("view") > -1) {
+					return "R"
+				}
+				if (_pathName.indexOf("edit") > -1) {
+					return "U"
+				}
+				return;
 			}
 	};
 	window.__ = __;
