@@ -78,6 +78,16 @@
 			},
 			close: function() {
 				window.close();
+			},
+			convertUrl: function(url, options) {
+				var _urlBuilder = [];
+				var _queryStringBuilder = [];
+				for ( var key in options) {
+					_queryStringBuilder.push([key, options[key]].join('='));
+				}
+				_urlBuilder.push(url);
+				_urlBuilder.push(_queryStringBuilder.join('&'));
+				return _urlBuilder.join('?'); 
 			}
 	};
 	window.__ = __;
