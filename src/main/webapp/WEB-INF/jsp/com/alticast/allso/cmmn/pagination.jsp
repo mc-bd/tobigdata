@@ -11,5 +11,5 @@
               </ul>
             </div>
             <div class="box-footer clearfix no-border">
-              <button id="add" type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i>등록</button>
+              <button id="add" type="button" class="btn btn-default pull-right none"><i class="fa fa-plus"></i>등록</button>
             </div>
