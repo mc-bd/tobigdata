@@ -77,7 +77,9 @@ public class OpenapiController {
 //		return new Ajax().setData(data).toJSON();
 //	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+//	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+//	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(method = RequestMethod.POST)
 	public String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
@@ -108,7 +110,7 @@ public class OpenapiController {
 		data.put("paginationInfo", paginationInfo);
 		/* // paginationInfo */
 		
-		return CmmnUtil.sendJSP("/home");
+		return CmmnUtil.sendJSP("/home/home");
 	}
 	
 	@RequestMapping(value = {"/view", "/edit"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
