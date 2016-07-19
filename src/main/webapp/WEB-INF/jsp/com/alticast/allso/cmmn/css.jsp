@@ -9,4 +9,5 @@
   <link rel="stylesheet" href="/pub/dist/css/tv.min.css">
   <link rel="stylesheet" href="/pub/dist/css/skins/tv_color.min.css">
   <!-- adapter -->
+  <link rel="stylesheet" href="/css/lib/jBox.css">
   <link rel="stylesheet" href="/css/cmmn/adapter.css">
