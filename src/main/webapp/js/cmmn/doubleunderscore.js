@@ -14,7 +14,8 @@
 					success: function(data, textStatus, jqXHR) {
 						console.dir(data)
 					},
-	 				error: function() {
+	 				error: function(jqXHR, textStatus, errorThrown) {
+	 					debugger;
 	 				},
 	 				complete: function() {
 	 				}
@@ -29,7 +30,15 @@
 			},
 			isBlank: function(element) {
 				return '' == $.trim($(element).val());
-			}
+			},
+			alert: function(msg) {
+				if (arguments) {
+//					alert(arguments.join(', '));
+					alert(Array.prototype.slice.call(arguments, 1).join(", "));
+					return;
+				}
+				alert(msg);
+			},
 	};
 	window.__ = __;
 })();
