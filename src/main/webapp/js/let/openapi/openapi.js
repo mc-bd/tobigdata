@@ -32,14 +32,11 @@
 			location.href = '/openapi';
 		},
 		openapiPostList: function() {
-			
-			//
-			$('content-table').find('table').find('tr').filter(':not(:nth-child(1))').remove();
-			
+			// ajax
 			var _pageIndex = 1;
 			__.ajax({
 				url: '/openapi',
-				dataType: 'html',
+				dataType: 'json',
 				method: 'POST',
 				data: {
 					serviceId: $('#serviceId').val(),
@@ -49,7 +46,24 @@
 					pageIndex: _pageIndex
 				},
 				success: function(data) {
-//				$('.content-table').html(data);
+					debugger;
+					// 
+					var _template = $('#openapiListTrTemplate').html();
+					
+					var _sites = data.data.sites;
+					var _html = [];
+					for (var i = 0; i < _sites.length; i++) {
+						_html.push(_template
+									.replace(/{{rnum}}/gi, _sites.length - i)
+									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
+									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
+									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
+									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
+									.replace(/{{permissionKey}}/gi, _sites[i]['permissionKey'])
+						);
+					}
+					
+					$('.content-table').find('table').find('tbody').empty().append(_html.join(''));
 				}
 			});
 		},
