@@ -5,22 +5,27 @@
 	
 	$(document).ready(function() {
 		bindEvent();
-		openapiPostList();
 	});
 	
-	//
+	// =======================================================================
 	// bind; event
-	//
+	// =======================================================================
 	
 	function bindEvent() {
 		$('button.add').on('click', function() {
 			__.popup('/openapi/create');
 		});
+		$('button.save').on('click', function() {
+			__.popup('/openapi/create');
+		});
+		$('button.close').on('click', function() {
+			window.close();
+		});
 	};
 	
-	//
-	// 
-	//
+	// =======================================================================
+	// To server side;
+	// =======================================================================
 	
 	function openapiGet() {
 		location.href = '/openapi';

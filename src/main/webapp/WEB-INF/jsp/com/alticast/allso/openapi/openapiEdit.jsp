@@ -62,6 +62,10 @@
 <!-- REQUIRED JS SCRIPTS -->
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
 <script src="/js/let/openapi/openapi.js"></script>
+<script>
+	$(document).ready(function() {
+	});
+</script>
 
 </body>
 </html>
