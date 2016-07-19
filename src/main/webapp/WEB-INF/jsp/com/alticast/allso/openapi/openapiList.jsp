@@ -100,7 +100,7 @@
               	<tbody></tbody>
               </table>
 			<script type="text/template" id="openapiListTrTemplate">
-                <tr>
+                <tr data-service-id="{{serviceId}}">
                   <td>{{rnum}}</td>
                   <td>{{serviceId}}</td>
                   <td>{{serviceName}}</td>

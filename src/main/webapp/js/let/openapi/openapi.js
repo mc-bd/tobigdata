@@ -19,9 +19,14 @@
 				});
 			});
 			$('#save').on('click', this.openapiCreatePost);
-			$('#close').on('click', function() {
-				__.close();
-			});
+			$('#close').on('click', __.close);
+			$('section.content-table').on('click', 'tbody > tr', function(e) {
+				var _data = $(e.target).parents('tr').data();
+				var _url = __.convertUrl('/openapi/edit', _data);
+				__.popup(_url, {
+					height: 400
+				});
+			})
 		},
 		
 		// =======================================================================
@@ -46,8 +51,6 @@
 					pageIndex: _pageIndex
 				},
 				success: function(data) {
-					debugger;
-					
 					// render; list 
 					var _template = $('#openapiListTrTemplate').html();
 					var _sites = data.data.sites;
@@ -65,7 +68,7 @@
 					$('.content-table').find('table').find('tbody').empty().append(_html.join(''));
 					
 					// render; pagination
-					
+					// TODO 구현
 				}
 			});
 		},
