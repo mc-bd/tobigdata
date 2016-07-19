@@ -74,7 +74,7 @@
 
     <insert id="insertSite" parameterType="Map">
        	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
-       	    select max(CAST(SERVICE_ID AS DECIMAL))+1
+       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
 			from tb_service_site
        	</selectKey>
         INSERT INTO tb_service_site 
