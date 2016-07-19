@@ -12,14 +12,14 @@
 	// =======================================================================
 	
 	function bindEvent() {
-		$('button.add').on('click', function() {
-			__.popup('/openapi/create');
+		$('#add').on('click', function() {
+			__.popup('/openapi/create', {
+				height: 400
+			});
 		});
-		$('button.save').on('click', function() {
-			__.popup('/openapi/create');
-		});
-		$('button.close').on('click', function() {
-			window.close();
+		$('#save').on('click', openapiCreatePost);
+		$('#close').on('click', function() {
+			__.close();
 		});
 	};
 	
@@ -69,16 +69,17 @@
 			url: '/openapi/create',
 			method: 'POST',
 			data: {
-				"serviceId": "11",
-				"serviceName": "22",
-				"managerName": "33",
-				"managerTel": "44",
-				"managerEmail": "55",
-				"serviceIp": "66",
-				"permissionKey": "77"
+				serviceId: $('#serviceId').val(),
+				serviceName: $('#serviceName').val(),
+				managerName: $('#managerName').val(),
+				managerTel: $('#managerTel').val(),
+				managerEmail: $('#managerEmail').val(),
+				serviceIp: $('#serviceIp').val(),
+				permissionKey: $('#permissionKey').val(),				
 			},
 			success: function(data) {
-				alert(JSON.stringify(data));
+				__.alert('저장되었습니다.');
+				__.close();
 			}
 		});
 	};

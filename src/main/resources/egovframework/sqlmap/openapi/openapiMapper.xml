@@ -73,17 +73,21 @@
 	</select>
 
     <insert id="insertSite" parameterType="Map">
+       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
+       	    select max(CAST(SERVICE_ID AS DECIMAL))+1
+			from tb_service_site
+       	</selectKey>
         INSERT INTO tb_service_site 
         (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
         VALUES 
         (
-		  #{serviceId}
-		, #{serviceName}
-		, #{managerName}
-		, #{managerTel}
-		, #{managerEmail}
-		, #{serviceIp}
-		, #{permissionKey}        
+			  LPAD(#{nextval}, 6, 0)
+			, #{serviceName}
+			, #{managerName}
+			, #{managerTel}
+			, #{managerEmail}
+			, #{serviceIp}
+			, #{permissionKey}        
         )
     </insert>
     

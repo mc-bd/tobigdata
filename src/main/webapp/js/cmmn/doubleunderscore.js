@@ -13,6 +13,7 @@
 	 				},
 					success: function(data, textStatus, jqXHR) {
 						console.dir(data)
+						debugger;
 					},
 	 				error: function(jqXHR, textStatus, errorThrown) {
 	 					debugger;
@@ -40,9 +41,9 @@
 				alert(msg);
 			},
 			popup: function(url, options) {
-				this.pop(url, options);
+				this._pop(url, options);
 			},
-			__pop: function(settings) {
+			pop: function(settings) {
 				// REF
 				// https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 				// var windowObjectReference = window.open(strUrl, strWindowName, [strWindowFeatures]);
@@ -60,7 +61,7 @@
 				// open
 				var child = window.open(_settings.url, _settings.name, _settings.features);
 			},
-			pop: function(url, options) {
+			_pop: function(url, options) {
 				// REF
 				// https://github.com/mkdynamic/jquery-popupwindow
 				var _options = {
@@ -73,6 +74,9 @@
 				// call lib
 				$.popupWindow(url, _options);
 			},
+			close: function() {
+				window.close();
+			}
 	};
 	window.__ = __;
 })();
