@@ -39,6 +39,40 @@
 				}
 				alert(msg);
 			},
+			popup: function(url, options) {
+				this.pop(url, options);
+			},
+			__pop: function(settings) {
+				// REF
+				// https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+				// var windowObjectReference = window.open(strUrl, strWindowName, [strWindowFeatures]);
+				
+				// default
+				var _settings = {
+						url: '',
+						name: '_blank',
+						features: 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes',
+				};
+				// extend; setting
+				$.extend(_settings, settings, {
+					data: JSON.stringify(settings.data)
+				});
+				// open
+				var child = window.open(_settings.url, _settings.name, _settings.features);
+			},
+			pop: function(url, options) {
+				// REF
+				// https://github.com/mkdynamic/jquery-popupwindow
+				var _options = {
+						width: '800',
+						height: '500',
+						createNew: false
+				};
+				// extend; setting
+				$.extend(_options, options);				
+				// call lib
+				$.popupWindow(url, _options);
+			},
 	};
 	window.__ = __;
 })();

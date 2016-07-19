@@ -4,8 +4,23 @@
 (function() {
 	
 	$(document).ready(function() {
+		bindEvent();
 		openapiPostList();
 	});
+	
+	//
+	// bind; event
+	//
+	
+	function bindEvent() {
+		$('button.add').on('click', function() {
+			__.popup('/login');
+		});
+	};
+	
+	//
+	// 
+	//
 	
 	function openapiGet() {
 		location.href = '/openapi';
