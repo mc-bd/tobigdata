@@ -54,8 +54,8 @@
   </div>  
    
   <div class="pop_btn">
-    <button type="button" class="btn btn-confirm">저장</button>
-    <button type="button" class="btn btn-default">취소</button>
+    <button type="button" class="btn btn-confirm" id="save">저장</button>
+    <button type="button" class="btn btn-default" id="close">취소</button>
   </div>
 </div>
 
