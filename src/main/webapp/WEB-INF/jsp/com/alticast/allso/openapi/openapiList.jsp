@@ -31,44 +31,27 @@
               <table>
                 <tr>
                   <th style="width:1%" ></th>
-                  <th style="width:4%" >일련번호</th>
+                  <th style="width:9%" >서비스 ID</th>
                   <th style="width:12%">
-                 	 <input class="form-control" type="text" placeholder="일련번호">
+                 	 <input class="form-control" type="text" id="serviceId" placeholder="">
                   </th>
                   <th style="width:1%" ></th>
-                  <th style="width:4%">입수방법</th>
-                  <th style="width:10%">
-                      <select class="form-control">
-                        <option>선택 1</option>
-                        <option>선택 2</option>
-                        <option>선택 3</option>
-                        <option>선택 4</option>
-                        <option>선택 5</option>
-                      </select>
+                  <th style="width:9%">서비스 명</th>
+                  <th style="width:12%">
+                 	 <input class="form-control" type="text" id="serviceName" placeholder="">
                   </th>
                   <th style="width:1%" ></th>
-                  <th style="width:3%">종류</th>
-                  <th style="width:10%">
-                      <select class="form-control">
-                        <option>선택 1</option>
-                        <option>선택 2</option>
-                        <option>선택 3</option>
-                        <option>선택 4</option>
-                        <option>선택 5</option>
-                      </select>
+                  <th style="width:9%">담당자 명</th>
+                  <th style="width:12%">
+                	  <input class="form-control" type="text" id="managerName" placeholder="">
                   </th>
                   <th style="width:1%" ></th>
-                  <th style="width:3%">제목</th>
-                  <th style="width:30%">
-                 	 <input class="form-control" type="text" placeholder="제목">
-                  </th>
-                  <th style="width:1%" ></th>
-                  <th style="width:4%">입수일시</th>
-                  <th style="width:10%">
-                	  <input class="form-control" type="text" placeholder="입시일시">
+                  <th style="width:9%">IP</th>
+                  <th style="width:12%">
+                	  <input class="form-control" type="text" id="serviceIp" placeholder="">
                   </th>
                   <th style="width:1%"></th>
-                  <th style="width:3%"><a href="#"><button type="button" class="btn btn-block btn-default">조회</button></a></th>
+                  <th style="width:3%"><a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a></th>
                   <th style="width:1%"></th>
                 </tr>
                 <tr>
@@ -94,7 +77,6 @@
 	                  <th width="">서비스 명</th>
 	                  <th width="">담당자 명</th>
 	                  <th width="">IP</th>
-	                  <th width="">입수일시</th>
 	                </tr>
               	</thead>
               	<tbody></tbody>
@@ -106,7 +88,6 @@
                   <td>{{serviceName}}</td>
                   <td>{{managerName}}</td>
                   <td>{{serviceIp}}</td>
-                  <td>{{permissionKey}}</td>
                 </tr>
 			</script>
             </div>

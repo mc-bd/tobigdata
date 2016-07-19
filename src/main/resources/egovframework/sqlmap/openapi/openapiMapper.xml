@@ -50,16 +50,16 @@
 			  FROM social.tb_service_site
 			  WHERE 1=1
 			<if test="serviceId != null and serviceId != ''">
-				AND	SERVICE_ID LIKE '%' || #{serviceId} || '%'
+				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
 			</if>
 			<if test="serviceName != null and serviceName != ''">
-				AND	SERVICE_NAME LIKE '%' || #{serviceName} || '%'
+				AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
 			</if>
 			<if test="managerName != null and managerName != ''">
-				AND	MANAGER_NAME LIKE '%' || #{managerName} || '%'
+				AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
 			</if>
 			<if test="serviceIp != null and serviceIp != ''">
-				AND	SERVICE_IP LIKE '%' || #{serviceIp} || '%'
+				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
 			</if>
 			ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
 			LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		

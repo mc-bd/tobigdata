@@ -13,6 +13,7 @@
 		// =======================================================================
 		
 		bindEvent: function() {
+			$('#search').on('click', this.openapiPostList);
 			$('#add').on('click', function() {
 				__.popup('/openapi/create', {
 					height: 400
@@ -40,7 +41,7 @@
 		},
 		openapiPostList: function() {
 			// ajax
-			var _pageIndex = 1;
+			var _pageIndex = 1; // TODO 구현; pageIndex
 			__.ajax({
 				url: '/openapi',
 				dataType: 'json',
@@ -50,7 +51,7 @@
 					serviceName: $('#serviceName').val(),
 					managerName: $('#managerName').val(),
 					serviceIp: $('#serviceIp').val(),
-					pageIndex: _pageIndex
+					pageIndex: _pageIndex // TODO 구현; pageIndex
 				},
 				success: function(data) {
 					// render; list 
