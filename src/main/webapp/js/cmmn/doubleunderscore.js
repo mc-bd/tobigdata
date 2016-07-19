@@ -101,6 +101,17 @@
 					return "U"
 				}
 				return;
+			},
+			getParams: function() {
+				var _params = {};
+				var _search = location.search.startsWith("?") ? location.search.slice(1) : location.search;
+				var _a = _search.split('&');
+				for (var i = 0; i < _a.length; i++) {
+					var key = _a[i].split('=')[0];
+					var val = _a[i].split('=')[1];
+					_params[key] = val;
+				}
+				return _params;
 			}
 	};
 	window.__ = __;
