@@ -47,9 +47,9 @@
 				},
 				success: function(data) {
 					debugger;
-					// 
-					var _template = $('#openapiListTrTemplate').html();
 					
+					// render; list 
+					var _template = $('#openapiListTrTemplate').html();
 					var _sites = data.data.sites;
 					var _html = [];
 					for (var i = 0; i < _sites.length; i++) {
@@ -62,8 +62,10 @@
 									.replace(/{{permissionKey}}/gi, _sites[i]['permissionKey'])
 						);
 					}
-					
 					$('.content-table').find('table').find('tbody').empty().append(_html.join(''));
+					
+					// render; pagination
+					
 				}
 			});
 		},
@@ -99,7 +101,7 @@
 				success: function(data) {
 					__.alert('저장되었습니다.');
 					__.close();
-					openapiPostList();
+					window.opener.openapi.openapiPostList();
 				}
 			});
 		},

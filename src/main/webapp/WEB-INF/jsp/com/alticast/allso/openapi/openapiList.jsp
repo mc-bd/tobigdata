@@ -87,55 +87,28 @@
           <div class="box">
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tr>
-                  <th width="2%"></th>
-                  <th width="15%">일련번호</th>
-                  <th width="18%">입수방법</th>
-                  <th width="12%">종류</th>
-                  <th width="40%">제목</th>
-                  <th width="13%">입수일시</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>00000000</td>
-                  <td>사용자업로드</td>
-                  <td>프로그램</td>
-                  <td>콘텐츠 제목입니다.</td>
-                  <td>2016.04.01 13:00</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>00000000</td>
-                  <td>사용자업로드</td>
-                  <td>프로그램</td>
-                  <td>콘텐츠 제목입니다.</td>
-                  <td>2016.04.01 13:00</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>00000000</td>
-                  <td>사용자업로드</td>
-                  <td>프로그램</td>
-                  <td>콘텐츠 제목입니다.</td>
-                  <td>2016.04.01 13:00</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>00000000</td>
-                  <td>사용자업로드</td>
-                  <td>프로그램</td>
-                  <td>콘텐츠 제목입니다.</td>
-                  <td>2016.04.01 13:00</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>00000000</td>
-                  <td>사용자업로드</td>
-                  <td>프로그램</td>
-                  <td>콘텐츠 제목입니다.</td>
-                  <td>2016.04.01 13:00</td>
-                </tr>
+              	<thead>
+	                <tr>
+	                  <th width="5%">No</th>
+	                  <th width="">서비스 ID</th>
+	                  <th width="">서비스 명</th>
+	                  <th width="">담당자 명</th>
+	                  <th width="">IP</th>
+	                  <th width="">입수일시</th>
+	                </tr>
+              	</thead>
+              	<tbody></tbody>
               </table>
+			<script type="text/template" id="openapiListTrTemplate">
+                <tr>
+                  <td>{{rnum}}</td>
+                  <td>{{serviceId}}</td>
+                  <td>{{serviceName}}</td>
+                  <td>{{managerName}}</td>
+                  <td>{{serviceIp}}</td>
+                  <td>{{permissionKey}}</td>
+                </tr>
+			</script>
             </div>
             <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
           </div>
@@ -143,16 +116,6 @@
       </div>
     </section>
 	<!-- // section.content-table -->
-			<script type="text/template">
-                <tr id="openapiListTrTemplate">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-			</script>
 
   </div>
   <!-- /.content-wrapper -->
@@ -167,7 +130,7 @@
 <script>
 	$(document).ready(function() {
 		$('#add').show();
-		openapiPostList();
+		openapi.openapiPostList();
 	});
 </script>
 

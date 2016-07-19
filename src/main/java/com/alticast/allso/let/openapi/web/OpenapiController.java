@@ -80,7 +80,7 @@ public class OpenapiController {
 //	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 //	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@RequestMapping(method = RequestMethod.POST)
-	public String openapiPostList(HttpServletRequest req
+	public @ResponseBody String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
@@ -104,13 +104,13 @@ public class OpenapiController {
 		log.debug("searchVO: {}", searchVO);
 		log.debug("paramMap: {}", paramMap);
 		List<?> sites = openapiService.selectSites(paramMap);
-		data.put("result", sites);
+		data.put("sites", sites);
 
 		paginationInfo.setTotalRecordCount(sites.size());
 		data.put("paginationInfo", paginationInfo);
 		/* // paginationInfo */
 		
-		return CmmnUtil.sendJSP("/home/home");
+		return new Ajax().setData(data).toJSON();
 	}
 	
 	@RequestMapping(value = {"/view", "/edit"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
