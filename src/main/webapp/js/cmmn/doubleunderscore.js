@@ -33,12 +33,14 @@
 				return '' == $.trim($(element).val());
 			},
 			alert: function(msg) {
-				if (arguments) {
-//					alert(arguments.join(', '));
-					alert(Array.prototype.slice.call(arguments, 1).join(", "));
-					return;
-				}
-				alert(msg);
+				window.alert(msg);
+//				this._notice(msg);
+			},
+			_notice: function(content, options) {
+				new jBox('Notice', {
+				    content: content,
+				    autoClose: 1500
+				});
 			},
 			popup: function(url, options) {
 				this._pop(url, options);
