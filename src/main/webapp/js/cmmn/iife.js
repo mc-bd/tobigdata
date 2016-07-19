@@ -10,6 +10,10 @@
 			location.href = '<spring:message code="url.logout" />';
 		});
 		
+		// url
+		__._notice(location.href);
+		__._notice(__.getMode());
+		
 	});
 	
 })();
