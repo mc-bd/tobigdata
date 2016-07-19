@@ -39,7 +39,7 @@
 			</if>
 	</select>
     
-	<select id="selectSites" parameterType="Map" resultType="egovMap">
+	<select id="selectSites_" parameterType="Map" resultType="egovMap">
 			SELECT SERVICE_ID,
 			       SERVICE_NAME,
 			       MANAGER_NAME,
@@ -63,6 +63,39 @@
 			</if>
 			ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
 			LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+    
+	<select id="selectSites" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT SERVICE_ID,
+						       SERVICE_NAME,
+						       MANAGER_NAME,
+						       MANAGER_TEL,
+						       MANAGER_EMAIL,
+						       SERVICE_IP,
+						       PERMISSION_KEY
+						  FROM social.tb_service_site
+						  WHERE 1=1
+						<if test="serviceId != null and serviceId != ''">
+							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+						</if>
+						<if test="serviceName != null and serviceName != ''">
+							AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+						</if>
+						<if test="managerName != null and managerName != ''">
+							AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+						</if>
+						<if test="serviceIp != null and serviceIp != ''">
+							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+						</if>
+						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
 	</select>
 	
 	<select id="selectSite" parameterType="Map" resultType="egovMap">

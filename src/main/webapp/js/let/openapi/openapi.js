@@ -60,7 +60,7 @@
 					var _html = [];
 					for (var i = 0; i < _sites.length; i++) {
 						_html.push(_template
-									.replace(/{{rnum}}/gi, _sites.length - i)
+									.replace(/{{rnum}}/gi, _sites[i]['rnum'])
 									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
 									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
 									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
