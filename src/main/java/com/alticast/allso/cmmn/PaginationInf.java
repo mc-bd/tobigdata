@@ -40,6 +40,19 @@ public class PaginationInf {
 		return recordCountPerPage;
 	}
 
+	public int getCurrentPageNo() {
+		return currentPageNo;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public int getTotalRecordCount() {
+		return totalRecordCount;
+	}
+
+
 	private int totalPageCount;
 	private int firstPageNoOnPageList;
 	private int lastPageNoOnPageList;
@@ -82,5 +95,18 @@ public class PaginationInf {
 	public int getLastRecordIndex() {
 		return this.paginationInfo.getLastRecordIndex();
 	}
+
+	public int getTotalPageCount() {
+		return totalPageCount;
+	}
+
+	public int getFirstPageNoOnPageList() {
+		return firstPageNoOnPageList;
+	}
+
+	public int getLastPageNoOnPageList() {
+		return lastPageNoOnPageList;
+	}
+	
 	
 }
