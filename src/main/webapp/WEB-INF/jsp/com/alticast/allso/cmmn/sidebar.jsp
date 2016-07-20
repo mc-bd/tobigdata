@@ -25,7 +25,7 @@
         <li class="treeview">
          <a href="#"><i class="fa fa-file-text-o"></i> <span>프레젠테이션</span> <i class="fa fa-angle-left pull-right"></i></a>
           	<ul class="treeview-menu">
-         	  	<li><a href="/search">- 검색요청 조회</a></li>
+         	  	<li><a href="/searchlog">- 검색요청 조회</a></li>
           	</ul>
         </li>
       </ul>
