@@ -16,7 +16,7 @@
 			$('#search').on('click', this.openapiPostList);
 			$('#add').on('click', function() {
 				__.popup('/openapi/create', {
-					height: 400
+					height: 550
 				});
 			});
 			$('#insert').on('click', this.openapiCreatePost);
@@ -25,7 +25,7 @@
 				var _data = $(e.target).parents('tr').data();
 				var _url = __.convertUrl('/openapi/edit', _data);
 				__.popup(_url, {
-					height: 400
+					height: 550
 				});
 			});
 			$('#update').on('click', this.openapiPut);

@@ -11,6 +11,13 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/css.jsp"></jsp:include>
+	<style type="text/css">
+		#pop > div.box-body > table > tbody > tr > th:nth-child(1),
+		#pop > div.box-body > table > tbody > tr > th:nth-child(3) {
+			width: 25%;
+			background-color: #eeeeee;
+		}
+	</style>
 </head>
 
 <body>
@@ -18,26 +25,37 @@
   <h4>사이트 관리</h4>
   <hr>
   <div class="box-body">
-  	<input type="hidden" id="serviceId">
     <table class="table table-bordered">
-      <tr>
-        <th style="width: 25%" bgcolor="#eeeeee">서비스 명</th>
-        <td style="width: 25%"><input class="form-control" type="text" placeholder="" id="serviceName"></td>
-        <th style="width: 25%" bgcolor="#eeeeee">담당자 명</th>
-        <td style="width: 25%"><input class="form-control" type="text" placeholder="" id="managerName"></td>
-      </tr>
-      <tr>
-        <th bgcolor="#eeeeee">담당자 연락처</th>
-        <td><input class="form-control" type="text" placeholder="" id="managerTel"></td>
-        <th bgcolor="#eeeeee">담당자 e-mail</th>
-        <td><input class="form-control" type="text" placeholder="" id="managerEmail"></td>
-      </tr>
-      <tr>
-        <th bgcolor="#eeeeee">IP정보</th>
-        <td><input class="form-control" type="text" placeholder="" id="serviceIp"></td>
-        <th bgcolor="#eeeeee">서비스 인증키</th>
-        <td><input class="form-control" type="text" placeholder="" id="permissionKey"></td>
-      </tr>
+    	<tbody>
+	      <tr>
+	        <th>서비스 ID</th>
+	        <td><input class="form-control" type="text" placeholder="" id="serviceId" readonly="readonly"></td>
+	      </tr>
+	      <tr>
+	        <th>서비스 명</th>
+	        <td><input class="form-control" type="text" placeholder="" id="serviceName"></td>
+	      </tr>
+	      <tr>
+	        <th>담당자 명</th>
+	        <td><input class="form-control" type="text" placeholder="" id="managerName"></td>
+	      </tr>
+	      <tr>
+	        <th>담당자 연락처</th>
+	        <td><input class="form-control" type="text" placeholder="" id="managerTel"></td>
+	      </tr>
+	      <tr>
+	        <th>담당자 e-mail</th>
+	        <td><input class="form-control" type="text" placeholder="" id="managerEmail"></td>
+	      </tr>
+	      <tr>
+	        <th>IP정보</th>
+	        <td><input class="form-control" type="text" placeholder="" id="serviceIp"></td>
+	      </tr>
+	      <tr>
+	        <th>서비스 인증키</th>
+	        <td><input class="form-control" type="text" placeholder="" id="permissionKey"></td>
+	      </tr>
+    	</tbody>
     </table>
   </div>  
    
