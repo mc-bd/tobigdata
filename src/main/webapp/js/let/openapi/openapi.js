@@ -14,6 +14,10 @@
 		
 		bindEvent: function() {
 			$('#search').on('click', this.openapiPostList);
+			$('#reset').on('click', function(e) {
+				var _target = $(e.target).parents('table');
+				__.resetElement(_target);
+			});
 			$('section.content-table').on('click', 'tbody > tr', function(e) {
 				var _data = $(e.target).parents('tr').data();
 				var _url = __.convertUrl('/openapi/edit', _data);

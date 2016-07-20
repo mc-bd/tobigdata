@@ -146,6 +146,10 @@
 			},
 			getAlertMsg: function(element) {
 			},
+			resetElement: function(element) {
+				debugger;
+				$(element).find('input').val(''); // TODO: 확장 필요; element... 
+			}
 	};
 	window.__ = __;
 })();

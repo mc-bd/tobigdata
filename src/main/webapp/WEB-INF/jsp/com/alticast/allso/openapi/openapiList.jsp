@@ -29,34 +29,39 @@
           <div class="box-header"></div>
             <div class="box-body no-padding">
               <table>
-                <tr>
-                  <th style="width:1%" ></th>
-                  <th style="width:9%" >서비스 ID</th>
-                  <th style="width:12%">
-                 	 <input class="form-control" type="text" id="serviceId" placeholder="">
-                  </th>
-                  <th style="width:1%" ></th>
-                  <th style="width:9%">서비스 명</th>
-                  <th style="width:12%">
-                 	 <input class="form-control" type="text" id="serviceName" placeholder="">
-                  </th>
-                  <th style="width:1%" ></th>
-                  <th style="width:9%">담당자 명</th>
-                  <th style="width:12%">
-                	  <input class="form-control" type="text" id="managerName" placeholder="">
-                  </th>
-                  <th style="width:1%" ></th>
-                  <th style="width:9%">IP</th>
-                  <th style="width:12%">
-                	  <input class="form-control" type="text" id="serviceIp" placeholder="">
-                  </th>
-                  <th style="width:1%"></th>
-                  <th style="width:3%"><a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a></th>
-                  <th style="width:1%"></th>
-                </tr>
-                <tr>
-                  <td style="height:20px"></td>
-                </tr>
+              	<tbody>
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >서비스 ID</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="serviceId" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">서비스 명</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="serviceName" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">담당자 명</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="managerName" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">IP</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="serviceIp" placeholder="">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
+	                  <td style="height:20px"></td>
+	                </tr>
+              	</tbody>
               </table>
             </div>                   
         </div>
