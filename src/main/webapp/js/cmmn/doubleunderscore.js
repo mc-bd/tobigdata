@@ -104,11 +104,14 @@
 			},
 			getParams: function() {
 				var _params = {};
-				var _search = location.search.startsWith("?") ? location.search.slice(1) : location.search;
+//				cross browser; IE; startsWith() 미존재; 
+//				var _search = location.search.startsWith("?") ? location.search.slice(1) : location.search;
+				var _search = location.search.indexOf("?") == 0 ? location.search.slice(1) : location.search;
 				var _a = _search.split('&');
 				for (var i = 0; i < _a.length; i++) {
-					var key = _a[i].split('=')[0];
-					var val = _a[i].split('=')[1];
+					var _b = _a[i].split('=');
+					var key = _b[0];
+					var val = _b[1];
 					_params[key] = val;
 				}
 				return _params;
