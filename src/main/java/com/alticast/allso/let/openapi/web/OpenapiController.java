@@ -77,9 +77,9 @@ public class OpenapiController {
 //		return new Ajax().setData(data).toJSON();
 //	}
 	
-//	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+//	@RequestMapping(method = RequestMethod.POST)
 //	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
