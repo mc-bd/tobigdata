@@ -22,52 +22,115 @@
     <!-- Content Header (Page header) -->
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/navigation.jsp"></jsp:include>
     <!-- Main content -->
-	<section>
-		<h1>openapi</h1>
-	</section>
-	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/search.jsp"></jsp:include>
-	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/table.jsp"></jsp:include>
+
+	<!-- section.content-search -->
+    <section class="content-search">
+       <div class="box">
+          <div class="box-header"></div>
+            <div class="box-body no-padding">
+        		<input type="hidden" id="serviceId">
+        		<input type="hidden" id="serviceName">
+        		<input type="hidden" id="managerName">
+        		<input type="hidden" id="serviceIp">
+              <table>
+              	<tbody>
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >서비스 ID</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">서비스 명</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">담당자 명</th>
+	                  <th style="width:12%">
+
+	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">IP</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
+	                  <td style="height:20px"></td>
+	                </tr>
+              	</tbody>
+              </table>
+            </div>                   
+        </div>
+    </section>
+    <!-- // section.content-search -->
+    
+    <!-- // section.content-table -->
+    <section class="content-table">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+              	<thead>
+	                <tr>
+	                  <th width="5%">No</th>
+	                  <th width="">서비스 ID</th>
+	                  <th width="">서비스 명</th>
+	                  <th width="">담당자 명</th>
+	                  <th width="">IP</th>
+	                </tr>
+              	</thead>
+              	<tbody></tbody>
+              </table>
+			<script type="text/template" id="openapi-list-tr-template">
+                <tr data-service-id="{{serviceId}}">
+                  <td>{{rnum}}</td>
+                  <td>{{serviceId}}</td>
+                  <td>{{serviceName}}</td>
+                  <td>{{managerName}}</td>
+                  <td>{{serviceIp}}</td>
+                </tr>
+			</script>
+            </div>
+            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- // section.content-table -->
+
   </div>
   <!-- /.content-wrapper -->
   <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/footer.jsp"></jsp:include>
+</div>  
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
 
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
+<script src="/js/let/openapi/openapi.js"></script>
 <script>
+	$(document).ready(function() {
+		page.showButton();
+		openapi.openapiPostList();
+	});
 	(function() {
-		$(document).ready(function() {
-			// 
-			$('body').on('click', 'button.logout', function() {
-				location.href = '<spring:message code="url.logout" />';
-			});
-			
-			// 
-			__.ajax({
-				url: '/openapi',
-// 				url: '/openapi/create',
-// 				url: '/openapi/view',
-// 				method: 'GET',
-// 				method: 'POST',
-// 				method: 'PUT',
-				method: 'DELETE',
-				data: {
-					"serviceID": "1",
-					"serviceName": "22",
-					"managerName": "33",
-					"managerTel": "44",
-					"managerEmail": "55",
-					"serviceIp": "66",
-					"permissionKey": "77"
-				},
-				success: function(data) {
-					alert(JSON.stringify(data));
+		var _page = {
+				showButton: function() {
+					$('#add').show();
 				}
-			})
-			
-		});
-	})();
+		} 
+		window.page = _page;
+	})();	
 </script>
 
 </body>

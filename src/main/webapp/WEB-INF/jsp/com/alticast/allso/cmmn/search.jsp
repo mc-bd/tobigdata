@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-    <section class="content">
+    <section class="content-search">
           <!-- /.box -->
        <div class="box">
           <div class="box-header"></div>

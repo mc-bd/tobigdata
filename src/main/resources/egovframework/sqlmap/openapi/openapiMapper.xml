@@ -2,32 +2,134 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alticast.allso.let.openapi.service.impl.OpenapiMapper">
     
-	<select id="selectSites" parameterType="Map" resultType="egovMap">
+   	<select id="selectSampleList" parameterType="searchVO" resultType="egovMap">
+
 			SELECT
-				*
-			FROM tb_service_site
+				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+			FROM SAMPLE
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						AND	ID LIKE '%' || #{searchKeyword} || '%'
+					</when>
+		            <when test="searchCondition == 1">
+						AND	NAME LIKE '%' || #{searchKeyword} || '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY ID ASC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 	</select>
+
+	<select id="selectSampleListTotCnt" parameterType="searchVO" resultType="int">
+
+			SELECT COUNT(*) totcnt
+			FROM SAMPLE
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						AND ID LIKE '%' || #{searchKeyword} || '%'
+					</when>
+		            <when test="searchCondition == 1">
+						AND	NAME LIKE '%' || #{searchKeyword} || '%'
+					</when>
+				</choose>
+			</if>
+	</select>
+    
+	<select id="selectSites" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT SERVICE_ID,
+						       SERVICE_NAME,
+						       MANAGER_NAME,
+						       MANAGER_TEL,
+						       MANAGER_EMAIL,
+						       SERVICE_IP,
+						       PERMISSION_KEY
+						  FROM social.tb_service_site
+						  WHERE 1=1
+						<if test="serviceId != null and serviceId != ''">
+							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+						</if>
+						<if test="serviceName != null and serviceName != ''">
+							AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+						</if>
+						<if test="managerName != null and managerName != ''">
+							AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+						</if>
+						<if test="serviceIp != null and serviceIp != ''">
+							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+						</if>
+						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+	
+	<select id="selectSitesTotCnt" parameterType="searchVO" resultType="int">
+			SELECT COUNT(*) totcnt
+			  FROM social.tb_service_site
+			  WHERE 1=1
+			<if test="serviceId != null and serviceId != ''">
+				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+			</if>
+			<if test="serviceName != null and serviceName != ''">
+				AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+			</if>
+			<if test="managerName != null and managerName != ''">
+				AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+			</if>
+			<if test="serviceIp != null and serviceIp != ''">
+				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+			</if>
+	</select>	
 	
 	<select id="selectSite" parameterType="Map" resultType="egovMap">
 			SELECT
 				*
 			FROM tb_service_site
-			WHERE SERVICE_ID=#{serviceId}
+			WHERE SERVICE_ID = #{serviceId}
 	</select>
 
     <insert id="insertSite" parameterType="Map">
+       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
+       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
+			from tb_service_site
+       	</selectKey>
         INSERT INTO tb_service_site 
         (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
         VALUES 
-        ('11', '22', '33', '44', '55', '66', '77')
+        (
+			  LPAD(#{nextval}, 6, 0)
+			, #{serviceName}
+			, #{managerName}
+			, #{managerTel}
+			, #{managerEmail}
+			, #{serviceIp}
+			, #{permissionKey}        
+        )
     </insert>
     
     <update id="updateSite" parameterType="Map">
-		UPDATE `social`.`tb_service_site` SET `SERVICE_ID`='1' WHERE  `SERVICE_ID`='11'
+		UPDATE social.tb_service_site
+		   SET   SERVICE_NAME = #{serviceName}
+		       , MANAGER_NAME = #{managerName}
+		       , MANAGER_TEL = #{managerTel}
+		       , MANAGER_EMAIL = #{managerEmail}
+		       , SERVICE_IP = #{serviceIp}
+		       , PERMISSION_KEY = #{permissionKey}
+		WHERE  SERVICE_ID = #{serviceId}        
     </update>
     
     <delete id="deleteSite" parameterType="Map">
-		DELETE FROM tb_service_site WHERE  SERVICE_ID = #{serviceId}
+		DELETE FROM tb_service_site 
+		WHERE  SERVICE_ID = #{serviceId}
     </delete>
     
 </mapper>

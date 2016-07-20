@@ -2,6 +2,7 @@ package com.alticast.allso.let.openapi.web;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.PaginationInf;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.openapi.service.OpenapiService;
+
+import egovframework.example.sample.service.SampleDefaultVO;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 @Controller
 @RequestMapping("/openapi")
@@ -37,19 +43,70 @@ public class OpenapiController {
 		return CmmnUtil.sendJSP("/openapi/openapiList");
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String openapiGetList(HttpServletRequest req
+	
+//	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+//	public @ResponseBody String openapiPostList(HttpServletRequest req
+//			, HttpServletResponse resp
+//			, @RequestBody String requestBody
+//			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
+//			) throws Exception {
+//		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+//		Map<String, Object> data = new LinkedHashMap<>();
+//		data.put("params", paramMap);
+//		
+//		/* paginationInfo */
+//		PaginationInfo paginationInfo = new PaginationInfo();
+//		searchVO.setPageIndex((int) paramMap.get("pageIndex"));
+//		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
+//		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
+//		paginationInfo.setPageSize(searchVO.getPageSize());
+//
+//		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+//		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+//		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+//		
+//		paramMap.put("searchVO", searchVO);
+//		log.debug("searchVO: {}", searchVO);
+//		log.debug("paramMap: {}", paramMap);
+//		List<?> sites = openapiService.selectSites(paramMap);
+//		data.put("result", sites);
+//
+//		paginationInfo.setTotalRecordCount(sites.size());
+//		data.put("paginationInfo", paginationInfo);
+//		/* // paginationInfo */
+//		
+//		return new Ajax().setData(data).toJSON();
+//	}
+	
+//	@RequestMapping(method = RequestMethod.POST)
+//	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String openapiPostList(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
+			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
 			) throws Exception {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.selectSites(paramMap));
+		
+		/* ++ paginationInfo */
+		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
+		
+		List<?> sites = openapiService.selectSites(paramMap);
+		data.put("sites", sites);
+		
+		int sitesTotCnt = openapiService.selectSitesTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(sitesTotCnt);
+		paginationInf.setOthers();
+		
+		data.put("paginationInfo", paginationInf);
+		/* -- paginationInfo */
+		
 		return new Ajax().setData(data).toJSON();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = {"/view"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
@@ -57,12 +114,12 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.selectSite(paramMap));
+		data.put("site", openapiService.selectSite(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
 	@RequestMapping(value = {"/create", "/view", "/edit"}, method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public @ResponseBody String openapiCreateGet(HttpServletRequest req
+	public String openapiEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 			) throws Exception {
