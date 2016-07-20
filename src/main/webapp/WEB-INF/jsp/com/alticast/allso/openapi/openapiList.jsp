@@ -86,7 +86,7 @@
               	</thead>
               	<tbody></tbody>
               </table>
-			<script type="text/template" id="openapiListTrTemplate">
+			<script type="text/template" id="openapi-list-tr-template">
                 <tr data-service-id="{{serviceId}}">
                   <td>{{rnum}}</td>
                   <td>{{serviceId}}</td>

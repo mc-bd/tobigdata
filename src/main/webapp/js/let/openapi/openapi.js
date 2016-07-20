@@ -14,6 +14,7 @@
 		// =======================================================================
 		
 		bindEvent: function() {
+			var that = this;
 			$('#search').on('click', this.openapiPostList);
 			$('#reset').on('click', function(e) {
 				var _target = $(e.target).parents('table');
@@ -25,6 +26,10 @@
 				__.popup(_url, {
 					height: 550
 				});
+			});
+			$('ul.pagination').on('click', 'li', function(e) {
+				var _page = $(e.target).data('page');
+				that.openapiPostList(_page);
 			});
 			$('#add').on('click', function() {
 				__.popup('/openapi/create', {
@@ -55,9 +60,8 @@
 		openapiGet: function() {
 			location.href = '/openapi';
 		},
-		openapiPostList: function() {
+		openapiPostList: function(pageIndex) {
 			// ajax
-			var _pageIndex = 1; // TODO 구현; pageIndex
 			__.ajax({
 				url: '/openapi',
 				dataType: 'json',
@@ -67,15 +71,20 @@
 					serviceName: $('#serviceName').val(),
 					managerName: $('#managerName').val(),
 					serviceIp: $('#serviceIp').val(),
-					pageIndex: _pageIndex // TODO 구현; pageIndex
+					pageIndex: pageIndex || 1
 				},
 				success: function(data) {
+					var _template = '';
+					var _htmlBuilder = [];
+					
+					// 
 					// render; list 
-					var _template = $('#openapiListTrTemplate').html();
+					// 
 					var _sites = data.data.sites;
-					var _html = [];
+					_template = $('#openapi-list-tr-template').html();
+					_htmlBuilder = [];
 					for (var i = 0; i < _sites.length; i++) {
-						_html.push(_template
+						_htmlBuilder.push(_template
 									.replace(/{{rnum}}/gi, _sites[i]['rnum'])
 									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
 									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
@@ -84,10 +93,37 @@
 									.replace(/{{permissionKey}}/gi, _sites[i]['permissionKey'])
 						);
 					}
-					$('.content-table').find('table').find('tbody').empty().append(_html.join(''));
+					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
 					
+					// 
 					// render; pagination
-					// TODO 구현
+					// 
+					var _paginationInfo = data.data.paginationInfo;
+					_template = $('#pagination-template').html();
+					_htmlBuilder = [];
+					// calc; p, n page
+					var _pHref = _paginationInfo.firstPageNoOnPageList < _paginationInfo.currentPageNo - _paginationInfo.pageSize ? _paginationInfo.currentPageNo - _paginationInfo.pageSize : _paginationInfo.firstPageNoOnPageList;
+					var _nHref = _paginationInfo.lastPageNoOnPageList < _paginationInfo.currentPageNo + _paginationInfo.pageSize ? _paginationInfo.lastPageNoOnPageList : _paginationInfo.currentPageNo + _paginationInfo.pageSize;
+					if (_paginationInfo.totalRecordCount > 0) {
+						// previous page
+						_htmlBuilder.push(_template
+								.replace(/{{href}}/gi, _pHref)
+								.replace(/{{pageNo}}/gi, '&laquo;')
+								);
+						// main page
+						for (var i = _paginationInfo.firstPageNoOnPageList; i <= _paginationInfo.lastPageNoOnPageList; i++) {
+							_htmlBuilder.push(_template
+									.replace(/{{href}}/gi, i)
+									.replace(/{{pageNo}}/gi, i)
+							);
+						}
+						// next page
+						_htmlBuilder.push(_template
+								.replace(/{{href}}/gi, _nHref)
+								.replace(/{{pageNo}}/gi, '&raquo;')
+						);
+					}
+					$('.page_box').find('ul').empty().append(_htmlBuilder.join(''));
 				}
 			});
 		},
