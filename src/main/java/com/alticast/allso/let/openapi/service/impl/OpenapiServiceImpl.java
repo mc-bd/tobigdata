@@ -22,6 +22,11 @@ public class OpenapiServiceImpl implements OpenapiService {
 	}
 
 	@Override
+	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.selectSitesTotCnt(paramMap);
+	}
+
+	@Override
 	public Map<String, Object> selectSite(Map<String, Object> paramMap)
 			throws Exception {
 		return openapiDao.selectSite(paramMap);
@@ -41,6 +46,5 @@ public class OpenapiServiceImpl implements OpenapiService {
 	public int deleteSite(Map<String, Object> paramMap) throws Exception {
 		return openapiDao.deleteSite(paramMap);
 	}
-
 
 }

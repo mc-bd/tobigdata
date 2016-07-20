@@ -8,6 +8,8 @@ public interface OpenapiService {
 
 	public List<Map<String, Object>> selectSites(Map<String, Object> paramMap) throws Exception;
 	
+	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception;
+	
 	public Map<String, Object> selectSite(Map<String, Object> paramMap) throws Exception;
 	
 	public int insertSite(Map<String, Object> paramMap) throws Exception;

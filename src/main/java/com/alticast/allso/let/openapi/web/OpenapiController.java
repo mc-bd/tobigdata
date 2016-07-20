@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.PaginationInf;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.openapi.service.OpenapiService;
 
@@ -89,26 +90,18 @@ public class OpenapiController {
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
 		
-		/* paginationInfo */
-		PaginationInfo paginationInfo = new PaginationInfo();
-		searchVO.setPageIndex((int) paramMap.get("pageIndex"));
-		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
-		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
-		paginationInfo.setPageSize(searchVO.getPageSize());
-
-		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
-		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
-		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		/* ++ paginationInfo */
+		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		paramMap.put("searchVO", searchVO);
-		log.debug("searchVO: {}", searchVO);
-		log.debug("paramMap: {}", paramMap);
 		List<?> sites = openapiService.selectSites(paramMap);
 		data.put("sites", sites);
-
-		paginationInfo.setTotalRecordCount(sites.size());
-		data.put("paginationInfo", paginationInfo);
-		/* // paginationInfo */
+		
+		int sitesTotCnt = openapiService.selectSitesTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(sitesTotCnt);
+		paginationInf.setOthers();
+		
+		data.put("paginationInfo", paginationInf);
+		/* -- paginationInfo */
 		
 		return new Ajax().setData(data).toJSON();
 	}

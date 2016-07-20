@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.alticast.allso.cmmn.PaginationInf;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import egovframework.example.sample.service.SampleDefaultVO;
 
 
 public class CmmnUtil {
@@ -60,6 +63,28 @@ public class CmmnUtil {
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
 		return data;
+	}
+	
+	public static PaginationInf getPagination(SampleDefaultVO searchVO,
+			Map<String, Object> paramMap)
+			throws Exception {
+		
+		searchVO.setPageIndex((int) paramMap.get("pageIndex")); // pre; paginationInfo
+		
+		PaginationInf paginationInf = new PaginationInf();
+		paginationInf.setCurrentPageNo(searchVO.getPageIndex());
+		paginationInf.setRecordCountPerPage(searchVO.getPageUnit());
+		paginationInf.setPageSize(searchVO.getPageSize());
+
+		searchVO.setFirstIndex(paginationInf.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInf.getLastRecordIndex());
+		searchVO.setRecordCountPerPage(paginationInf.getRecordCountPerPage());
+		
+		paramMap.put("searchVO", searchVO);
+		log.debug("searchVO: {}", searchVO); // TODO; delete;
+		log.debug("paramMap: {}", paramMap); // TODO; delete;
+		
+		return paginationInf;
 	}
 
 }
