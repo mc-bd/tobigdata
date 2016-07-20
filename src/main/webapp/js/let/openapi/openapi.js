@@ -14,13 +14,6 @@
 		
 		bindEvent: function() {
 			$('#search').on('click', this.openapiPostList);
-			$('#add').on('click', function() {
-				__.popup('/openapi/create', {
-					height: 550
-				});
-			});
-			$('#insert').on('click', this.openapiCreatePost);
-			$('#close').on('click', __.close);
 			$('section.content-table').on('click', 'tbody > tr', function(e) {
 				var _data = $(e.target).parents('tr').data();
 				var _url = __.convertUrl('/openapi/edit', _data);
@@ -28,8 +21,15 @@
 					height: 550
 				});
 			});
+			$('#add').on('click', function() {
+				__.popup('/openapi/create', {
+					height: 550
+				});
+			});
+			$('#insert').on('click', this.openapiCreatePost);
 			$('#update').on('click', this.openapiPut);
 			$('#delete').on('click', this.openapiDelete);
+			$('#close').on('click', __.close);
 		},
 		
 		// =======================================================================
@@ -76,6 +76,9 @@
 			});
 		},
 		openapiGetDetailByPost: function() {
+			if (__.getMode() == 'C') {
+				return;
+			}
 			// 
 			__.ajax({
 				url: '/openapi/view',
@@ -96,8 +99,8 @@
 		},
 		openapiCreateGet: function() {
 		},
-		openapiCreatePost: function() {
-			//
+		openapiCreatePost: function(e) {
+			if (!__.confirm(e)) { return; }
 			__.ajax({
 				url: '/openapi/create',
 				method: 'POST',
@@ -111,14 +114,14 @@
 					permissionKey: $('#permissionKey').val(),				
 				},
 				success: function(data) {
-					__.alert('저장되었습니다.');
+					__.alert('등록되었습니다.');
 					__.close();
 					window.opener.openapi.openapiPostList();
 				}
 			});
 		},
-		openapiPut: function() {
-			//
+		openapiPut: function(e) {
+			if (!__.confirm(e)) { return; }
 			__.ajax({
 				url: '/openapi',
 				method: 'PUT',
@@ -138,8 +141,8 @@
 				}
 			});
 		},
-		openapiDelete: function() {
-			//
+		openapiDelete: function(e) {
+			if (!__.confirm(e)) { return; }
 			__.ajax({
 				url: '/openapi',
 				method: 'DELETE',

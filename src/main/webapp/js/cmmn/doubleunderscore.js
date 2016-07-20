@@ -76,7 +76,7 @@
 				// call lib
 				$.popupWindow(url, _options);
 			},
-			close: function() {
+			close: function(event) {
 				window.close();
 			},
 			convertUrl: function(url, options) {
@@ -115,7 +115,37 @@
 					_params[key] = val;
 				}
 				return _params;
-			}
+			},
+			confirm: function(event) {
+				var _msg = this.getConfirmMsg(event.target);
+				return window.confirm(_msg);
+			},
+			getConfirmMsg: function(element) {
+				var _msg;
+				var _id = $(element).prop('id'); // 분기 조건; button id;
+				switch (_id) {
+				case 'insert':
+					_msg = '등록하시겠습니까?';
+					break;
+				case 'update':
+					_msg = '저장하시겠습니까?';
+					break;
+				case 'delete':
+					_msg = '삭제하시겠습니까?';
+					break;
+				case 'cancel':
+					_msg = '취소하시겠습니까?';
+					break;
+				case 'close':
+					_msg = '창을 닫으시겠습니까?';
+					break;
+				default:
+					break;
+				}
+				return _msg;
+			},
+			getAlertMsg: function(element) {
+			},
 	};
 	window.__ = __;
 })();
