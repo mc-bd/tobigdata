@@ -15,7 +15,13 @@
 		
 		bindEvent: function() {
 			var that = this;
-			$('#search').on('click', this.openapiPostList);
+			$('#search').on('click', function(e) {
+				$('#serviceId').val($('#serviceIdTxt').val());
+				$('#serviceName').val($('#serviceNameTxt').val());
+				$('#managerName').val($('#managerNameTxt').val());
+				$('#serviceIp').val($('#serviceIpTxt').val());
+				that.openapiPostList(e);
+			});
 			$('#reset').on('click', function(e) {
 				var _target = $(e.target).parents('table');
 				__.resetElement(_target);

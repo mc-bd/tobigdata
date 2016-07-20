@@ -28,28 +28,33 @@
        <div class="box">
           <div class="box-header"></div>
             <div class="box-body no-padding">
+        		<input type="hidden" id="serviceId">
+        		<input type="hidden" id="serviceName">
+        		<input type="hidden" id="managerName">
+        		<input type="hidden" id="serviceIp">
               <table>
               	<tbody>
 	                <tr>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >서비스 ID</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceId" placeholder="">
+	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">서비스 명</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceName" placeholder="">
+	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">담당자 명</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="managerName" placeholder="">
+
+	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">IP</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="serviceIp" placeholder="">
+	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
