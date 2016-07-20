@@ -2,7 +2,7 @@
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="/home" class="logo">
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>ALLSO</b>TV</span>
     </a>

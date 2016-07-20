@@ -154,6 +154,12 @@
 				$('#menu1').text(_options.menu1text);
 				$('#menu2').text(_options.menu2text);
 				$('#menu_title').text(_options.menu2text);
+			},
+			hideNavigation: function(options) {
+				var _options = options;
+				$('#menu1').hide();
+				$('#menu2').hide();
+				$('#menu_title').text(_options.menu2text);
 			}
 			
 	};
