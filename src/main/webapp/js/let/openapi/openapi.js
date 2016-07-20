@@ -29,7 +29,7 @@
 			});
 			$('ul.pagination').on('click', 'li', function(e) {
 				var _page = $(e.target).data('page');
-				that.openapiPostList(_page);
+				that.openapiPostList(e, _page);
 			});
 			$('#add').on('click', function() {
 				__.popup('/openapi/create', {
@@ -60,7 +60,7 @@
 		openapiGet: function() {
 			location.href = '/openapi';
 		},
-		openapiPostList: function(pageIndex) {
+		openapiPostList: function(e, pageIndex) {
 			// ajax
 			__.ajax({
 				url: '/openapi',
