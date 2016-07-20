@@ -7,92 +7,77 @@
 		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
 				FROM
 					(
-						SELECT SERVICE_ID,
-						       SERVICE_NAME,
-						       MANAGER_NAME,
-						       MANAGER_TEL,
-						       MANAGER_EMAIL,
-						       SERVICE_IP,
-						       PERMISSION_KEY
-						  FROM tb_search_log
+						SELECT 
+								CONNECT_TIME
+								, KEY_WORD
+								, LOCATION_INFO						       
+						  FROM tb_mi_search_log
 						  WHERE 1=1
-						<if test="serviceId != null and serviceId != ''">
-							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
-						</if>
-						<if test="serviceName != null and serviceName != ''">
-							AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
-						</if>
-						<if test="managerName != null and managerName != ''">
-							AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
-						</if>
-						<if test="serviceIp != null and serviceIp != ''">
-							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
-						</if>
-						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
+							<if test="connectTime != null and connectTime != ''">
+								AND	CONNECT_TIME LIKE CONCAT('%', #{connectTime}, '%')
+							</if>
+							<if test="keyWord != null and keyWord != ''">
+								AND	KEY_WORD LIKE CONCAT('%', #{keyWord}, '%')
+							</if>
+							<if test="locationInfo != null and locationInfo != ''">
+								AND	LOCATION_INFO LIKE CONCAT('%', #{locationInfo}, '%')
+							</if>
+						ORDER BY CONNECT_TIME ASC
 					) a, ( SELECT @RNUM := 0 ) b
 				) T
-		ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+		ORDER BY CONNECT_TIME DESC
 		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
 	</select>
 	
 	<select id="selectSearchlogsTotCnt" parameterType="searchVO" resultType="int">
-			SELECT COUNT(*) totcnt
-			  FROM tb_search_log
+			SELECT COUNT(*) TOTCNT
+			  FROM tb_mi_search_log
 			  WHERE 1=1
-			<if test="serviceId != null and serviceId != ''">
-				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
-			</if>
-			<if test="serviceName != null and serviceName != ''">
-				AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
-			</if>
-			<if test="managerName != null and managerName != ''">
-				AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
-			</if>
-			<if test="serviceIp != null and serviceIp != ''">
-				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
-			</if>
+				<if test="connectTime != null and connectTime != ''">
+					AND	CONNECT_TIME LIKE CONCAT('%', #{connectTime}, '%')
+				</if>
+				<if test="keyWord != null and keyWord != ''">
+					AND	KEY_WORD LIKE CONCAT('%', #{keyWord}, '%')
+				</if>
+				<if test="locationInfo != null and locationInfo != ''">
+					AND	LOCATION_INFO LIKE CONCAT('%', #{locationInfo}, '%')
+				</if>			  
 	</select>	
 	
 	<select id="selectSearchlog" parameterType="Map" resultType="egovMap">
-			SELECT
-				*
-			FROM tb_search_log
-			WHERE SERVICE_ID = #{serviceId}
+		SELECT 
+				CONNECT_TIME
+				, KEY_WORD
+				, LOCATION_INFO 
+		FROM tb_mi_search_log
+		WHERE CONNECT_TIME = #{connectTime}
 	</select>
 
     <insert id="insertSearchlog" parameterType="Map">
-       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
-       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
-			from tb_search_log
-       	</selectKey>
-        INSERT INTO tb_search_log 
-        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
-        VALUES 
-        (
-			  LPAD(#{nextval}, 6, 0)
-			, #{serviceName}
-			, #{managerName}
-			, #{managerTel}
-			, #{managerEmail}
-			, #{serviceIp}
-			, #{permissionKey}        
-        )
+		INSERT INTO tb_mi_search_log
+			(
+				CONNECT_TIME, 
+				KEY_WORD, 
+				LOCATION_INFO
+			)
+			VALUES 
+			(
+				NOW(), 
+				#{keyWord}, 
+				#{locationInfo}
+			)        
     </insert>
     
     <update id="updateSearchlog" parameterType="Map">
-		UPDATE tb_search_log
-		   SET   SERVICE_NAME = #{serviceName}
-		       , MANAGER_NAME = #{managerName}
-		       , MANAGER_TEL = #{managerTel}
-		       , MANAGER_EMAIL = #{managerEmail}
-		       , SERVICE_IP = #{serviceIp}
-		       , PERMISSION_KEY = #{permissionKey}
-		WHERE  SERVICE_ID = #{serviceId}        
+		UPDATE tb_mi_search_log
+		   SET KEY_WORD = #{keyWord},
+		       LOCATION_INFO = #{locationInfo}
+		 WHERE CONNECT_TIME = #{connectTime}        
     </update>
     
     <delete id="deleteSearchlog" parameterType="Map">
-		DELETE FROM tb_search_log 
-		WHERE  SERVICE_ID = #{serviceId}
+		DELETE FROM tb_mi_search_log 
+		WHERE  CONNECT_TIME = #{connectTime}
     </delete>
     
 </mapper>
