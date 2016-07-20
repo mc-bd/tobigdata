@@ -115,9 +115,17 @@
 <script src="/js/let/openapi/openapi.js"></script>
 <script>
 	$(document).ready(function() {
-		$('#add').show();
+		page.showButton();
 		openapi.openapiPostList();
 	});
+	(function() {
+		var _page = {
+				showButton: function() {
+					$('#add').show();
+				}
+		} 
+		window.page = _page;
+	})();	
 </script>
 
 </body>

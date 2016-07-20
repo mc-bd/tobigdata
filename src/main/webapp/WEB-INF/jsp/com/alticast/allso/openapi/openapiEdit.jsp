@@ -75,7 +75,6 @@
 <script>
 	$(document).ready(function() {
 		page.showButton();
-		page.showData();
 		openapi.openapiGetDetailByPost();
 	});
 	(function() {
@@ -100,9 +99,6 @@
 					default:
 						break;
 					}
-				},
-				showData: function() {
-					__._notice(JSON.stringify(__.getParams()));
 				}
 		} 
 		window.page = _page;
