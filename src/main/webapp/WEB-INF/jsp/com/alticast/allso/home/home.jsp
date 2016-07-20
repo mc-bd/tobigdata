@@ -22,24 +22,226 @@
     <!-- Content Header (Page header) -->
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/navigation.jsp"></jsp:include>
     <!-- Main content -->
-	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/search.jsp"></jsp:include>
-	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/table.jsp"></jsp:include>
+    
+     <section class="content">
+      <div class="row">
+        <div class="col-md-6">
+        
+          <div class="box">
+            <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th colspan="4">입수현황</th>
+                </tr>
+                <tr>
+                  <td width="18">1.</td>
+                  <td width="276">금일 입수 현황</td>
+                  <td width="128">(사용자업로드)</td>
+                  <td width="205">123,456</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>금일 입수 현황</td>
+                  <td>(사용자업로드)</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>금일 입수 현황</td>
+                  <td>(사용자업로드)</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>금일 입수 현황</td>
+                  <td>(사용자업로드)</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>금일 입수 현황</td>
+                  <td>(사용자업로드)</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>금일 입수 현황</td>
+                  <td>(사용자업로드)</td>
+                  <td>123,456</td>
+                </tr>
+              </table>
+            </div>
+		 </div>
+		 <!-- // .box -->
+		 
+          <div class="box">
+            <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th colspan="4">배포현황</th>
+                </tr>
+                <tr>
+                  <td width="18">1.</td>
+                  <td width="308">금일 배포 현황</td>
+                  <td width="95">엔진</td>
+                  <td width="206">123,456</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>금일 배포 현황</td>
+                  <td>송출</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>금일 배포 현황</td>
+                  <td>송출</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>어제 배포 현황</td>
+                  <td>송출</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>어제 배포 현황</td>
+                  <td>송출</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>어제 배포 현황</td>
+                  <td>송출</td>
+                  <td>123,456</td>
+                </tr>
+              </table>
+            </div>
+		 </div>
+		 <!-- // .box -->
+		 
+       </div>
+       <!-- // .col-md-6 -->
+       
+       <div class="col-md-6">
+       
+          <div class="box">
+            <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th colspan="4">변환 현황</th>
+                </tr>
+                <tr>
+                  <td width="18">1.</td>
+                  <td width="310">금일변환황</td>
+                  <td width="95"><span class="badge bg-red">실패</span></td>
+                   <td width="204"><span class="badge bg-red">123,456</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>금일변환황</td>
+                  <td><span class="badge bg-red">실패</span></td>
+                   <td><span class="badge bg-red">123,456</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>어제변환황</td>
+                  <td><span class="badge bg-light-blue">성공</span></td>
+                  <td><span class="badge bg-light-blue">123,456</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>어제변환황</td>
+                  <td><span class="badge bg-light-blue">성공</span></td>
+                  <td><span class="badge bg-light-blue">123,456</span></td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>어제변환황</td>
+                  <td><span class="badge bg-light-blue">성공</span></td>
+                  <td><span class="badge bg-light-blue">123,456</span></td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>어제변환황</td>
+                  <td><span class="badge bg-light-blue">성공</span></td>
+                  <td><span class="badge bg-light-blue">123,456</span></td>
+                </tr>
+              </table>
+            </div>
+		 </div>
+		 <!-- // .box -->
+		 
+         <div class="box">
+             <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th colspan="3">Open API 사이트 등록 현황</th>
+                </tr>
+                <tr>
+                  <td width="18">1.</td>
+                  <td width="414">금일 등록 현황</td>
+                  <td width="199">123,456</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>금일 등록 현황</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>금일 등록 현황</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>어제 등록 현황</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>어제 등록 현황</td>
+                  <td>123,456</td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>어제 등록 현황</td>
+                  <td>123,456</td>
+                </tr>
+              </table>
+            </div>
+		 </div>
+		 <!-- // .box -->
+		 
+        </div>
+        <!-- // .col-md-6 -->
+        
+      </div>
+      <!-- // .row -->
+      
+     </section>
+     <!--// .content -->
+     
+     
   </div>
   <!-- /.content-wrapper -->
   <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/footer.jsp"></jsp:include>
+</div>  
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
 
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
+<script src="/js/let/home/home.js"></script>
 <script>
+	$(document).ready(function() {
+	});
 	(function() {
-		$(document).ready(function() {
-			$('body').on('click', 'button.logout', function() {
-				location.href = '<spring:message code="url.logout" />';
-			});
-		});
-	})();
+		var _page = {
+		} 
+		window.page = _page;
+	})();	
 </script>
 
 </body>
