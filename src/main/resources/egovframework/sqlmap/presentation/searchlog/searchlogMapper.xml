@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alticast.allso.let.presentation.searchlog.service.impl.SearchlogMapper">
+    
+	<select id="selectSearchlogs" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT SERVICE_ID,
+						       SERVICE_NAME,
+						       MANAGER_NAME,
+						       MANAGER_TEL,
+						       MANAGER_EMAIL,
+						       SERVICE_IP,
+						       PERMISSION_KEY
+						  FROM tb_search_log
+						  WHERE 1=1
+						<if test="serviceId != null and serviceId != ''">
+							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+						</if>
+						<if test="serviceName != null and serviceName != ''">
+							AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+						</if>
+						<if test="managerName != null and managerName != ''">
+							AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+						</if>
+						<if test="serviceIp != null and serviceIp != ''">
+							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+						</if>
+						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+	
+	<select id="selectSearchlogsTotCnt" parameterType="searchVO" resultType="int">
+			SELECT COUNT(*) totcnt
+			  FROM tb_search_log
+			  WHERE 1=1
+			<if test="serviceId != null and serviceId != ''">
+				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+			</if>
+			<if test="serviceName != null and serviceName != ''">
+				AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+			</if>
+			<if test="managerName != null and managerName != ''">
+				AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+			</if>
+			<if test="serviceIp != null and serviceIp != ''">
+				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+			</if>
+	</select>	
+	
+	<select id="selectSearchlog" parameterType="Map" resultType="egovMap">
+			SELECT
+				*
+			FROM tb_search_log
+			WHERE SERVICE_ID = #{serviceId}
+	</select>
+
+    <insert id="insertSearchlog" parameterType="Map">
+       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
+       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
+			from tb_search_log
+       	</selectKey>
+        INSERT INTO tb_search_log 
+        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
+        VALUES 
+        (
+			  LPAD(#{nextval}, 6, 0)
+			, #{serviceName}
+			, #{managerName}
+			, #{managerTel}
+			, #{managerEmail}
+			, #{serviceIp}
+			, #{permissionKey}        
+        )
+    </insert>
+    
+    <update id="updateSearchlog" parameterType="Map">
+		UPDATE tb_search_log
+		   SET   SERVICE_NAME = #{serviceName}
+		       , MANAGER_NAME = #{managerName}
+		       , MANAGER_TEL = #{managerTel}
+		       , MANAGER_EMAIL = #{managerEmail}
+		       , SERVICE_IP = #{serviceIp}
+		       , PERMISSION_KEY = #{permissionKey}
+		WHERE  SERVICE_ID = #{serviceId}        
+    </update>
+    
+    <delete id="deleteSearchlog" parameterType="Map">
+		DELETE FROM tb_search_log 
+		WHERE  SERVICE_ID = #{serviceId}
+    </delete>
+    
+</mapper>
