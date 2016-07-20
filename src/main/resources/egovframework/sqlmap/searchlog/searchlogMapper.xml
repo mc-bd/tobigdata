@@ -8,7 +8,7 @@
 				FROM
 					(
 						SELECT 
-								CONNECT_TIME
+								CAST(CONNECT_TIME AS CHAR) AS CONNECT_TIME
 								, KEY_WORD
 								, LOCATION_INFO						       
 						  FROM tb_mi_search_log
