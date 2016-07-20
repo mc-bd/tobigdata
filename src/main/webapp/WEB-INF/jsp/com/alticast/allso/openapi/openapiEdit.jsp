@@ -22,7 +22,7 @@
 
 <body>
 <div id="pop">
-  <h4>사이트 관리</h4>
+  <h4 id="menu_title"></h4>
   <hr>
   <div class="box-body">
     <table class="table table-bordered">

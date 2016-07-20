@@ -147,9 +147,15 @@
 			getAlertMsg: function(element) {
 			},
 			resetElement: function(element) {
-				debugger;
 				$(element).find('input').val(''); // TODO: 확장 필요; element... 
+			},
+			showNavigation: function(options) {
+				var _options = options;
+				$('#menu1').text(_options.menu1text);
+				$('#menu2').text(_options.menu2text);
+				$('#menu_title').text(_options.menu2text);
 			}
+			
 	};
 	window.__ = __;
 })();

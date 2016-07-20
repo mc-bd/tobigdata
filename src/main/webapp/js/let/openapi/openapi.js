@@ -5,6 +5,7 @@
 	
 	$(document).ready(function() {
 		openapi.bindEvent();
+		openapi.render();
 	});
 	
 	var openapi = {
@@ -34,6 +35,17 @@
 			$('#update').on('click', this.openapiPut);
 			$('#delete').on('click', this.openapiDelete);
 			$('#close').on('click', __.close);
+		},
+		
+		// =======================================================================
+		// render;
+		// =======================================================================
+		
+		render: function() {
+			__.showNavigation({
+				menu1text: 'Open API',
+				menu2text: '사이트 관리'
+			});
 		},
 		
 		// =======================================================================
@@ -89,7 +101,6 @@
 				method: 'POST',
 				data: __.getParams(),
 				success: function(data) {
-					debugger;
 					var _site = data.data.site;
 					$('#serviceId').val(_site.serviceId);
 					$('#serviceName').val(_site.serviceName);
