@@ -95,6 +95,9 @@
 									.replace(/{{locationInfo}}/gi, _searchlogs[i]['locationInfo'])
 						);
 					}
+					if (_searchlogs.length == 0) {
+						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
+					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
 					
 					// render; pagination

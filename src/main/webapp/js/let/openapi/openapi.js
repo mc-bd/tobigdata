@@ -99,6 +99,9 @@
 									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
 						);
 					}
+					if (_sites.length == 0) {
+						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
+					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
 					
 					// render; pagination
