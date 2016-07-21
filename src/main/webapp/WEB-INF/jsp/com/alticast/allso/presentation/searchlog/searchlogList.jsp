@@ -121,17 +121,15 @@
 <script src="/js/let/presentation/searchlog/searchlog.js"></script>
 <script>
 	$(document).ready(function() {
-// 		page.button.render();
+		page.button.render();
 		page.datepicker.render();
 		searchlog.searchlogPostList();
-		
-		__._notice(__.toString(__.getParams()));
 	});
 	(function() {
 		var _page = {
-				buttion: {
+				button: {
 					render: function() {
-						$('#add').show();
+// 						$('#add').show();
 					}
 				},
 				datepicker: {
