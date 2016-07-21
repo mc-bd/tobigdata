@@ -175,6 +175,13 @@
 			},
 			toString: function(obj) {
 				return JSON.stringify(obj, null, '\t');
+			},
+			setValueByParams: function() {
+				var _params = this.getParams();
+				for ( var key in _params) {
+					$('#'+key).val(_params[key]);
+					$('#'+key+'Txt').val(_params[key]);
+				}
 			}
 	};
 	window.__ = __;
