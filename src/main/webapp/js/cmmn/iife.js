@@ -10,6 +10,9 @@
 			location.href = '<spring:message code="url.logout" />';
 		});
 		
+		// queryString -> set input value
+		__.setValueByParams();
+		
 		// url
 		__._notice(location.href);
 		__._notice(__.getMode());

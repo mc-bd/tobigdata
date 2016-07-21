@@ -20,6 +20,7 @@
 				$('#serviceName').val($('#serviceNameTxt').val());
 				$('#managerName').val($('#managerNameTxt').val());
 				$('#serviceIp').val($('#serviceIpTxt').val());
+				$('#createDatetime').val($('#createDatetimeTxt').val());
 				that.openapiPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -77,15 +78,14 @@
 					serviceName: $('#serviceName').val(),
 					managerName: $('#managerName').val(),
 					serviceIp: $('#serviceIp').val(),
+					createDatetime: $('#createDatetime').val(),
 					pageIndex: pageIndex || 1
 				},
 				success: function(data) {
 					var _template = '';
 					var _htmlBuilder = [];
 					
-					// 
 					// render; list 
-					// 
 					var _sites = data.data.sites;
 					_template = $('#openapi-list-tr-template').html();
 					_htmlBuilder = [];
@@ -96,40 +96,16 @@
 									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
 									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
 									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
-									.replace(/{{permissionKey}}/gi, _sites[i]['permissionKey'])
+									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
 						);
+					}
+					if (_sites.length == 0) {
+						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
 					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
 					
-					// 
 					// render; pagination
-					// 
-					var _paginationInfo = data.data.paginationInfo;
-					_template = $('#pagination-template').html();
-					_htmlBuilder = [];
-					// calc; p, n page
-					var _pHref = _paginationInfo.firstPageNoOnPageList < _paginationInfo.currentPageNo - _paginationInfo.pageSize ? _paginationInfo.currentPageNo - _paginationInfo.pageSize : _paginationInfo.firstPageNoOnPageList;
-					var _nHref = _paginationInfo.lastPageNoOnPageList < _paginationInfo.currentPageNo + _paginationInfo.pageSize ? _paginationInfo.lastPageNoOnPageList : _paginationInfo.currentPageNo + _paginationInfo.pageSize;
-					if (_paginationInfo.totalRecordCount > 0) {
-						// previous page
-						_htmlBuilder.push(_template
-								.replace(/{{href}}/gi, _pHref)
-								.replace(/{{pageNo}}/gi, '&laquo;')
-								);
-						// main page
-						for (var i = _paginationInfo.firstPageNoOnPageList; i <= _paginationInfo.lastPageNoOnPageList; i++) {
-							_htmlBuilder.push(_template
-									.replace(/{{href}}/gi, i)
-									.replace(/{{pageNo}}/gi, i)
-							);
-						}
-						// next page
-						_htmlBuilder.push(_template
-								.replace(/{{href}}/gi, _nHref)
-								.replace(/{{pageNo}}/gi, '&raquo;')
-						);
-					}
-					$('.page_box').find('ul').empty().append(_htmlBuilder.join(''));
+					__.renderPagination(data.data.paginationInfo);
 				}
 			});
 		},
@@ -151,6 +127,7 @@
 					$('#managerEmail').val(_site.managerEmail);
 					$('#serviceIp').val(_site.serviceIp);
 					$('#permissionKey').val(_site.permissionKey);
+					$('#createDatetime').val(_site.createDatetime);
 				}
 			});
 		},

@@ -33,52 +33,27 @@
        <div class="box">
           <div class="box-header"></div>
             <div class="box-body no-padding">
-        		<input type="hidden" id="serviceId">
-        		<input type="hidden" id="serviceName">
-        		<input type="hidden" id="managerName">
-        		<input type="hidden" id="serviceIp">
-        		<input type="hidden" id="createDatetime">
+        		<input type="hidden" id="connectTime">
+        		<input type="hidden" id="keyWord">
+        		<input type="hidden" id="locationInfo">
               <table>
               	<tbody>
 	                <tr>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >서비스 ID</th>
+	                  <th style="width:9%" >접속시간</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
+	                 	 <input class="form-control" type="text" id="connectTimeTxt" placeholder="" readonly="readonly">
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">서비스 명</th>
+	                  <th style="width:9%">검색어</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
+	                 	 <input class="form-control" type="text" id="keyWordTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">담당자 명</th>
+	                  <th style="width:9%">위치정보</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">IP</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >등록일</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
+
+	                	  <input class="form-control" type="text" id="locationInfoTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%"></th>
@@ -111,23 +86,19 @@
               	<thead>
 	                <tr>
 	                  <th width="5%">No</th>
-	                  <th width="">서비스 ID</th>
-	                  <th width="">서비스 명</th>
-	                  <th width="">담당자 명</th>
-	                  <th width="">IP</th>
-	                  <th width="15%">등록일</th>
+	                  <th width="">접속시간</th>
+	                  <th width="">검색어</th>
+	                  <th width="">위치정보</th>
 	                </tr>
               	</thead>
               	<tbody></tbody>
               </table>
-			<script type="text/template" id="openapi-list-tr-template">
-                <tr data-service-id="{{serviceId}}">
+			<script type="text/template" id="searchlog-list-tr-template">
+                <tr data-service-id="{{connectTime}}">
                   <td>{{rnum}}</td>
-                  <td>{{serviceId}}</td>
-                  <td>{{serviceName}}</td>
-                  <td>{{managerName}}</td>
-                  <td>{{serviceIp}}</td>
-                  <td>{{createDatetime}}</td>
+                  <td>{{connectTime}}</td>
+                  <td>{{keyWord}}</td>
+                  <td>{{locationInfo}}</td>
                 </tr>
 			</script>
             </div>
@@ -147,23 +118,23 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
-<script src="/js/let/openapi/openapi.js"></script>
+<script src="/js/let/presentation/searchlog/searchlog.js"></script>
 <script>
 	$(document).ready(function() {
 		page.button.render();
 		page.datepicker.render();
-		openapi.openapiPostList();
+		searchlog.searchlogPostList();
 	});
 	(function() {
 		var _page = {
 				button: {
 					render: function() {
-						$('#add').show();
+// 						$('#add').show();
 					}
 				},
 				datepicker: {
 					render: function() {
-						$('#createDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#connectTimeTxt').datepicker(__.getDatepickerOptions());
 					}
 				}
 		} 

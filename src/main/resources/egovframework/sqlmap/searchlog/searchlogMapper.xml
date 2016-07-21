@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alticast.allso.let.presentation.searchlog.service.impl.SearchlogMapper">
+    
+	<select id="selectSearchlogs" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT 
+								CAST(CONNECT_TIME AS CHAR) AS CONNECT_TIME
+								, KEY_WORD
+								, LOCATION_INFO						       
+						  FROM tb_mi_search_log
+						  WHERE 1=1
+							<if test="connectTime != null and connectTime != ''">
+								AND	CONNECT_TIME LIKE CONCAT('%', #{connectTime}, '%')
+							</if>
+							<if test="keyWord != null and keyWord != ''">
+								AND	KEY_WORD LIKE CONCAT('%', #{keyWord}, '%')
+							</if>
+							<if test="locationInfo != null and locationInfo != ''">
+								AND	LOCATION_INFO LIKE CONCAT('%', #{locationInfo}, '%')
+							</if>
+						ORDER BY CONNECT_TIME ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY CONNECT_TIME DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+	
+	<select id="selectSearchlogsTotCnt" parameterType="searchVO" resultType="int">
+			SELECT COUNT(*) TOTCNT
+			  FROM tb_mi_search_log
+			  WHERE 1=1
+				<if test="connectTime != null and connectTime != ''">
+					AND	CONNECT_TIME LIKE CONCAT('%', #{connectTime}, '%')
+				</if>
+				<if test="keyWord != null and keyWord != ''">
+					AND	KEY_WORD LIKE CONCAT('%', #{keyWord}, '%')
+				</if>
+				<if test="locationInfo != null and locationInfo != ''">
+					AND	LOCATION_INFO LIKE CONCAT('%', #{locationInfo}, '%')
+				</if>			  
+	</select>	
+	
+	<select id="selectSearchlog" parameterType="Map" resultType="egovMap">
+		SELECT 
+				CONNECT_TIME
+				, KEY_WORD
+				, LOCATION_INFO 
+		FROM tb_mi_search_log
+		WHERE CONNECT_TIME = #{connectTime}
+	</select>
+
+    <insert id="insertSearchlog" parameterType="Map">
+		INSERT INTO tb_mi_search_log
+			(
+				CONNECT_TIME, 
+				KEY_WORD, 
+				LOCATION_INFO
+			)
+			VALUES 
+			(
+				NOW(), 
+				#{keyWord}, 
+				#{locationInfo}
+			)        
+    </insert>
+    
+    <update id="updateSearchlog" parameterType="Map">
+		UPDATE tb_mi_search_log
+		   SET KEY_WORD = #{keyWord},
+		       LOCATION_INFO = #{locationInfo}
+		 WHERE CONNECT_TIME = #{connectTime}        
+    </update>
+    
+    <delete id="deleteSearchlog" parameterType="Map">
+		DELETE FROM tb_mi_search_log 
+		WHERE  CONNECT_TIME = #{connectTime}
+    </delete>
+    
+</mapper>

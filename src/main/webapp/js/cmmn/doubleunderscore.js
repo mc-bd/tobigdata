@@ -18,7 +18,9 @@
 	 				error: function(jqXHR, textStatus, errorThrown) {
 	 					debugger;
 	 				},
-	 				complete: function() {
+	 				complete: function(jqXHR, textStatus) {
+	 					var _data = jqXHR.responseJSON;
+	 					console.dir(_data)
 	 				}
 				}
 				// 세팅 확장
@@ -116,6 +118,13 @@
 				}
 				return _params;
 			},
+			setParams: function(queryStringJSON) {
+				var _queryStringBuilder = [];
+				for ( var key in queryStringJSON) {
+					_queryStringBuilder.push(key + '=' + queryStringJSON[key]);
+				}
+				return (_.isEmpty(queryStringJSON) ? '' : '?') +_queryStringBuilder.join('&');
+			},
 			confirm: function(event) {
 				var _msg = this.getConfirmMsg(event.target);
 				return window.confirm(_msg);
@@ -160,8 +169,58 @@
 				$('#menu1').hide();
 				$('#menu2').hide();
 				$('#menu_title').text(_options.menu2text);
+			},
+			getDatepickerOptions: function(options) {
+				// REF
+				// http://bootstrap-datepicker.readthedocs.io/en/latest/options.html
+				var _options = {
+						autoclose: true,
+						todayHighlight: true,
+						format: 'yyyy-mm-dd'
+				};
+				return $.extend(_options, options);
+			},
+			toString: function(obj) {
+				return JSON.stringify(obj, null, '\t');
+			},
+			setValueByParams: function() {
+				var _params = this.getParams();
+				for ( var key in _params) {
+					$('#'+key).val(_params[key]);
+					$('#'+key+'Txt').val(_params[key]);
+				}
+			},
+			redirect: function(url, queryStringJSON) {
+				location.href = url + this.setParams(queryStringJSON);
+			},
+			renderPagination: function(paginationInfo) {
+				var _paginationInfo = paginationInfo;
+				_template = $('#pagination-template').html();
+				_htmlBuilder = [];
+				// calc; p, n page
+				var _pHref = _paginationInfo.firstPageNoOnPageList < _paginationInfo.currentPageNo - _paginationInfo.pageSize ? _paginationInfo.currentPageNo - _paginationInfo.pageSize : _paginationInfo.firstPageNoOnPageList;
+				var _nHref = _paginationInfo.lastPageNoOnPageList < _paginationInfo.currentPageNo + _paginationInfo.pageSize ? _paginationInfo.lastPageNoOnPageList : _paginationInfo.currentPageNo + _paginationInfo.pageSize;
+				if (_paginationInfo.totalRecordCount > 0) {
+					// previous page
+					_htmlBuilder.push(_template
+							.replace(/{{href}}/gi, _pHref)
+							.replace(/{{pageNo}}/gi, '&laquo;')
+							);
+					// main page
+					for (var i = _paginationInfo.firstPageNoOnPageList; i <= _paginationInfo.lastPageNoOnPageList; i++) {
+						_htmlBuilder.push(_template
+								.replace(/{{href}}/gi, i)
+								.replace(/{{pageNo}}/gi, i)
+						);
+					}
+					// next page
+					_htmlBuilder.push(_template
+							.replace(/{{href}}/gi, _nHref)
+							.replace(/{{pageNo}}/gi, '&raquo;')
+					);
+				}
+				$('.page_box').find('ul').empty().append(_htmlBuilder.join(''));				
 			}
-			
 	};
 	window.__ = __;
 })();

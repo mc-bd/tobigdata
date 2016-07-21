@@ -49,8 +49,9 @@
 		};
 		
 		function reset() {
-			$('#id').val('');
+//			$('#id').val('');
 			$('#password').val('');
+			$('#password').focus();
 		};
 		
 	});
