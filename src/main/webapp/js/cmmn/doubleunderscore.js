@@ -18,7 +18,9 @@
 	 				error: function(jqXHR, textStatus, errorThrown) {
 	 					debugger;
 	 				},
-	 				complete: function() {
+	 				complete: function(jqXHR, textStatus) {
+	 					var _data = jqXHR.responseJSON;
+	 					console.dir(_data)
 	 				}
 				}
 				// 세팅 확장
@@ -160,8 +162,20 @@
 				$('#menu1').hide();
 				$('#menu2').hide();
 				$('#menu_title').text(_options.menu2text);
+			},
+			getDatepickerOptions: function(options) {
+				// REF
+				// http://bootstrap-datepicker.readthedocs.io/en/latest/options.html
+				var _options = {
+						autoclose: true,
+						todayHighlight: true,
+						format: 'yyyy-mm-dd'
+				};
+				return $.extend(_options, options);
+			},
+			toString: function(obj) {
+				return JSON.stringify(obj, null, '\t');
 			}
-			
 	};
 	window.__ = __;
 })();

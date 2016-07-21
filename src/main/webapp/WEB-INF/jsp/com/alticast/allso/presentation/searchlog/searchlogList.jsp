@@ -121,18 +121,23 @@
 <script src="/js/let/presentation/searchlog/searchlog.js"></script>
 <script>
 	$(document).ready(function() {
-// 		page.showButton();
-		page.datepicker();
+// 		page.button.render();
+		page.datepicker.render();
 		searchlog.searchlogPostList();
+		
+		__._notice(__.toString(__.getParams()));
 	});
 	(function() {
 		var _page = {
-				showButton: function() {
-					$('#add').show();
+				buttion: {
+					render: function() {
+						$('#add').show();
+					}
 				},
-				datepicker: function() {
-					$('#connectTimeTxt').datepicker({
-					});
+				datepicker: {
+					render: function() {
+						$('#connectTimeTxt').datepicker(__.getDatepickerOptions());
+					}
 				}
 		} 
 		window.page = _page;
