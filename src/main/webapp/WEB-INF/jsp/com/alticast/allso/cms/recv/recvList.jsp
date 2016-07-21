@@ -33,33 +33,62 @@
        <div class="box">
           <div class="box-header"></div>
             <div class="box-body no-padding">
-        		<input type="hidden" id="serviceId">
-        		<input type="hidden" id="serviceName">
-        		<input type="hidden" id="managerName">
-        		<input type="hidden" id="serviceIp">
-        		<input type="hidden" id="createDatetime">
+        		<input type="hidden" id="ingestSeq">
+        		<input type="hidden" id="uploadType">
+        		<input type="hidden" id="contentType">
+        		<input type="hidden" id="contentTitle">
+        		<input type="hidden" id="ingetDatetime">
+        		<input type="hidden" id="pageIndex">
               <table>
               	<tbody>
+<!--               	
 	                <tr>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >서비스 ID</th>
+	                  <th style="width:9%" ></th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
+	                 	 <input class="form-control" type="text" id="Txt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">서비스 명</th>
+	                  <th style="width:9%"></th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
+	                 	 <input class="form-control" type="text" id="Txt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">담당자 명</th>
+	                  <th style="width:9%"></th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
+	                	  <input class="form-control" type="text" id="Txt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">IP</th>
+	                  <th style="width:9%"></th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
+	                	  <input class="form-control" type="text" id="Txt" placeholder="">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+ -->	                
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >일련번호</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="ingestSeqTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">입수방법</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="uploadTypeTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">종류</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="contentTypeTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">제목</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
@@ -68,9 +97,9 @@
 	                </tr>
 	                <tr>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >등록일</th>
+	                  <th style="width:9%" >입수일시</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
+	                	  <input class="form-control" type="text" id="ingetDatetimeTxt" placeholder="" readonly="readonly">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%"></th>
@@ -111,23 +140,30 @@
               	<thead>
 	                <tr>
 	                  <th width="5%">No</th>
-	                  <th width="">서비스 ID</th>
-	                  <th width="">서비스 명</th>
-	                  <th width="">담당자 명</th>
-	                  <th width="">IP</th>
-	                  <th width="15%">등록일</th>
+	                  <th width="">일련번호</th>
+	                  <th width="">입수방법</th>
+	                  <th width="">종류</th>
+	                  <th width="">제목</th>
+	                  <th width="">입수일시</th>
 	                </tr>
               	</thead>
               	<tbody></tbody>
               </table>
+              
+        		<input type="hidden" id="ingestSeq">
+        		<input type="hidden" id="uploadType">
+        		<input type="hidden" id="contentType">
+        		<input type="hidden" id="contentTitle">
+        		<input type="hidden" id="ingetDatetime">              
+        		
 			<script type="text/template" id="recv-list-tr-template">
-                <tr data-service-id="{{serviceId}}">
+                <tr data-ingest-seq="{{ingestSeq}}">
                   <td>{{rnum}}</td>
-                  <td>{{serviceId}}</td>
-                  <td>{{serviceName}}</td>
-                  <td>{{managerName}}</td>
-                  <td>{{serviceIp}}</td>
-                  <td>{{createDatetime}}</td>
+                  <td>{{ingestSeq}}</td>
+                  <td>{{uploadType}}</td>
+                  <td>{{contentType}}</td>
+                  <td>{{contentTitle}}</td>
+                  <td>{{ingetDatetime}}</td>
                 </tr>
 			</script>
             </div>
@@ -158,12 +194,12 @@
 		var _page = {
 				button: {
 					render: function() {
-						$('#add').show();
+// 						$('#add').show();
 					}
 				},
 				datepicker: {
 					render: function() {
-						$('#createDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#ingetDatetimeTxt').datepicker(__.getDatepickerOptions());
 					}
 				}
 		} 

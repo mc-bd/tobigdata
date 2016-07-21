@@ -16,11 +16,11 @@
 		bindEvent: function() {
 			var that = this;
 			$('#search').on('click', function(e) {
-				$('#serviceId').val($('#serviceIdTxt').val());
-				$('#serviceName').val($('#serviceNameTxt').val());
-				$('#managerName').val($('#managerNameTxt').val());
-				$('#serviceIp').val($('#serviceIpTxt').val());
-				$('#createDatetime').val($('#createDatetimeTxt').val());
+				$('#ingestSeq').val($('#ingestSeqTxt').val());
+				$('#uploadType').val($('#uploadTypeTxt').val());
+				$('#contentType').val($('#contentTypeTxt').val());
+				$('#contentTitle').val($('#contentTitleTxt').val());
+				$('#ingetDatetime').val($('#ingetDatetimeTxt').val());
 				that.recvPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -74,11 +74,11 @@
 				dataType: 'json',
 				method: 'POST',
 				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					serviceIp: $('#serviceIp').val(),
-					createDatetime: $('#createDatetime').val(),
+					ingestSeq: $('#ingestSeq').val(),
+					uploadType: $('#uploadType').val(),
+					contentType: $('#contentType').val(),
+					contentTitle: $('#contentTitle').val(),
+					ingetDatetime: $('#ingetDatetime').val(),
 					pageIndex: pageIndex || 1
 				},
 				success: function(data) {
@@ -86,20 +86,20 @@
 					var _htmlBuilder = [];
 					
 					// render; list 
-					var _sites = data.data.sites;
+					var _records = data.data.records;
 					_template = $('#recv-list-tr-template').html();
 					_htmlBuilder = [];
-					for (var i = 0; i < _sites.length; i++) {
+					for (var i = 0; i < _records.length; i++) {
 						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _sites[i]['rnum'])
-									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
-									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
-									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
-									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
-									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
+									.replace(/{{rnum}}/gi, _records[i]['rnum'])
+									.replace(/{{ingestSeq}}/gi, _records[i]['ingestSeq'])
+									.replace(/{{uploadType}}/gi, _records[i]['uploadType'])
+									.replace(/{{contentType}}/gi, _records[i]['contentType'])
+									.replace(/{{contentTitle}}/gi, _records[i]['contentTitle'])
+									.replace(/{{ingetDatetime}}/gi, _records[i]['ingetDatetime'])
 						);
 					}
-					if (_sites.length == 0) {
+					if (_records.length == 0) {
 						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
 					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
@@ -119,15 +119,14 @@
 				method: 'POST',
 				data: __.getParams(),
 				success: function(data) {
-					var _site = data.data.site;
-					$('#serviceId').val(_site.serviceId);
-					$('#serviceName').val(_site.serviceName);
-					$('#managerName').val(_site.managerName);
-					$('#managerTel').val(_site.managerTel);
-					$('#managerEmail').val(_site.managerEmail);
-					$('#serviceIp').val(_site.serviceIp);
-					$('#permissionKey').val(_site.permissionKey);
-					$('#createDatetime').val(_site.createDatetime);
+					var _record = data.data.record;
+					$('#ingestSeq').val(_record.ingestSeq);
+					$('#uploadType').val(_record.uploadType);
+					$('#contentType').val(_record.contentType);
+					$('#contentTitle').val(_record.contentTitle);
+					$('#contentFilename').val(_record.contentFilename);
+					$('#contentURL').val(_record.contentURL);
+					$('#ingetDatetime').val(_record.ingetDatetime);
 				}
 			});
 		},
@@ -139,13 +138,13 @@
 				url: '/recv/create',
 				method: 'POST',
 				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
+					ingestSeq: $('#ingestSeq').val(),
+					uploadType: $('#uploadType').val(),
+					contentType: $('#contentType').val(),
+					contentTitle: $('#contentTitle').val(),
+					contentFilename: $('#contentFilename').val(),
+					contentURL: $('#contentURL').val(),
+					ingetDatetime: $('#ingetDatetime').val(),
 				},
 				success: function(data) {
 					__.alert('등록되었습니다.');
@@ -160,13 +159,13 @@
 				url: '/recv',
 				method: 'PUT',
 				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
+					ingestSeq: $('#ingestSeq').val(),
+					uploadType: $('#uploadType').val(),
+					contentType: $('#contentType').val(),
+					contentTitle: $('#contentTitle').val(),
+					contentFilename: $('#contentFilename').val(),
+					contentURL: $('#contentURL').val(),
+					ingetDatetime: $('#ingetDatetime').val(),
 				},
 				success: function(data) {
 					__.alert('저장되었습니다.');
@@ -181,7 +180,7 @@
 				url: '/recv',
 				method: 'DELETE',
 				data: {
-					serviceId: $('#serviceId').val(),
+					ingestSeq: $('#ingestSeq').val(),
 				},
 				success: function(data) {
 					__.alert('삭제되었습니다.');

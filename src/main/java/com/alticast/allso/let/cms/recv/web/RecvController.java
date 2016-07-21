@@ -54,11 +54,11 @@ public class RecvController {
 		/* ++ paginationInfo */
 		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		List<?> sites = recvService.selectSites(paramMap);
-		data.put("sites", sites);
+		List<?> records = recvService.selectRecords(paramMap);
+		data.put("records", records);
 		
-		int sitesTotCnt = recvService.selectSitesTotCnt(paramMap);
-		paginationInf.setTotalRecordCount(sitesTotCnt);
+		int recordsTotCnt = recvService.selectRecordsTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(recordsTotCnt);
 		paginationInf.setOthers();
 		
 		data.put("paginationInfo", paginationInf);
@@ -75,7 +75,7 @@ public class RecvController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("site", recvService.selectSite(paramMap));
+		data.put("record", recvService.selectRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -95,7 +95,7 @@ public class RecvController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", recvService.insertSite(paramMap));
+		data.put("result", recvService.insertRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -107,7 +107,7 @@ public class RecvController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", recvService.updateSite(paramMap));
+		data.put("result", recvService.updateRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -119,7 +119,7 @@ public class RecvController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", recvService.deleteSite(paramMap));
+		data.put("result", recvService.deleteRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 

@@ -16,35 +16,35 @@ public class RecvServiceImpl implements RecvService {
 	private RecvMapper recvDao;
 
 	@Override
-	public List<Map<String, Object>> selectSites(
+	public List<Map<String, Object>> selectRecords(
 			Map<String, Object> paramMap) throws Exception {
-		return recvDao.selectSites(paramMap);
+		return recvDao.selectRecords(paramMap);
 	}
 
 	@Override
-	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception {
-		return recvDao.selectSitesTotCnt(paramMap);
+	public int selectRecordsTotCnt(Map<String, Object> paramMap) throws Exception {
+		return recvDao.selectRecordsTotCnt(paramMap);
 	}
 
 	@Override
-	public Map<String, Object> selectSite(Map<String, Object> paramMap)
+	public Map<String, Object> selectRecord(Map<String, Object> paramMap)
 			throws Exception {
-		return recvDao.selectSite(paramMap);
+		return recvDao.selectRecord(paramMap);
 	}
 
 	@Override
-	public int insertSite(Map<String, Object> paramMap) throws Exception {
-		return recvDao.insertSite(paramMap);
+	public int insertRecord(Map<String, Object> paramMap) throws Exception {
+		return recvDao.insertRecord(paramMap);
 	}
 
 	@Override
-	public int updateSite(Map<String, Object> paramMap) throws Exception {
-		return recvDao.updateSite(paramMap);
+	public int updateRecord(Map<String, Object> paramMap) throws Exception {
+		return recvDao.updateRecord(paramMap);
 	}
 
 	@Override
-	public int deleteSite(Map<String, Object> paramMap) throws Exception {
-		return recvDao.deleteSite(paramMap);
+	public int deleteRecord(Map<String, Object> paramMap) throws Exception {
+		return recvDao.deleteRecord(paramMap);
 	}
 
 }
