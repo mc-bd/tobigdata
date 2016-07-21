@@ -147,7 +147,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
-<script src="/js/let/recv/recv.js"></script>
+<script src="/js/let/cms/recv/recv.js"></script>
 <script>
 	$(document).ready(function() {
 		page.button.render();

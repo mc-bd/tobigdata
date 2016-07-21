@@ -55,8 +55,8 @@
 		
 		render: function() {
 			__.showNavigation({
-				menu1text: 'Open API',
-				menu2text: '사이트 관리'
+				menu1text: 'CMS',
+				menu2text: '입수현황'
 			});
 		},
 		

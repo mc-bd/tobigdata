@@ -71,35 +71,42 @@
 
 <!-- REQUIRED JS SCRIPTS -->
 <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/js.jsp"></jsp:include>
-<script src="/js/let/recv/recv.js"></script>
+<script src="/js/let/cms/recv/recv.js"></script>
 <script>
 	$(document).ready(function() {
-		page.showButton();
+		page.button.render();
+		page.datepicker.render();		
 		recv.recvGetDetailByPost();
 	});
 	(function() {
 		var _page = {
-				showButton: function() {
-					var mode = __.getMode();
-					switch (mode) {
-					case 'C':
-						$('#insert').show();
-						$('#close').show();
-						break;
-					case 'R':
-						$('#edit').show();
-						$('#delete').show();
-						$('#close').show();
-						break;
-					case 'U':
-						$('#update').show();
-						$('#delete').show();
-						$('#close').show();
-						break;
-					default:
-						break;
+				button: {
+					render: function() {
+						var mode = __.getMode();
+						switch (mode) {
+						case 'C':
+							$('#insert').show();
+							$('#close').show();
+							break;
+						case 'R':
+							$('#edit').show();
+							$('#delete').show();
+							$('#close').show();
+							break;
+						case 'U':
+							$('#update').show();
+							$('#delete').show();
+							$('#close').show();
+							break;
+						default:
+							break;
+						}
+					},
+					datepicker: {
+						render: function() {
+						}
 					}
-				}
+				},
 		} 
 		window.page = _page;
 	})();

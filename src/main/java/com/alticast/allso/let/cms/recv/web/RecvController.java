@@ -38,46 +38,9 @@ public class RecvController {
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 			) throws Exception {
-		return CmmnUtil.sendJSP("/recv/recvList");
+		return CmmnUtil.sendJSP("/cms/recv/recvList");
 	}
 	
-	
-//	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-//	public @ResponseBody String recvPostList(HttpServletRequest req
-//			, HttpServletResponse resp
-//			, @RequestBody String requestBody
-//			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
-//			) throws Exception {
-//		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
-//		Map<String, Object> data = new LinkedHashMap<>();
-//		data.put("params", paramMap);
-//		
-//		/* paginationInfo */
-//		PaginationInfo paginationInfo = new PaginationInfo();
-//		searchVO.setPageIndex((int) paramMap.get("pageIndex"));
-//		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
-//		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
-//		paginationInfo.setPageSize(searchVO.getPageSize());
-//
-//		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
-//		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
-//		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-//		
-//		paramMap.put("searchVO", searchVO);
-//		log.debug("searchVO: {}", searchVO);
-//		log.debug("paramMap: {}", paramMap);
-//		List<?> sites = recvService.selectSites(paramMap);
-//		data.put("result", sites);
-//
-//		paginationInfo.setTotalRecordCount(sites.size());
-//		data.put("paginationInfo", paginationInfo);
-//		/* // paginationInfo */
-//		
-//		return new Ajax().setData(data).toJSON();
-//	}
-	
-//	@RequestMapping(method = RequestMethod.POST)
-//	@RequestMapping(method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String recvPostList(HttpServletRequest req
 			, HttpServletResponse resp
@@ -121,7 +84,7 @@ public class RecvController {
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
 			) throws Exception {
-		return CmmnUtil.sendJSP("/recv/recvEdit");
+		return CmmnUtil.sendJSP("/cms/recv/recvEdit");
 	}
 	
 	@RequestMapping(value = {"/{create}"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
