@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alticast.allso.let.cms.board.service.impl.BoardMapper">
+    
+	<select id="selectSites" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT SERVICE_ID,
+						       SERVICE_NAME,
+						       MANAGER_NAME,
+						       MANAGER_TEL,
+						       MANAGER_EMAIL,
+						       SERVICE_IP,
+						       PERMISSION_KEY,
+						       CAST(CREATE_DATETIME AS CHAR) AS CREATE_DATETIME
+						  FROM tb_service_site
+						  WHERE 1=1
+						<if test="serviceId != null and serviceId != ''">
+							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+						</if>
+						<if test="serviceName != null and serviceName != ''">
+							AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+						</if>
+						<if test="managerName != null and managerName != ''">
+							AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+						</if>
+						<if test="serviceIp != null and serviceIp != ''">
+							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+						</if>
+						<if test="createDatetime != null and createDatetime != ''">
+							AND	CREATE_DATETIME LIKE CONCAT('%', #{createDatetime}, '%')
+						</if>
+						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY CAST(SERVICE_ID AS DECIMAL) DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+	
+	<select id="selectSitesTotCnt" parameterType="searchVO" resultType="int">
+			SELECT COUNT(*) totcnt
+			  FROM tb_service_site
+			  WHERE 1=1
+			<if test="serviceId != null and serviceId != ''">
+				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
+			</if>
+			<if test="serviceName != null and serviceName != ''">
+				AND	SERVICE_NAME LIKE CONCAT('%', #{serviceName}, '%')
+			</if>
+			<if test="managerName != null and managerName != ''">
+				AND	MANAGER_NAME LIKE CONCAT('%', #{managerName}, '%')
+			</if>
+			<if test="serviceIp != null and serviceIp != ''">
+				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+			</if>
+			<if test="createDatetime != null and createDatetime != ''">
+				AND	CREATE_DATETIME LIKE CONCAT('%', #{createDatetime}, '%')
+			</if>
+	</select>	
+	
+	<select id="selectSite" parameterType="Map" resultType="egovMap">
+			SELECT
+				*
+			FROM tb_service_site
+			WHERE SERVICE_ID = #{serviceId}
+	</select>
+
+    <insert id="insertSite" parameterType="Map">
+       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
+       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
+			from tb_service_site
+       	</selectKey>
+        INSERT INTO tb_service_site 
+        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`, `CREATE_DATETIME`) 
+        VALUES 
+        (
+			  LPAD(#{nextval}, 6, 0)
+			, #{serviceName}
+			, #{managerName}
+			, #{managerTel}
+			, #{managerEmail}
+			, #{serviceIp}
+			, #{permissionKey}        
+			, NOW()        
+        )
+    </insert>
+    
+    <update id="updateSite" parameterType="Map">
+		UPDATE tb_service_site
+		   SET   SERVICE_NAME = #{serviceName}
+		       , MANAGER_NAME = #{managerName}
+		       , MANAGER_TEL = #{managerTel}
+		       , MANAGER_EMAIL = #{managerEmail}
+		       , SERVICE_IP = #{serviceIp}
+		       , PERMISSION_KEY = #{permissionKey}
+		WHERE  SERVICE_ID = #{serviceId}        
+    </update>
+    
+    <delete id="deleteSite" parameterType="Map">
+		DELETE FROM tb_service_site 
+		WHERE  SERVICE_ID = #{serviceId}
+    </delete>
+    
+</mapper>
