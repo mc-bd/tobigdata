@@ -11,6 +11,11 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/css.jsp"></jsp:include>
+	<style>
+		input:read-only {
+			background-color: white !important;
+		}
+	</style>
 </head>
 
 <body class="hold-transition tv_color sidebar-mini">
@@ -37,7 +42,7 @@
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >접속시간</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="connectTimeTxt" placeholder="">
+	                 	 <input class="form-control" type="text" id="connectTimeTxt" placeholder="" readonly="readonly">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">검색어</th>
@@ -117,12 +122,17 @@
 <script>
 	$(document).ready(function() {
 // 		page.showButton();
+		page.datepicker();
 		searchlog.searchlogPostList();
 	});
 	(function() {
 		var _page = {
 				showButton: function() {
 					$('#add').show();
+				},
+				datepicker: function() {
+					$('#connectTimeTxt').datepicker({
+					});
 				}
 		} 
 		window.page = _page;
