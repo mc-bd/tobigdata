@@ -125,7 +125,7 @@
 					$('#contentType').val(_record.contentType);
 					$('#contentTitle').val(_record.contentTitle);
 					$('#contentFilename').val(_record.contentFilename);
-					$('#contentURL').val(_record.contentURL);
+					$('#contentUrl').val(_record.contentUrl);
 					$('#ingetDatetime').val(_record.ingetDatetime);
 				}
 			});
@@ -143,7 +143,7 @@
 					contentType: $('#contentType').val(),
 					contentTitle: $('#contentTitle').val(),
 					contentFilename: $('#contentFilename').val(),
-					contentURL: $('#contentURL').val(),
+					contentUrl: $('#contentUrl').val(),
 					ingetDatetime: $('#ingetDatetime').val(),
 				},
 				success: function(data) {
@@ -164,7 +164,7 @@
 					contentType: $('#contentType').val(),
 					contentTitle: $('#contentTitle').val(),
 					contentFilename: $('#contentFilename').val(),
-					contentURL: $('#contentURL').val(),
+					contentUrl: $('#contentUrl').val(),
 					ingetDatetime: $('#ingetDatetime').val(),
 				},
 				success: function(data) {

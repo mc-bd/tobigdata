@@ -60,46 +60,27 @@
 	</select>	
 	
 	<select id="selectRecord" parameterType="Map" resultType="egovMap">
-			SELECT
-				*
+			SELECT INGEST_SEQ
+			       , UPLOAD_TYPE
+			       , CONTENT_TYPE
+			       , CONTENT_TITLE
+			       , CONTENT_FILENAME
+			       , CONTENT_URL
+			       , CAST(INGET_DATETIME AS CHAR) AS INGET_DATETIME	    
 			FROM tb_content_recv_log
-			WHERE SERVICE_ID = #{serviceId}
+			WHERE INGEST_SEQ = #{ingestSeq}
 	</select>
 
     <insert id="insertRecord" parameterType="Map">
-       	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
-       	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
-			from tb_content_recv_log
-       	</selectKey>
-        INSERT INTO tb_content_recv_log 
-        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`, `CREATE_DATETIME`) 
-        VALUES 
-        (
-			  LPAD(#{nextval}, 6, 0)
-			, #{serviceName}
-			, #{managerName}
-			, #{managerTel}
-			, #{managerEmail}
-			, #{serviceIp}
-			, #{permissionKey}        
-			, NOW()        
-        )
     </insert>
     
     <update id="updateRecord" parameterType="Map">
 		UPDATE tb_content_recv_log
-		   SET   SERVICE_NAME = #{serviceName}
-		       , MANAGER_NAME = #{managerName}
-		       , MANAGER_TEL = #{managerTel}
-		       , MANAGER_EMAIL = #{managerEmail}
-		       , SERVICE_IP = #{serviceIp}
-		       , PERMISSION_KEY = #{permissionKey}
-		WHERE  SERVICE_ID = #{serviceId}        
+		   SET   CONTENT_TITLE = #{contentTitle}
+		WHERE INGEST_SEQ = #{ingestSeq}
     </update>
     
     <delete id="deleteRecord" parameterType="Map">
-		DELETE FROM tb_content_recv_log 
-		WHERE  SERVICE_ID = #{serviceId}
     </delete>
     
 </mapper>
