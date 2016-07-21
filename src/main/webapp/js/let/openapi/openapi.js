@@ -85,9 +85,7 @@
 					var _template = '';
 					var _htmlBuilder = [];
 					
-					// 
 					// render; list 
-					// 
 					var _sites = data.data.sites;
 					_template = $('#openapi-list-tr-template').html();
 					_htmlBuilder = [];
@@ -103,35 +101,8 @@
 					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
 					
-					// 
 					// render; pagination
-					// 
-					var _paginationInfo = data.data.paginationInfo;
-					_template = $('#pagination-template').html();
-					_htmlBuilder = [];
-					// calc; p, n page
-					var _pHref = _paginationInfo.firstPageNoOnPageList < _paginationInfo.currentPageNo - _paginationInfo.pageSize ? _paginationInfo.currentPageNo - _paginationInfo.pageSize : _paginationInfo.firstPageNoOnPageList;
-					var _nHref = _paginationInfo.lastPageNoOnPageList < _paginationInfo.currentPageNo + _paginationInfo.pageSize ? _paginationInfo.lastPageNoOnPageList : _paginationInfo.currentPageNo + _paginationInfo.pageSize;
-					if (_paginationInfo.totalRecordCount > 0) {
-						// previous page
-						_htmlBuilder.push(_template
-								.replace(/{{href}}/gi, _pHref)
-								.replace(/{{pageNo}}/gi, '&laquo;')
-								);
-						// main page
-						for (var i = _paginationInfo.firstPageNoOnPageList; i <= _paginationInfo.lastPageNoOnPageList; i++) {
-							_htmlBuilder.push(_template
-									.replace(/{{href}}/gi, i)
-									.replace(/{{pageNo}}/gi, i)
-							);
-						}
-						// next page
-						_htmlBuilder.push(_template
-								.replace(/{{href}}/gi, _nHref)
-								.replace(/{{pageNo}}/gi, '&raquo;')
-						);
-					}
-					$('.page_box').find('ul').empty().append(_htmlBuilder.join(''));
+					__.renderPagination(data.data.paginationInfo);
 				}
 			});
 		},
