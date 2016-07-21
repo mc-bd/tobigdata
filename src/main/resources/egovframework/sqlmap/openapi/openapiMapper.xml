@@ -50,7 +50,8 @@
 						       MANAGER_TEL,
 						       MANAGER_EMAIL,
 						       SERVICE_IP,
-						       PERMISSION_KEY
+						       PERMISSION_KEY,
+						       CAST(CREATE_DATETIME AS CHAR) AS CREATE_DATETIME
 						  FROM social.tb_service_site
 						  WHERE 1=1
 						<if test="serviceId != null and serviceId != ''">
@@ -64,6 +65,9 @@
 						</if>
 						<if test="serviceIp != null and serviceIp != ''">
 							AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
+						</if>
+						<if test="createDatetime != null and createDatetime != ''">
+							AND	CREATE_DATETIME LIKE CONCAT('%', #{createDatetime}, '%')
 						</if>
 						ORDER BY CAST(SERVICE_ID AS DECIMAL) ASC
 					) a, ( SELECT @RNUM := 0 ) b
@@ -88,6 +92,9 @@
 			<if test="serviceIp != null and serviceIp != ''">
 				AND	SERVICE_IP LIKE CONCAT('%', #{serviceIp}, '%')
 			</if>
+			<if test="createDatetime != null and createDatetime != ''">
+				AND	CREATE_DATETIME LIKE CONCAT('%', #{createDatetime}, '%')
+			</if>
 	</select>	
 	
 	<select id="selectSite" parameterType="Map" resultType="egovMap">
@@ -103,7 +110,7 @@
 			from tb_service_site
        	</selectKey>
         INSERT INTO tb_service_site 
-        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`) 
+        (`SERVICE_ID`, `SERVICE_NAME`, `MANAGER_NAME`, `MANAGER_TEL`, `MANAGER_EMAIL`, `SERVICE_IP`, `PERMISSION_KEY`, `CREATE_DATETIME`) 
         VALUES 
         (
 			  LPAD(#{nextval}, 6, 0)
@@ -113,6 +120,7 @@
 			, #{managerEmail}
 			, #{serviceIp}
 			, #{permissionKey}        
+			, NOW()        
         )
     </insert>
     

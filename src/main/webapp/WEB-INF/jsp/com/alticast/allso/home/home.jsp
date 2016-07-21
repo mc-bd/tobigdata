@@ -175,37 +175,17 @@
 		 
          <div class="box">
              <div class="box-body no-padding">
-              <table class="table">
+              <table class="table" id="table-openapi">
                 <tr>
                   <th colspan="3">Open API 사이트 등록 현황</th>
                 </tr>
-                <tr>
+                <tr data-create-datetime="2016-07-21">
                   <td width="18">1.</td>
                   <td width="414">금일 등록 현황</td>
                   <td width="199">123,456</td>
                 </tr>
-                <tr>
+                <tr data-create-datetime="2016-07-20">
                   <td>2.</td>
-                  <td>금일 등록 현황</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>금일 등록 현황</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>어제 등록 현황</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>5.</td>
-                  <td>어제 등록 현황</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>6.</td>
                   <td>어제 등록 현황</td>
                   <td>123,456</td>
                 </tr>

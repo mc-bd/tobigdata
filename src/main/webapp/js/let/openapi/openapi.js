@@ -20,6 +20,7 @@
 				$('#serviceName').val($('#serviceNameTxt').val());
 				$('#managerName').val($('#managerNameTxt').val());
 				$('#serviceIp').val($('#serviceIpTxt').val());
+				$('#createDatetime').val($('#createDatetimeTxt').val());
 				that.openapiPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -77,6 +78,7 @@
 					serviceName: $('#serviceName').val(),
 					managerName: $('#managerName').val(),
 					serviceIp: $('#serviceIp').val(),
+					createDatetime: $('#createDatetime').val(),
 					pageIndex: pageIndex || 1
 				},
 				success: function(data) {
@@ -96,7 +98,7 @@
 									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
 									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
 									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
-									.replace(/{{permissionKey}}/gi, _sites[i]['permissionKey'])
+									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
 						);
 					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
@@ -151,6 +153,7 @@
 					$('#managerEmail').val(_site.managerEmail);
 					$('#serviceIp').val(_site.serviceIp);
 					$('#permissionKey').val(_site.permissionKey);
+					$('#createDatetime').val(_site.createDatetime);
 				}
 			});
 		},

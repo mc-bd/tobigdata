@@ -11,6 +11,11 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/css.jsp"></jsp:include>
+	<style>
+		input:read-only {
+			background-color: white !important;
+		}
+	</style>
 </head>
 
 <body class="hold-transition tv_color sidebar-mini">
@@ -32,6 +37,7 @@
         		<input type="hidden" id="serviceName">
         		<input type="hidden" id="managerName">
         		<input type="hidden" id="serviceIp">
+        		<input type="hidden" id="createDatetime">
               <table>
               	<tbody>
 	                <tr>
@@ -48,13 +54,35 @@
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">담당자 명</th>
 	                  <th style="width:12%">
-
 	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">IP</th>
 	                  <th style="width:12%">
 	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >등록일</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%"></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%"></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%"></th>
+	                  <th style="width:12%">
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
@@ -87,6 +115,7 @@
 	                  <th width="">서비스 명</th>
 	                  <th width="">담당자 명</th>
 	                  <th width="">IP</th>
+	                  <th width="15%">등록일</th>
 	                </tr>
               	</thead>
               	<tbody></tbody>
@@ -98,6 +127,7 @@
                   <td>{{serviceName}}</td>
                   <td>{{managerName}}</td>
                   <td>{{serviceIp}}</td>
+                  <td>{{createDatetime}}</td>
                 </tr>
 			</script>
             </div>
@@ -120,13 +150,21 @@
 <script src="/js/let/openapi/openapi.js"></script>
 <script>
 	$(document).ready(function() {
-		page.showButton();
+		page.button.render();
+		page.datepicker.render();
 		openapi.openapiPostList();
 	});
 	(function() {
 		var _page = {
-				showButton: function() {
-					$('#add').show();
+				button: {
+					render: function() {
+						$('#add').show();
+					}
+				},
+				datepicker: {
+					render: function() {
+						$('#createDatetimeTxt').datepicker(__.getDatepickerOptions());
+					}
 				}
 		} 
 		window.page = _page;

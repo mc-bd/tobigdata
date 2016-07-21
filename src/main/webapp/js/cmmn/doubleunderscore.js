@@ -118,6 +118,13 @@
 				}
 				return _params;
 			},
+			setParams: function(queryStringJSON) {
+				var _queryStringBuilder = [];
+				for ( var key in queryStringJSON) {
+					_queryStringBuilder.push(key + '=' + queryStringJSON[key]);
+				}
+				return (_.isEmpty(queryStringJSON) ? '' : '?') +_queryStringBuilder.join('&');
+			},
 			confirm: function(event) {
 				var _msg = this.getConfirmMsg(event.target);
 				return window.confirm(_msg);
@@ -182,6 +189,9 @@
 					$('#'+key).val(_params[key]);
 					$('#'+key+'Txt').val(_params[key]);
 				}
+			},
+			redirect: function(url, queryStringJSON) {
+				location.href = url + this.setParams(queryStringJSON);
 			}
 	};
 	window.__ = __;
