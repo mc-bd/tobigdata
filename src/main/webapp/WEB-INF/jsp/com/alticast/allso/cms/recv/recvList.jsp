@@ -149,13 +149,6 @@
               	</thead>
               	<tbody></tbody>
               </table>
-              
-        		<input type="hidden" id="ingestSeq">
-        		<input type="hidden" id="uploadType">
-        		<input type="hidden" id="contentType">
-        		<input type="hidden" id="contentTitle">
-        		<input type="hidden" id="ingetDatetime">              
-        		
 			<script type="text/template" id="recv-list-tr-template">
                 <tr data-ingest-seq="{{ingestSeq}}">
                   <td>{{rnum}}</td>

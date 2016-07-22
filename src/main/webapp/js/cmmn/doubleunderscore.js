@@ -195,8 +195,8 @@
 			},
 			renderPagination: function(paginationInfo) {
 				var _paginationInfo = paginationInfo;
-				_template = $('#pagination-template').html();
-				_htmlBuilder = [];
+				var _template = $('#pagination-template').html();
+				var _htmlBuilder = [];
 				// calc; p, n page
 				var _pHref = _paginationInfo.firstPageNoOnPageList < _paginationInfo.currentPageNo - _paginationInfo.pageSize ? _paginationInfo.currentPageNo - _paginationInfo.pageSize : _paginationInfo.firstPageNoOnPageList;
 				var _nHref = _paginationInfo.lastPageNoOnPageList < _paginationInfo.currentPageNo + _paginationInfo.pageSize ? _paginationInfo.lastPageNoOnPageList : _paginationInfo.currentPageNo + _paginationInfo.pageSize;
@@ -220,7 +220,27 @@
 					);
 				}
 				$('.page_box').find('ul').empty().append(_htmlBuilder.join(''));				
-			}
+			},
+			renderList: function(records) {
+				// HTML 템플릿을 가져와서 {{key}}를 record[key]로 치환
+				var _records = records;
+				var _template = $('[id$="list-tr-template"]').html();
+				var _htmlBuilder = [];
+				for (var i = 0; i < _records.length; i++) {
+					_htmlBuilder.push(_template
+								.replace(this.regExp.doubleCurlyBrace, function(match, key){
+									return _records[i][key];
+								})
+					);
+				}
+				if (_records.length == 0) {
+					_htmlBuilder.push('<tr style="height: 10px;"></tr>'); // dummy
+				}
+				$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));				
+			},
+			regExp: {
+				doubleCurlyBrace: /{{(\S+)}}/gi, // Angular markup: The double curly brace notation
+			},
 	};
 	window.__ = __;
 })();

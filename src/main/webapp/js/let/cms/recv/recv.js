@@ -82,30 +82,9 @@
 					pageIndex: pageIndex || 1
 				},
 				success: function(data) {
-					var _template = '';
-					var _htmlBuilder = [];
-					
-					// render; list 
-					var _records = data.data.records;
-					_template = $('#recv-list-tr-template').html();
-					_htmlBuilder = [];
-					for (var i = 0; i < _records.length; i++) {
-						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _records[i]['rnum'])
-									.replace(/{{ingestSeq}}/gi, _records[i]['ingestSeq'])
-									.replace(/{{uploadType}}/gi, _records[i]['uploadType'])
-									.replace(/{{contentType}}/gi, _records[i]['contentType'])
-									.replace(/{{contentTitle}}/gi, _records[i]['contentTitle'])
-									.replace(/{{ingetDatetime}}/gi, _records[i]['ingetDatetime'])
-						);
-					}
-					if (_records.length == 0) {
-						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
-					}
-					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
-					
-					// render; pagination
-					__.renderPagination(data.data.paginationInfo);
+					var _data = data.data;
+					__.renderList(_data.records);
+					__.renderPagination(_data.paginationInfo);
 				}
 			});
 		},
