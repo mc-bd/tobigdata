@@ -16,11 +16,7 @@
 		bindEvent: function() {
 			var that = this;
 			$('#search').on('click', function(e) {
-				$('#ingestSeq').val($('#ingestSeqTxt').val());
-				$('#uploadType').val($('#uploadTypeTxt').val());
-				$('#contentType').val($('#contentTypeTxt').val());
-				$('#contentTitle').val($('#contentTitleTxt').val());
-				$('#ingetDatetime').val($('#ingetDatetimeTxt').val());
+				__.setInputByInputTxt(recv.model); // TODO: alert(recv == this == that);
 				that.recvPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -61,6 +57,20 @@
 		},
 		
 		// =======================================================================
+		// model;
+		// =======================================================================
+		
+		model: {
+			ingestSeq: '일련번호',
+			uploadType: '입수방법',
+			contentType: '종류',
+			contentTitle: '제목',
+			contentFilename: '파일명',
+			contentUrl: '저장위치',
+			ingetDatetime: '입수일시',
+		},
+		
+		// =======================================================================
 		// To server side;
 		// =======================================================================
 		
@@ -68,19 +78,13 @@
 			location.href = '/recv';
 		},
 		recvPostList: function(e, pageIndex) {
-			// ajax
 			__.ajax({
 				url: '/recv',
 				dataType: 'json',
 				method: 'POST',
-				data: {
-					ingestSeq: $('#ingestSeq').val(),
-					uploadType: $('#uploadType').val(),
-					contentType: $('#contentType').val(),
-					contentTitle: $('#contentTitle').val(),
-					ingetDatetime: $('#ingetDatetime').val(),
+				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
-				},
+				}),
 				success: function(data) {
 					var _data = data.data;
 					__.renderList(_data.records);
@@ -98,14 +102,8 @@
 				method: 'POST',
 				data: __.getParams(),
 				success: function(data) {
-					var _record = data.data.record;
-					$('#ingestSeq').val(_record.ingestSeq);
-					$('#uploadType').val(_record.uploadType);
-					$('#contentType').val(_record.contentType);
-					$('#contentTitle').val(_record.contentTitle);
-					$('#contentFilename').val(_record.contentFilename);
-					$('#contentUrl').val(_record.contentUrl);
-					$('#ingetDatetime').val(_record.ingetDatetime);
+					var _data = data.data;
+					__.setInputByRecord(recv.model, _data.record); // TODO: alert(recv == this); 
 				}
 			});
 		},
@@ -113,18 +111,11 @@
 		},
 		recvCreatePost: function(e) {
 			if (!__.confirm(e)) { return; }
+			debugger;
 			__.ajax({
 				url: '/recv/create',
 				method: 'POST',
-				data: {
-					ingestSeq: $('#ingestSeq').val(),
-					uploadType: $('#uploadType').val(),
-					contentType: $('#contentType').val(),
-					contentTitle: $('#contentTitle').val(),
-					contentFilename: $('#contentFilename').val(),
-					contentUrl: $('#contentUrl').val(),
-					ingetDatetime: $('#ingetDatetime').val(),
-				},
+				data: __.getModelByInput(recv.model), // TODO: alert(recv == this);
 				success: function(data) {
 					__.alert('등록되었습니다.');
 					__.close();
@@ -134,18 +125,11 @@
 		},
 		recvPut: function(e) {
 			if (!__.confirm(e)) { return; }
+			debugger;
 			__.ajax({
 				url: '/recv',
 				method: 'PUT',
-				data: {
-					ingestSeq: $('#ingestSeq').val(),
-					uploadType: $('#uploadType').val(),
-					contentType: $('#contentType').val(),
-					contentTitle: $('#contentTitle').val(),
-					contentFilename: $('#contentFilename').val(),
-					contentUrl: $('#contentUrl').val(),
-					ingetDatetime: $('#ingetDatetime').val(),
-				},
+				data: __.getModelByInput(recv.model), // TODO: alert(recv == this);
 				success: function(data) {
 					__.alert('저장되었습니다.');
 					__.close();

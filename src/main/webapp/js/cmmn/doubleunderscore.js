@@ -241,6 +241,35 @@
 			regExp: {
 				doubleCurlyBrace: /{{(\S+)}}/gi, // Angular markup: The double curly brace notation
 			},
+			setInputByInputTxt: function(model) {
+				for ( var key in model) {
+					$('#' + key).val($('#' + key + 'Txt').val());
+				}
+			},
+			getModelByInput: function(model) {
+				var _model = {};
+/*				
+				for ( var key in model) {
+					_model[key] = $('#' + key).val();
+				}
+*/				
+				for ( var key in model) {
+					// REF
+					// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+					Object.defineProperty(_model, key, {
+						value:  $('#' + key).val(),
+//						configurable: false,
+						enumerable: true, // false -> $.extend 미작동.
+//						writable: false,
+					});
+				}
+				return _model;
+			},
+			setInputByRecord: function(model, record) {
+				for ( var key in model) {
+					$('#' + key).val(record[key]);
+				}
+			},
 	};
 	window.__ = __;
 })();
