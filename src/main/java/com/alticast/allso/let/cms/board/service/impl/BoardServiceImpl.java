@@ -16,35 +16,35 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper boardDao;
 
 	@Override
-	public List<Map<String, Object>> selectSites(
+	public List<Map<String, Object>> selectRecords(
 			Map<String, Object> paramMap) throws Exception {
-		return boardDao.selectSites(paramMap);
+		return boardDao.selectRecords(paramMap);
 	}
 
 	@Override
-	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception {
-		return boardDao.selectSitesTotCnt(paramMap);
+	public int selectRecordsTotCnt(Map<String, Object> paramMap) throws Exception {
+		return boardDao.selectRecordsTotCnt(paramMap);
 	}
 
 	@Override
-	public Map<String, Object> selectSite(Map<String, Object> paramMap)
+	public Map<String, Object> selectRecord(Map<String, Object> paramMap)
 			throws Exception {
-		return boardDao.selectSite(paramMap);
+		return boardDao.selectRecord(paramMap);
 	}
 
 	@Override
-	public int insertSite(Map<String, Object> paramMap) throws Exception {
-		return boardDao.insertSite(paramMap);
+	public int insertRecord(Map<String, Object> paramMap) throws Exception {
+		return boardDao.insertRecord(paramMap);
 	}
 
 	@Override
-	public int updateSite(Map<String, Object> paramMap) throws Exception {
-		return boardDao.updateSite(paramMap);
+	public int updateRecord(Map<String, Object> paramMap) throws Exception {
+		return boardDao.updateRecord(paramMap);
 	}
 
 	@Override
-	public int deleteSite(Map<String, Object> paramMap) throws Exception {
-		return boardDao.deleteSite(paramMap);
+	public int deleteRecord(Map<String, Object> paramMap) throws Exception {
+		return boardDao.deleteRecord(paramMap);
 	}
 
 }

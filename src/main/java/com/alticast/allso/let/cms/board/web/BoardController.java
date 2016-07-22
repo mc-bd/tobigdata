@@ -54,11 +54,11 @@ public class BoardController {
 		/* ++ paginationInfo */
 		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		List<?> sites = boardService.selectSites(paramMap);
-		data.put("sites", sites);
+		List<?> records = boardService.selectRecords(paramMap);
+		data.put("records", records);
 		
-		int sitesTotCnt = boardService.selectSitesTotCnt(paramMap);
-		paginationInf.setTotalRecordCount(sitesTotCnt);
+		int recordsTotCnt = boardService.selectRecordsTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(recordsTotCnt);
 		paginationInf.setOthers();
 		
 		data.put("paginationInfo", paginationInf);
@@ -75,7 +75,7 @@ public class BoardController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("site", boardService.selectSite(paramMap));
+		data.put("record", boardService.selectRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -95,7 +95,7 @@ public class BoardController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", boardService.insertSite(paramMap));
+		data.put("result", boardService.insertRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -107,7 +107,7 @@ public class BoardController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", boardService.updateSite(paramMap));
+		data.put("result", boardService.updateRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -119,7 +119,7 @@ public class BoardController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", boardService.deleteSite(paramMap));
+		data.put("result", boardService.deleteRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 
