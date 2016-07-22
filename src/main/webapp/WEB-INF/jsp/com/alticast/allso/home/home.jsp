@@ -123,8 +123,8 @@
                 <tr data-day="0" data-type="S">
                   <td width="18">1.</td>
                   <td width="310">금일 변환 현황</td>
-                  <td width="95"><span class="badge bg-red">성공</span></td>
-                   <td width="204"><span class="badge bg-red">-</span></td>
+                  <td width="95"><span class="badge bg-light-blue">성공</span></td>
+                   <td width="204"><span class="badge bg-light-blue">-</span></td>
                 </tr>
                 <tr data-day="0" data-type="F">
                   <td>2.</td>
@@ -141,8 +141,8 @@
                 <tr data-day="-1" data-type="F">
                   <td>4.</td>
                   <td>어제 변환 현황</td>
-                  <td><span class="badge bg-light-blue">실패</span></td>
-                  <td><span class="badge bg-light-blue">-</span></td>
+                  <td><span class="badge bg-red">실패</span></td>
+                  <td><span class="badge bg-red">-</span></td>
                 </tr>
               </table>
             </div>
@@ -160,7 +160,7 @@
                   <td width="414">금일 등록 현황</td>
                   <td width="199">-</td>
                 </tr>
-                <tr data-day="0">
+                <tr data-day="-1">
                   <td>2.</td>
                   <td>어제 등록 현황</td>
                   <td>-</td>

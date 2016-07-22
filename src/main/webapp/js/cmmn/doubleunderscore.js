@@ -291,6 +291,22 @@
 					$('#' + key).val(record[key]);
 				}
 			},
+			fixedTo: function(number, z) {
+				var _builder = [];
+				for (var i = 0; i < z; i++) {
+					_builder.push('0');
+				}
+				debugger;
+				return (_builder.join('') + number).slice(-z);
+			},
+			getDateString: function(day) {
+				// ex) 2016-07-22
+				var date = new Date(Date.now() + (day * 1000 * 60 * 60 * 24));
+				var _year = date.getFullYear();
+				var _month = date.getMonth() + 1;
+				var _date = date.getDate();
+				return _year + '-' + this.fixedTo(_month, 2) + '-' + this.fixedTo(_date, 2);
+			}
 	};
 	window.__ = __;
 })();
