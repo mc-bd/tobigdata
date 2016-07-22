@@ -80,11 +80,6 @@
     
     <update id="updateRecord" parameterType="Map">
 -- 다른테이블 업데이트하는 것인지 정의 필요
-/*        
-		UPDATE tb_transcode_req_log
-		   SET CONTENT_TITLE = #{contentTitle}
-		WHERE  CONTENT_ID = #{contentId}
-*/		
     </update>
     
     <delete id="deleteRecord" parameterType="Map">
