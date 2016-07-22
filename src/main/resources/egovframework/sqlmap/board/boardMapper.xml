@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alticast.allso.let.cms.board.service.impl.BoardMapper">
+    
+	<select id="selectRecords" parameterType="Map" resultType="egovMap">
+		SELECT T.*
+		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
+				FROM
+					(
+						SELECT DELIVERY_SEQ
+						       , CONTENT_ID
+						       , CONTENT_ID AS CONTENT_TITLE
+						       , CONTENT_TYPE
+						       , CAST(DELIVERY_DATETIME AS CHAR) AS DELIVERY_DATETIME
+						  FROM tb_board_log
+						  WHERE 1=1
+							<if test="deliverySeq != null and deliverySeq != ''">
+								AND	DELIVERY_SEQ LIKE CONCAT('%', #{deliverySeq}, '%')
+							</if>
+							<if test="contentId != null and contentId != ''">
+								AND	CONTENT_ID LIKE CONCAT('%', #{contentId}, '%')
+							</if>
+							<if test="contentTitle != null and contentTitle != ''">
+								AND	CONTENT_TITLE LIKE CONCAT('%', #{contentTitle}, '%')
+							</if>
+							<if test="contentType != null and contentType != ''">
+								AND	CONTENT_TYPE LIKE CONCAT('%', #{contentType}, '%')
+							</if>
+							<if test="deliveryDatetime != null and deliveryDatetime != ''">
+								AND	DELIVERY_DATETIME LIKE CONCAT('%', #{deliveryDatetime}, '%')
+							</if>
+						ORDER BY DELIVERY_SEQ ASC
+					) a, ( SELECT @RNUM := 0 ) b
+				) T
+		ORDER BY DELIVERY_SEQ DESC
+		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
+	</select>
+	
+	<select id="selectRecordsTotCnt" parameterType="searchVO" resultType="int">
+			SELECT COUNT(*) totcnt
+			  FROM tb_board_log
+			  WHERE 1=1
+				<if test="deliverySeq != null and deliverySeq != ''">
+					AND	DELIVERY_SEQ LIKE CONCAT('%', #{deliverySeq}, '%')
+				</if>
+				<if test="contentId != null and contentId != ''">
+					AND	CONTENT_ID LIKE CONCAT('%', #{contentId}, '%')
+				</if>
+				<if test="contentTitle != null and contentTitle != ''">
+					AND	CONTENT_TITLE LIKE CONCAT('%', #{contentTitle}, '%')
+				</if>
+				<if test="contentType != null and contentType != ''">
+					AND	CONTENT_TYPE LIKE CONCAT('%', #{contentType}, '%')
+				</if>
+				<if test="deliveryDatetime != null and deliveryDatetime != ''">
+					AND	DELIVERY_DATETIME LIKE CONCAT('%', #{deliveryDatetime}, '%')
+				</if>			  
+	</select>	
+	
+	<select id="selectRecord" parameterType="Map" resultType="egovMap">
+			SELECT DELIVERY_SEQ
+			       , CONTENT_ID
+			       , CONTENT_ID AS CONTENT_TITLE
+			       , CONTENT_TYPE
+			       , CAST(DELIVERY_DATETIME AS CHAR) AS DELIVERY_DATETIME
+			FROM tb_board_log
+			WHERE DELIVERY_SEQ = #{deliverySeq}
+	</select>
+
+    <insert id="insertRecord" parameterType="Map">
+    </insert>
+    
+    <update id="updateRecord" parameterType="Map">
+-- TODO       
+    </update>
+    
+    <delete id="deleteRecord" parameterType="Map">
+    </delete>
+    
+</mapper>
