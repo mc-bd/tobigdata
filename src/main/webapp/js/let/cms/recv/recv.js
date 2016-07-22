@@ -84,7 +84,7 @@
 				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
 				}),
-				success: function(data) {
+				success: function(data, textStatus, jqXHR) {
 					var _data = data.data;
 					__.renderList(_data.records);
 					__.renderPagination(_data.paginationInfo);
@@ -100,7 +100,7 @@
 				url: '/recv/view',
 				method: 'POST',
 				data: __.getParams(),
-				success: function(data) {
+				success: function(data, textStatus, jqXHR) {
 					var _data = data.data;
 					__.setInputByRecord(recv.model, _data.record); // TODO: alert(recv == this); 
 				}
@@ -110,13 +110,12 @@
 		},
 		recvCreatePost: function(e) {
 			if (!__.confirm(e)) { return; }
-			debugger;
 			__.ajax({
 				url: '/recv/create',
 				method: 'POST',
 				data: __.getModelByInput(recv.model), // TODO: alert(recv == this);
-				success: function(data) {
-					__.alert('등록되었습니다.');
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.recv.recvPostList();
 				}
@@ -124,13 +123,12 @@
 		},
 		recvPut: function(e) {
 			if (!__.confirm(e)) { return; }
-			debugger;
 			__.ajax({
 				url: '/recv',
 				method: 'PUT',
 				data: __.getModelByInput(recv.model), // TODO: alert(recv == this);
-				success: function(data) {
-					__.alert('저장되었습니다.');
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.recv.recvPostList();
 				}
@@ -141,11 +139,9 @@
 			__.ajax({
 				url: '/recv',
 				method: 'DELETE',
-				data: {
-					ingestSeq: $('#ingestSeq').val(),
-				},
-				success: function(data) {
-					__.alert('삭제되었습니다.');
+				data: __.getModelByInput(recv.model), // TODO: alert(recv == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.recv.recvPostList();
 				}

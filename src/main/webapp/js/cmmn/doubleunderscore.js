@@ -155,6 +155,27 @@
 			},
 			getAlertMsg: function(element) {
 			},
+			alertAfterAjax: function(ajaxObj) {
+				var _method = ajaxObj.method;
+				var _msg;
+				switch (_method) {
+				case 'GET':
+					_msg = '';
+					break;
+				case 'POST':
+					_msg = '등록되었습니다.';
+					break;
+				case 'PUT':
+					_msg = '저장되었습니다.';
+					break;
+				case 'DELETE':
+					_msg = '삭제되었습니다.';
+					break;
+				default:
+					break;
+				}
+				this.alert(_msg);
+			},
 			resetElement: function(element) {
 				$(element).find('input').val(''); // TODO: 확장 필요; element... 
 			},
