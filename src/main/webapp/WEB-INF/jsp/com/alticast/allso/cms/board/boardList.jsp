@@ -60,7 +60,7 @@
 	                  <th style="width:1%"></th>
 	                  <th style="width:9%">배포일시</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="deliveryDatetimeTxt" placeholder="" >
+	                	  <input class="form-control" type="text" id="deliveryDatetimeTxt" placeholder="" readonly="readonly">
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
