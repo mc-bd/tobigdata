@@ -33,56 +33,37 @@
        <div class="box">
           <div class="box-header"></div>
             <div class="box-body no-padding">
-        		<input type="hidden" id="serviceId">
-        		<input type="hidden" id="serviceName">
-        		<input type="hidden" id="managerName">
-        		<input type="hidden" id="serviceIp">
-        		<input type="hidden" id="createDatetime">
+        		<input type="hidden" id="transSeq">
+        		<input type="hidden" id="contentId">
+        		<input type="hidden" id="contentTitle">
+        		<input type="hidden" id="reqDatetime">
+        		<input type="hidden" id="transState">
+        		<input type="hidden" id="completeDatetime">
+        		<input type="hidden" id="pageIndex">
               <table>
               	<tbody>
 	                <tr>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >서비스 ID</th>
+	                  <th style="width:9%" >일련번호</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
+	                	  <input class="form-control" type="text" id="transSeqTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">서비스 명</th>
+	                  <th style="width:9%" >콘텐츠 아이디</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
+	                	  <input class="form-control" type="text" id="contentIdTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">담당자 명</th>
+	                  <th style="width:9%" >변환 상태</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
+	                	  <input class="form-control" type="text" id="transStateTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">IP</th>
+	                  <th style="width:9%" ></th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >등록일</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
+<!-- 	                  
+	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
+ -->	                	  
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
@@ -111,23 +92,23 @@
               	<thead>
 	                <tr>
 	                  <th width="5%">No</th>
-	                  <th width="">서비스 ID</th>
-	                  <th width="">서비스 명</th>
-	                  <th width="">담당자 명</th>
-	                  <th width="">IP</th>
-	                  <th width="15%">등록일</th>
+	                  <th width="">일련번호</th>
+	                  <th width="">콘텐츠 아이디</th>
+	                  <th width="">변환 상태</th>
+	                  <th width="15%">변환 요청일</th>
+	                  <th width="15%">변환 완료일</th>
 	                </tr>
               	</thead>
               	<tbody></tbody>
               </table>
 			<script type="text/template" id="transcode-list-tr-template">
-                <tr data-service-id="{{serviceId}}">
+                <tr data-trans-seq="{{transSeq}}">
                   <td>{{rnum}}</td>
-                  <td>{{serviceId}}</td>
-                  <td>{{serviceName}}</td>
-                  <td>{{managerName}}</td>
-                  <td>{{serviceIp}}</td>
-                  <td>{{createDatetime}}</td>
+                  <td>{{transSeq}}</td>
+                  <td>{{contentId}}</td>
+                  <td>{{transState}}</td>
+                  <td>{{reqDatetime}}</td>
+                  <td>{{completeDatetime}}</td>
                 </tr>
 			</script>
             </div>

@@ -16,35 +16,35 @@ public class TranscodeServiceImpl implements TranscodeService {
 	private TranscodeMapper transcodeDao;
 
 	@Override
-	public List<Map<String, Object>> selectSites(
+	public List<Map<String, Object>> selectRecords(
 			Map<String, Object> paramMap) throws Exception {
-		return transcodeDao.selectSites(paramMap);
+		return transcodeDao.selectRecords(paramMap);
 	}
 
 	@Override
-	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception {
-		return transcodeDao.selectSitesTotCnt(paramMap);
+	public int selectRecordsTotCnt(Map<String, Object> paramMap) throws Exception {
+		return transcodeDao.selectRecordsTotCnt(paramMap);
 	}
 
 	@Override
-	public Map<String, Object> selectSite(Map<String, Object> paramMap)
+	public Map<String, Object> selectRecord(Map<String, Object> paramMap)
 			throws Exception {
-		return transcodeDao.selectSite(paramMap);
+		return transcodeDao.selectRecord(paramMap);
 	}
 
 	@Override
-	public int insertSite(Map<String, Object> paramMap) throws Exception {
-		return transcodeDao.insertSite(paramMap);
+	public int insertRecord(Map<String, Object> paramMap) throws Exception {
+		return transcodeDao.insertRecord(paramMap);
 	}
 
 	@Override
-	public int updateSite(Map<String, Object> paramMap) throws Exception {
-		return transcodeDao.updateSite(paramMap);
+	public int updateRecord(Map<String, Object> paramMap) throws Exception {
+		return transcodeDao.updateRecord(paramMap);
 	}
 
 	@Override
-	public int deleteSite(Map<String, Object> paramMap) throws Exception {
-		return transcodeDao.deleteSite(paramMap);
+	public int deleteRecord(Map<String, Object> paramMap) throws Exception {
+		return transcodeDao.deleteRecord(paramMap);
 	}
 
 }

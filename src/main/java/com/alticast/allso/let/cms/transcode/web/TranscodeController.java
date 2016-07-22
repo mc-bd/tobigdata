@@ -54,11 +54,11 @@ public class TranscodeController {
 		/* ++ paginationInfo */
 		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		List<?> sites = transcodeService.selectSites(paramMap);
-		data.put("sites", sites);
+		List<?> records = transcodeService.selectRecords(paramMap);
+		data.put("records", records);
 		
-		int sitesTotCnt = transcodeService.selectSitesTotCnt(paramMap);
-		paginationInf.setTotalRecordCount(sitesTotCnt);
+		int recordsTotCnt = transcodeService.selectRecordsTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(recordsTotCnt);
 		paginationInf.setOthers();
 		
 		data.put("paginationInfo", paginationInf);
@@ -75,7 +75,7 @@ public class TranscodeController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("site", transcodeService.selectSite(paramMap));
+		data.put("record", transcodeService.selectRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -95,7 +95,7 @@ public class TranscodeController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", transcodeService.insertSite(paramMap));
+		data.put("result", transcodeService.insertRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -107,7 +107,7 @@ public class TranscodeController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", transcodeService.updateSite(paramMap));
+		data.put("result", transcodeService.updateRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -119,7 +119,7 @@ public class TranscodeController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", transcodeService.deleteSite(paramMap));
+		data.put("result", transcodeService.deleteRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 

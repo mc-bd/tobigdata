@@ -16,11 +16,7 @@
 		bindEvent: function() {
 			var that = this;
 			$('#search').on('click', function(e) {
-				$('#serviceId').val($('#serviceIdTxt').val());
-				$('#serviceName').val($('#serviceNameTxt').val());
-				$('#managerName').val($('#managerNameTxt').val());
-				$('#serviceIp').val($('#serviceIpTxt').val());
-				$('#createDatetime').val($('#createDatetimeTxt').val());
+				__.setInputByInputTxt(transcode.model); // TODO: alert(transcode == this == that);
 				that.transcodePostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -61,6 +57,18 @@
 		},
 		
 		// =======================================================================
+		// model;
+		// =======================================================================
+		
+		model: {
+			transSeq: '일련번호',
+			contentId: '콘텐츠 아이디',
+			reqDatetime: '변환 요청일',
+			transState: '변환 상태',
+			completeDatetime: '변환 완료일',
+		},
+		
+		// =======================================================================
 		// To server side;
 		// =======================================================================
 		
@@ -68,44 +76,16 @@
 			location.href = '/transcode';
 		},
 		transcodePostList: function(e, pageIndex) {
-			// ajax
 			__.ajax({
 				url: '/transcode',
-				dataType: 'json',
 				method: 'POST',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					serviceIp: $('#serviceIp').val(),
-					createDatetime: $('#createDatetime').val(),
+				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
-				},
-				success: function(data) {
-					var _template = '';
-					var _htmlBuilder = [];
-					
-					// render; list 
-					var _sites = data.data.sites;
-					_template = $('#transcode-list-tr-template').html();
-					_htmlBuilder = [];
-					for (var i = 0; i < _sites.length; i++) {
-						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _sites[i]['rnum'])
-									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
-									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
-									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
-									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
-									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
-						);
-					}
-					if (_sites.length == 0) {
-						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
-					}
-					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
-					
-					// render; pagination
-					__.renderPagination(data.data.paginationInfo);
+				}),
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.renderList(_data.records);
+					__.renderPagination(_data.paginationInfo);
 				}
 			});
 		},
@@ -118,16 +98,9 @@
 				url: '/transcode/view',
 				method: 'POST',
 				data: __.getParams(),
-				success: function(data) {
-					var _site = data.data.site;
-					$('#serviceId').val(_site.serviceId);
-					$('#serviceName').val(_site.serviceName);
-					$('#managerName').val(_site.managerName);
-					$('#managerTel').val(_site.managerTel);
-					$('#managerEmail').val(_site.managerEmail);
-					$('#serviceIp').val(_site.serviceIp);
-					$('#permissionKey').val(_site.permissionKey);
-					$('#createDatetime').val(_site.createDatetime);
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.setInputByRecord(transcode.model, _data.record); // TODO: alert(transcode == this); 
 				}
 			});
 		},
@@ -138,17 +111,9 @@
 			__.ajax({
 				url: '/transcode/create',
 				method: 'POST',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
-				},
-				success: function(data) {
-					__.alert('등록되었습니다.');
+				data: __.getModelByInput(transcode.model), // TODO: alert(transcode == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.transcode.transcodePostList();
 				}
@@ -159,17 +124,9 @@
 			__.ajax({
 				url: '/transcode',
 				method: 'PUT',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
-				},
-				success: function(data) {
-					__.alert('저장되었습니다.');
+				data: __.getModelByInput(transcode.model), // TODO: alert(transcode == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.transcode.transcodePostList();
 				}
@@ -180,11 +137,9 @@
 			__.ajax({
 				url: '/transcode',
 				method: 'DELETE',
-				data: {
-					serviceId: $('#serviceId').val(),
-				},
-				success: function(data) {
-					__.alert('삭제되었습니다.');
+				data: __.getModelByInput(transcode.model), // TODO: alert(transcode == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.transcode.transcodePostList();
 				}
