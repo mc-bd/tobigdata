@@ -28,32 +28,28 @@
     <table class="table table-bordered">
     	<tbody>
 	      <tr>
-	        <th>서비스 ID</th>
-	        <td><input class="form-control" type="text" placeholder="" id="serviceId" readonly="readonly"></td>
+	        <th>일련번호</th>
+	        <td><input class="form-control" type="text" placeholder="" id="transSeq" readonly="readonly"></td>
 	      </tr>
 	      <tr>
-	        <th>서비스 명</th>
-	        <td><input class="form-control" type="text" placeholder="" id="serviceName"></td>
+	        <th>콘텐츠 아이디</th>
+	        <td><input class="form-control" type="text" placeholder="" id="contentId" readonly="readonly"></td>
 	      </tr>
 	      <tr>
-	        <th>담당자 명</th>
-	        <td><input class="form-control" type="text" placeholder="" id="managerName"></td>
+	        <th>콘텐츠 제목</th>
+	        <td><input class="form-control" type="text" placeholder="" id="contentTitle"></td>
 	      </tr>
 	      <tr>
-	        <th>담당자 연락처</th>
-	        <td><input class="form-control" type="text" placeholder="" id="managerTel"></td>
+	        <th>변환 상태</th>
+	        <td><input class="form-control" type="text" placeholder="" id="transState" readonly="readonly"></td>
 	      </tr>
 	      <tr>
-	        <th>담당자 e-mail</th>
-	        <td><input class="form-control" type="text" placeholder="" id="managerEmail"></td>
+	        <th>변환 요청일</th>
+	        <td><input class="form-control" type="text" placeholder="" id="reqDatetime" readonly="readonly"></td>
 	      </tr>
 	      <tr>
-	        <th>IP정보</th>
-	        <td><input class="form-control" type="text" placeholder="" id="serviceIp"></td>
-	      </tr>
-	      <tr>
-	        <th>서비스 인증키</th>
-	        <td><input class="form-control" type="text" placeholder="" id="permissionKey"></td>
+	        <th>변환 완료일</th>
+	        <td><input class="form-control" type="text" placeholder="" id="completeDatetime" readonly="readonly"></td>
 	      </tr>
     	</tbody>
     </table>
@@ -95,18 +91,18 @@
 							break;
 						case 'U':
 							$('#update').show();
-							$('#delete').show();
+// 							$('#delete').show();
 							$('#close').show();
 							break;
 						default:
 							break;
 						}
 					},
-					datepicker: {
-						render: function() {
-						}
-					}
 				},
+				datepicker: {
+					render: function() {
+					}
+				}
 		} 
 		window.page = _page;
 	})();

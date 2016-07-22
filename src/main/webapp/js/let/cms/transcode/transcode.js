@@ -63,6 +63,7 @@
 		model: {
 			transSeq: '일련번호',
 			contentId: '콘텐츠 아이디',
+			contentTitle: '콘텐츠 제목',
 			reqDatetime: '변환 요청일',
 			transState: '변환 상태',
 			completeDatetime: '변환 완료일',

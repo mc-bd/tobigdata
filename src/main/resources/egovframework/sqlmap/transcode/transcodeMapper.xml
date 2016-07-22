@@ -9,6 +9,7 @@
 					(
 						SELECT TRANS_SEQ
 						       , CONTENT_ID
+						       , CONTENT_ID AS CONTENT_TITLE
 						       , CAST(REQ_DATETIME AS CHAR) AS REQ_DATETIME
 						       , TRANS_STATE
 						       , CAST(COMPLETE_DATETIME AS CHAR) AS COMPLETE_DATETIME
@@ -19,6 +20,9 @@
 						</if>
 						<if test="contentId != null and contentId != ''">
 							AND	CONTENT_ID LIKE CONCAT('%', #{contentId}, '%')
+						</if>
+						<if test="contentTitle != null and contentTitle != ''">
+							AND	CONTENT_TITLE LIKE CONCAT('%', #{contentTitle}, '%')
 						</if>
 						<if test="reqDatetime != null and reqDatetime != ''">
 							AND	REQ_DATETIME LIKE CONCAT('%', #{reqDatetime}, '%')
@@ -46,6 +50,9 @@
 				<if test="contentId != null and contentId != ''">
 					AND	CONTENT_ID LIKE CONCAT('%', #{contentId}, '%')
 				</if>
+				<if test="contentTitle != null and contentTitle != ''">
+					AND	CONTENT_TITLE LIKE CONCAT('%', #{contentTitle}, '%')
+				</if>				
 				<if test="reqDatetime != null and reqDatetime != ''">
 					AND	REQ_DATETIME LIKE CONCAT('%', #{reqDatetime}, '%')
 				</if>
@@ -60,6 +67,7 @@
 	<select id="selectRecord" parameterType="Map" resultType="egovMap">
 			SELECT TRANS_SEQ
 			       , CONTENT_ID
+			       , CONTENT_ID AS CONTENT_TITLE
 			       , CAST(REQ_DATETIME AS CHAR) AS REQ_DATETIME
 			       , TRANS_STATE
 			       , CAST(COMPLETE_DATETIME AS CHAR) AS COMPLETE_DATETIME	    
@@ -71,14 +79,12 @@
     </insert>
     
     <update id="updateRecord" parameterType="Map">
+-- 다른테이블 업데이트하는 것인지 정의 필요
+/*        
 		UPDATE tb_transcode_req_log
-		   SET   SERVICE_NAME = #{serviceName}
-		       , MANAGER_NAME = #{managerName}
-		       , MANAGER_TEL = #{managerTel}
-		       , MANAGER_EMAIL = #{managerEmail}
-		       , SERVICE_IP = #{serviceIp}
-		       , PERMISSION_KEY = #{permissionKey}
-		WHERE  SERVICE_ID = #{serviceId}        
+		   SET CONTENT_TITLE = #{contentTitle}
+		WHERE  CONTENT_ID = #{contentId}
+*/		
     </update>
     
     <delete id="deleteRecord" parameterType="Map">
