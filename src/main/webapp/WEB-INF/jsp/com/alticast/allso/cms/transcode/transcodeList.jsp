@@ -59,11 +59,9 @@
 	                	  <input class="form-control" type="text" id="transStateTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" ></th>
+	                  <th style="width:9%" >콘텐츠 제목</th>
 	                  <th style="width:12%">
-<!-- 	                  
 	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
- -->	                	  
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
@@ -94,6 +92,7 @@
 	                  <th width="5%">No</th>
 	                  <th width="">일련번호</th>
 	                  <th width="">콘텐츠 아이디</th>
+	                  <th width="">콘텐츠 제목</th>
 	                  <th width="">변환 상태</th>
 	                  <th width="15%">변환 요청일</th>
 	                  <th width="15%">변환 완료일</th>
@@ -106,6 +105,7 @@
                   <td>{{rnum}}</td>
                   <td>{{transSeq}}</td>
                   <td>{{contentId}}</td>
+                  <td>{{contentTitle}}</td>
                   <td>{{transState}}</td>
                   <td>{{reqDatetime}}</td>
                   <td>{{completeDatetime}}</td>
