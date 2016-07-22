@@ -29,45 +29,45 @@
         
           <div class="box">
             <div class="box-body no-padding">
-              <table class="table">
+              <table class="table" id="table-recv">
                 <tr>
                   <th colspan="4">입수현황</th>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="U">
                   <td width="18">1.</td>
                   <td width="276">금일 입수 현황</td>
                   <td width="128">(사용자업로드)</td>
-                  <td width="205">123,456</td>
+                  <td width="205"></td>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="S">
                   <td>2.</td>
                   <td>금일 입수 현황</td>
-                  <td>(사용자업로드)</td>
-                  <td>123,456</td>
+                  <td>(소셜 비디오)</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="T">
                   <td>3.</td>
                   <td>금일 입수 현황</td>
-                  <td>(사용자업로드)</td>
-                  <td>123,456</td>
+                  <td>(방송용 콘텐츠)</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="U">
                   <td>4.</td>
-                  <td>금일 입수 현황</td>
+                  <td>어제 입수 현황</td>
                   <td>(사용자업로드)</td>
-                  <td>123,456</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="S">
                   <td>5.</td>
-                  <td>금일 입수 현황</td>
-                  <td>(사용자업로드)</td>
-                  <td>123,456</td>
+                  <td>어제 입수 현황</td>
+                  <td>(소셜 비디오)</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="T">
                   <td>6.</td>
-                  <td>금일 입수 현황</td>
-                  <td>(사용자업로드)</td>
-                  <td>123,456</td>
+                  <td>어제 입수 현황</td>
+                  <td>(방송용 콘텐츠)</td>
+                  <td>-</td>
                 </tr>
               </table>
             </div>
@@ -76,45 +76,33 @@
 		 
           <div class="box">
             <div class="box-body no-padding">
-              <table class="table">
+              <table class="table" id="table-board">
                 <tr>
                   <th colspan="4">배포현황</th>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="E">
                   <td width="18">1.</td>
                   <td width="308">금일 배포 현황</td>
                   <td width="95">엔진</td>
-                  <td width="206">123,456</td>
+                  <td width="206">-</td>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="S">
                   <td>2.</td>
                   <td>금일 배포 현황</td>
                   <td>송출</td>
-                  <td>123,456</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="E">
                   <td>3.</td>
-                  <td>금일 배포 현황</td>
-                  <td>송출</td>
-                  <td>123,456</td>
+                  <td>어제 배포 현황</td>
+                  <td>엔진</td>
+                  <td>-</td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="S">
                   <td>4.</td>
                   <td>어제 배포 현황</td>
                   <td>송출</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>5.</td>
-                  <td>어제 배포 현황</td>
-                  <td>송출</td>
-                  <td>123,456</td>
-                </tr>
-                <tr>
-                  <td>6.</td>
-                  <td>어제 배포 현황</td>
-                  <td>송출</td>
-                  <td>123,456</td>
+                  <td>-</td>
                 </tr>
               </table>
             </div>
@@ -128,45 +116,33 @@
        
           <div class="box">
             <div class="box-body no-padding">
-              <table class="table">
+              <table class="table" id="table-transcode">
                 <tr>
                   <th colspan="4">변환 현황</th>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="S">
                   <td width="18">1.</td>
-                  <td width="310">금일변환황</td>
-                  <td width="95"><span class="badge bg-red">실패</span></td>
-                   <td width="204"><span class="badge bg-red">123,456</span></td>
+                  <td width="310">금일 변환 현황</td>
+                  <td width="95"><span class="badge bg-red">성공</span></td>
+                   <td width="204"><span class="badge bg-red">-</span></td>
                 </tr>
-                <tr>
+                <tr data-day="0" data-type="F">
                   <td>2.</td>
-                  <td>금일변환황</td>
+                  <td>금일 변환 현황</td>
                   <td><span class="badge bg-red">실패</span></td>
-                   <td><span class="badge bg-red">123,456</span></td>
+                   <td><span class="badge bg-red">-</span></td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="S">
                   <td>3.</td>
-                  <td>어제변환황</td>
+                  <td>어제 변환 현황</td>
                   <td><span class="badge bg-light-blue">성공</span></td>
-                  <td><span class="badge bg-light-blue">123,456</span></td>
+                  <td><span class="badge bg-light-blue">-</span></td>
                 </tr>
-                <tr>
+                <tr data-day="-1" data-type="F">
                   <td>4.</td>
-                  <td>어제변환황</td>
-                  <td><span class="badge bg-light-blue">성공</span></td>
-                  <td><span class="badge bg-light-blue">123,456</span></td>
-                </tr>
-                <tr>
-                  <td>5.</td>
-                  <td>어제변환황</td>
-                  <td><span class="badge bg-light-blue">성공</span></td>
-                  <td><span class="badge bg-light-blue">123,456</span></td>
-                </tr>
-                <tr>
-                  <td>6.</td>
-                  <td>어제변환황</td>
-                  <td><span class="badge bg-light-blue">성공</span></td>
-                  <td><span class="badge bg-light-blue">123,456</span></td>
+                  <td>어제 변환 현황</td>
+                  <td><span class="badge bg-light-blue">실패</span></td>
+                  <td><span class="badge bg-light-blue">-</span></td>
                 </tr>
               </table>
             </div>
@@ -179,15 +155,15 @@
                 <tr>
                   <th colspan="3">Open API 사이트 등록 현황</th>
                 </tr>
-                <tr data-create-datetime="2016-07-21">
+                <tr data-day="0">
                   <td width="18">1.</td>
                   <td width="414">금일 등록 현황</td>
-                  <td width="199">123,456</td>
+                  <td width="199">-</td>
                 </tr>
-                <tr data-create-datetime="2016-07-20">
+                <tr data-day="0">
                   <td>2.</td>
                   <td>어제 등록 현황</td>
-                  <td>123,456</td>
+                  <td>-</td>
                 </tr>
               </table>
             </div>
