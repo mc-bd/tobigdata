@@ -80,7 +80,6 @@
 		recvPostList: function(e, pageIndex) {
 			__.ajax({
 				url: '/recv',
-				dataType: 'json',
 				method: 'POST',
 				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
