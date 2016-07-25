@@ -91,7 +91,9 @@ public class TranscodeController {
 	public String transcodeEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes("TRANS_STATE"));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeEdit");
 	}
 	

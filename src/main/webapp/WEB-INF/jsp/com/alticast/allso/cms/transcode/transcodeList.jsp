@@ -61,7 +61,7 @@
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >변환 상태</th>
 	                  <th style="width:12%">
-	                	  <select id="transStateTxt">
+	                	  <select id="transStateTxt" class="form-control">
 	                	  	<option value="">선택</option>
 	                	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
 		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
@@ -135,7 +135,7 @@
                   <td>{{transSeq}}</td>
                   <td>{{contentId}}</td>
                   <td>{{contentTitle}}</td>
-                  <td>{{transState}}</td>
+                  <td>{{transStateTxt}}</td>
                   <td>{{reqDatetime}}</td>
                   <td>{{completeDatetime}}</td>
                 </tr>
