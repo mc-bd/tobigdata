@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
 import com.alticast.allso.cmmn.PaginationInf;
+import com.alticast.allso.cmmn.service.CmmnService;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.cms.transcode.service.TranscodeService;
 
@@ -30,6 +32,9 @@ public class TranscodeController {
 	
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(TranscodeController.class);
 	
+	@Resource(name = "cmmnService")
+	private CmmnService cmmnService;
+	
 	@Resource(name = "transcodeService")
 	private TranscodeService transcodeService;
 	
@@ -37,7 +42,10 @@ public class TranscodeController {
 	public String transcodeGet(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+//			, @ModelAttribute Model model
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes("TRANS_STATE"));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeList");
 	}
 	

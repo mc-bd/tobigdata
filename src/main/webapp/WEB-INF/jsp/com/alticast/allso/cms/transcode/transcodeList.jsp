@@ -61,7 +61,12 @@
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >변환 상태</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="transStateTxt" placeholder="" >
+	                	  <select id="transStateTxt">
+	                	  	<option value="">선택</option>
+	                	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
+		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+	                	  	</c:forEach>
+	                	  </select>
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
