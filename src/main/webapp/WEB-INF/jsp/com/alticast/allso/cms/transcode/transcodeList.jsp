@@ -54,14 +54,38 @@
 	                	  <input class="form-control" type="text" id="contentIdTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >콘텐츠 제목</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
+	                  </th>
+	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >변환 상태</th>
 	                  <th style="width:12%">
 	                	  <input class="form-control" type="text" id="transStateTxt" placeholder="" >
 	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >콘텐츠 제목</th>
+	                  <th style="width:9%" >변환 요청일</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
+	                	  <input class="form-control" type="text" id="reqDatetimeTxt" placeholder="" >
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >변환 완료일</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="completeDatetimeTxt" placeholder="" >
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" ></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" ></th>
+	                  <th style="width:12%">
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
@@ -145,6 +169,8 @@
 				datepicker: {
 					render: function() {
 						$('#createDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#reqDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#completeDatetimeTxt').datepicker(__.getDatepickerOptions());
 					}
 				}
 		} 
