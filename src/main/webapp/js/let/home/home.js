@@ -15,7 +15,7 @@
 		
 		bindEvent: function() {
 			var that = this;
-			$('#table-recv').on('click', 'tr', function(e) {
+			$('#table-recv').on('click', 'tr:gt(0)', function(e) {
 				var _url = '/recv';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
@@ -24,7 +24,7 @@
 				delete _data.day;
 				__.redirect(_url, _data);
 			});
-			$('#table-board').on('click', 'tr', function(e) {
+			$('#table-board').on('click', 'tr:gt(0)', function(e) {
 				var _url = '/board';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
@@ -33,7 +33,7 @@
 				delete _data.day;
 				__.redirect(_url, _data);
 			});
-			$('#table-transcode').on('click', 'tr', function(e) {
+			$('#table-transcode').on('click', 'tr:gt(0)', function(e) {
 				var _url = '/transcode';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
@@ -42,7 +42,7 @@
 				delete _data.day;
 				__.redirect(_url, _data);
 			});
-			$('#table-openapi').on('click', 'tr', function(e) {
+			$('#table-openapi').on('click', 'tr:gt(0)', function(e) {
 				var _url = '/openapi';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
