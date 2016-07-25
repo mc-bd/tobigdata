@@ -6,5 +6,5 @@
 		 
 	</div>
 	<!-- Default to the left -->
-	<strong>Copyright &copy; 2016 <a href="#">Alticast Corp</a>.</strong> All rights reserved.
+	<strong>Copyright &copy; 2016 <a href="javascript:;">Alticast Corp</a>.</strong> All rights reserved.
 </footer>

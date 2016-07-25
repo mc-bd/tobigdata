@@ -19,7 +19,7 @@
 <!--   
     <a href="../../index2.html"><b>ALLSO</b>TV</a>
  -->    
-    <a href="#"><b>ALLSO</b>TV</a>
+    <a href="javascript:;"><b>ALLSO</b>TV</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

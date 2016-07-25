@@ -64,8 +64,8 @@
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
 	                 	</th>
 	                  <th style="width:1%"></th>
 	                </tr>

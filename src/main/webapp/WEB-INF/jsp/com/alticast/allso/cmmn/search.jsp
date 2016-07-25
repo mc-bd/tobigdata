@@ -45,7 +45,7 @@
                 	  <input class="form-control" type="text" placeholder="입시일시">
                   </th>
                   <th style="width:1%"></th>
-                  <th style="width:3%"><a href="#"><button type="button" class="btn btn-block btn-default">조회</button></a></th>
+                  <th style="width:3%"><a href="javascript:;"><button type="button" class="btn btn-block btn-default">조회</button></a></th>
                   <th style="width:1%"></th>
                 </tr>
                 <tr>
