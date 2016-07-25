@@ -68,10 +68,10 @@ public class OpenapiController {
 //		paramMap.put("searchVO", searchVO);
 //		log.debug("searchVO: {}", searchVO);
 //		log.debug("paramMap: {}", paramMap);
-//		List<?> sites = openapiService.selectSites(paramMap);
-//		data.put("result", sites);
+//		List<?> records = openapiService.selectRecords(paramMap);
+//		data.put("result", records);
 //
-//		paginationInfo.setTotalRecordCount(sites.size());
+//		paginationInfo.setTotalRecordCount(records.size());
 //		data.put("paginationInfo", paginationInfo);
 //		/* // paginationInfo */
 //		
@@ -93,11 +93,11 @@ public class OpenapiController {
 		/* ++ paginationInfo */
 		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		List<?> sites = openapiService.selectSites(paramMap);
-		data.put("sites", sites);
+		List<?> records = openapiService.selectRecords(paramMap);
+		data.put("records", records);
 		
-		int sitesTotCnt = openapiService.selectSitesTotCnt(paramMap);
-		paginationInf.setTotalRecordCount(sitesTotCnt);
+		int recordsTotCnt = openapiService.selectRecordsTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(recordsTotCnt);
 		paginationInf.setOthers();
 		
 		data.put("paginationInfo", paginationInf);
@@ -114,7 +114,7 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("site", openapiService.selectSite(paramMap));
+		data.put("record", openapiService.selectRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -134,7 +134,7 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.insertSite(paramMap));
+		data.put("result", openapiService.insertRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -146,7 +146,7 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.updateSite(paramMap));
+		data.put("result", openapiService.updateRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 	
@@ -158,7 +158,7 @@ public class OpenapiController {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("params", paramMap);
-		data.put("result", openapiService.deleteSite(paramMap));
+		data.put("result", openapiService.deleteRecord(paramMap));
 		return new Ajax().setData(data).toJSON();
 	}
 

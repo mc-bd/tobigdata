@@ -6,16 +6,16 @@ import java.util.Map;
 
 public interface OpenapiService {
 
-	public List<Map<String, Object>> selectSites(Map<String, Object> paramMap) throws Exception;
+	public List<Map<String, Object>> selectRecords(Map<String, Object> paramMap) throws Exception;
 	
-	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception;
+	public int selectRecordsTotCnt(Map<String, Object> paramMap) throws Exception;
 	
-	public Map<String, Object> selectSite(Map<String, Object> paramMap) throws Exception;
+	public Map<String, Object> selectRecord(Map<String, Object> paramMap) throws Exception;
 	
-	public int insertSite(Map<String, Object> paramMap) throws Exception;
+	public int insertRecord(Map<String, Object> paramMap) throws Exception;
 	
-	public int updateSite(Map<String, Object> paramMap) throws Exception;
+	public int updateRecord(Map<String, Object> paramMap) throws Exception;
 
-	public int deleteSite(Map<String, Object> paramMap) throws Exception;
+	public int deleteRecord(Map<String, Object> paramMap) throws Exception;
 
 }
