@@ -19,7 +19,7 @@
 				var _url = '/recv';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
-					createDatetime: __.getDateString(_data['day'])
+					ingetDatetime: __.getDateString(_data['day'])
 				});
 				delete _data.day;
 				__.redirect(_url, _data);
@@ -28,7 +28,7 @@
 				var _url = '/board';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
-					createDatetime: __.getDateString(_data['day'])
+					deliveryDatetime: __.getDateString(_data['day'])
 				});
 				delete _data.day;
 				__.redirect(_url, _data);
@@ -37,7 +37,7 @@
 				var _url = '/transcode';
 				var _data = $(e.target).parents('tr').data();
 				$.extend(_data, {
-					createDatetime: __.getDateString(_data['day'])
+					completeDatetime: __.getDateString(_data['day'])
 				});
 				delete _data.day;
 				__.redirect(_url, _data);

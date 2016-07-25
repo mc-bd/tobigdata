@@ -33,37 +33,37 @@
                 <tr>
                   <th colspan="4">입수현황</th>
                 </tr>
-                <tr data-day="0" data-type="U">
+                <tr data-day="0" data-content-type="U">
                   <td width="18">1.</td>
                   <td width="276">금일 입수 현황</td>
                   <td width="128">(사용자업로드)</td>
                   <td width="205"></td>
                 </tr>
-                <tr data-day="0" data-type="S">
+                <tr data-day="0" data-content-type="C">
                   <td>2.</td>
                   <td>금일 입수 현황</td>
                   <td>(소셜 비디오)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="0" data-type="T">
+                <tr data-day="0" data-content-type="B">
                   <td>3.</td>
                   <td>금일 입수 현황</td>
                   <td>(방송용 콘텐츠)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-type="U">
+                <tr data-day="-1" data-content-type="U">
                   <td>4.</td>
                   <td>어제 입수 현황</td>
                   <td>(사용자업로드)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-type="S">
+                <tr data-day="-1" data-content-type="C">
                   <td>5.</td>
                   <td>어제 입수 현황</td>
                   <td>(소셜 비디오)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-type="T">
+                <tr data-day="-1" data-content-type="B">
                   <td>6.</td>
                   <td>어제 입수 현황</td>
                   <td>(방송용 콘텐츠)</td>
@@ -80,25 +80,25 @@
                 <tr>
                   <th colspan="4">배포현황</th>
                 </tr>
-                <tr data-day="0" data-type="E">
+                <tr data-day="0" data-type="M">
                   <td width="18">1.</td>
                   <td width="308">금일 배포 현황</td>
                   <td width="95">엔진</td>
                   <td width="206">-</td>
                 </tr>
-                <tr data-day="0" data-type="S">
+                <tr data-day="0" data-type="B">
                   <td>2.</td>
                   <td>금일 배포 현황</td>
                   <td>송출</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-type="E">
+                <tr data-day="-1" data-type="M">
                   <td>3.</td>
                   <td>어제 배포 현황</td>
                   <td>엔진</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-type="S">
+                <tr data-day="-1" data-type="B">
                   <td>4.</td>
                   <td>어제 배포 현황</td>
                   <td>송출</td>
@@ -120,28 +120,28 @@
                 <tr>
                   <th colspan="4">변환 현황</th>
                 </tr>
-                <tr data-day="0" data-type="S">
+                <tr data-day="0" data-trans-state="C">
                   <td width="18">1.</td>
                   <td width="310">금일 변환 현황</td>
                   <td width="95"><span class="badge bg-light-blue">성공</span></td>
                    <td width="204"><span class="badge bg-light-blue">-</span></td>
                 </tr>
-                <tr data-day="0" data-type="F">
+                <tr data-day="0" data-trans-state="I">
                   <td>2.</td>
                   <td>금일 변환 현황</td>
-                  <td><span class="badge bg-red">실패</span></td>
+                  <td><span class="badge bg-red">진행중</span></td>
                    <td><span class="badge bg-red">-</span></td>
                 </tr>
-                <tr data-day="-1" data-type="S">
+                <tr data-day="-1" data-trans-state="C">
                   <td>3.</td>
                   <td>어제 변환 현황</td>
                   <td><span class="badge bg-light-blue">성공</span></td>
                   <td><span class="badge bg-light-blue">-</span></td>
                 </tr>
-                <tr data-day="-1" data-type="F">
+                <tr data-day="-1" data-trans-state="I">
                   <td>4.</td>
                   <td>어제 변환 현황</td>
-                  <td><span class="badge bg-red">실패</span></td>
+                  <td><span class="badge bg-red">진행중</span></td>
                   <td><span class="badge bg-red">-</span></td>
                 </tr>
               </table>
