@@ -299,7 +299,6 @@
 				for (var i = 0; i < z; i++) {
 					_builder.push('0');
 				}
-				debugger;
 				return (_builder.join('') + number).slice(-z);
 			},
 			getDateString: function(day) {
