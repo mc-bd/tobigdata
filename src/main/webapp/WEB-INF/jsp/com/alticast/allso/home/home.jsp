@@ -33,37 +33,37 @@
                 <tr>
                   <th colspan="4">입수현황</th>
                 </tr>
-                <tr data-day="0" data-content-type="U">
+                <tr data-day="0" data-upload-type="U">
                   <td width="18">1.</td>
                   <td width="276">금일 입수 현황</td>
                   <td width="128">(사용자업로드)</td>
                   <td width="205"></td>
                 </tr>
-                <tr data-day="0" data-content-type="C">
+                <tr data-day="0" data-upload-type="C">
                   <td>2.</td>
                   <td>금일 입수 현황</td>
                   <td>(소셜 비디오)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="0" data-content-type="B">
+                <tr data-day="0" data-upload-type="B">
                   <td>3.</td>
                   <td>금일 입수 현황</td>
                   <td>(방송용 콘텐츠)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-content-type="U">
+                <tr data-day="-1" data-upload-type="U">
                   <td>4.</td>
                   <td>어제 입수 현황</td>
                   <td>(사용자업로드)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-content-type="C">
+                <tr data-day="-1" data-upload-type="C">
                   <td>5.</td>
                   <td>어제 입수 현황</td>
                   <td>(소셜 비디오)</td>
                   <td>-</td>
                 </tr>
-                <tr data-day="-1" data-content-type="B">
+                <tr data-day="-1" data-upload-type="B">
                   <td>6.</td>
                   <td>어제 입수 현황</td>
                   <td>(방송용 콘텐츠)</td>

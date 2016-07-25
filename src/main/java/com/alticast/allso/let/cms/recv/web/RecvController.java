@@ -67,6 +67,21 @@ public class RecvController {
 		return new Ajax().setData(data).toJSON();
 	}
 	
+	@RequestMapping(value = {"/cnt"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String recvPostListCnt(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		
+		data.put("recordsTotCnt", recvService.selectRecordsTotCnt(paramMap));
+		
+		return new Ajax().setData(data).toJSON();
+	}
+	
 	@RequestMapping(value = {"/view"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String recvGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp

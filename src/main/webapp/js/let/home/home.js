@@ -62,6 +62,9 @@
 				menu1text: '',
 				menu2text: '메인'
 			});
+			this.recvPostListCnt();
+			this.boardPostListCnt();
+			this.transcodePostListCnt();
 			this.openapiPostListCnt();
 		},
 		
@@ -69,6 +72,76 @@
 		// To server side;
 		// =======================================================================
 		
+		recvPostListCnt: function() {
+			$.each($('#table-recv').find('tr:gt(0)'), function() {
+				__.ajax({
+					url: '/recv/cnt',
+					method: 'POST',
+					data: {
+						ingetDatetime: __.getDateString($(this).data('day')),
+						uploadType: $(this).data('uploadType'),
+					},
+					success: function(data) {
+						var _params = data.data.params;
+						var _recordsTotCnt = data.data.recordsTotCnt;
+						debugger;
+						$('#table-recv').find('tr').each(function(element, index) {
+							if (_params.ingetDatetime == __.getDateString($(this).data('day'))
+									&& _params.uploadType == $(this).data('uploadType')) {
+								$(this).find('td:last').text(_recordsTotCnt);
+								return;
+							}
+						})
+					}
+				});			
+			})
+		},
+		boardPostListCnt: function() {
+			$.each($('#table-board').find('tr:gt(0)'), function() {
+				__.ajax({
+					url: '/board/cnt',
+					method: 'POST',
+					data: {
+						deliveryDatetime: __.getDateString($(this).data('day')),
+						type: $(this).data('type'),
+					},
+					success: function(data) {
+						var _params = data.data.params;
+						var _recordsTotCnt = data.data.recordsTotCnt;
+						$('#table-board').find('tr').each(function(element, index) {
+							if (_params.deliveryDatetime == __.getDateString($(this).data('day'))
+									&& _params.type == $(this).data('type')) {
+								$(this).find('td:last').text(_recordsTotCnt);
+								return;
+							}
+						})
+					}
+				});			
+			})
+		},
+		transcodePostListCnt: function() {
+			$.each($('#table-transcode').find('tr:gt(0)'), function() {
+				__.ajax({
+					url: '/transcode/cnt',
+					method: 'POST',
+					data: {
+						completeDatetime: __.getDateString($(this).data('day')),
+						transState: $(this).data('transState'),
+					},
+					success: function(data) {
+						var _params = data.data.params;
+						var _recordsTotCnt = data.data.recordsTotCnt;
+						$('#table-transcode').find('tr').each(function(element, index) {
+							if (_params.completeDatetime == __.getDateString($(this).data('day'))
+									&& _params.transState == $(this).data('transState')) {
+								$(this).find('td:last').find('span').text(_recordsTotCnt);
+								return;
+							}
+						})
+					}
+				});			
+			})
+		},
 		openapiPostListCnt: function() {
 			$.each($('#table-openapi').find('tr:gt(0)'), function() {
 				__.ajax({
@@ -89,7 +162,6 @@
 					}
 				});			
 			})
-			
 		}
 		
 	}
