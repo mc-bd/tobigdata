@@ -62,11 +62,35 @@
 				menu1text: '',
 				menu2text: '메인'
 			});
+			this.openapiPostListCnt();
 		},
 		
 		// =======================================================================
 		// To server side;
 		// =======================================================================
+		
+		openapiPostListCnt: function() {
+			$.each($('#table-openapi').find('tr:gt(0)'), function() {
+				__.ajax({
+					url: '/openapi/cnt',
+					method: 'POST',
+					data: {
+						createDatetime: __.getDateString($(this).data('day')),
+					},
+					success: function(data) {
+						var _params = data.data.params;
+						var _recordsTotCnt = data.data.recordsTotCnt;
+						$('#table-openapi').find('tr').each(function(element, index) {
+							if (_params.createDatetime == __.getDateString($(this).data('day'))) {
+								$(this).find('td:last').text(_recordsTotCnt);
+								return;
+							}
+						})
+					}
+				});			
+			})
+			
+		}
 		
 	}
 	

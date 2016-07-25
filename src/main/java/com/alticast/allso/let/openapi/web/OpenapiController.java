@@ -106,6 +106,21 @@ public class OpenapiController {
 		return new Ajax().setData(data).toJSON();
 	}
 	
+	@RequestMapping(value = {"/cnt"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String openapiPostListCnt(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		
+		data.put("recordsTotCnt", openapiService.selectRecordsTotCnt(paramMap));
+		
+		return new Ajax().setData(data).toJSON();
+	}
+	
 	@RequestMapping(value = {"/view"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String openapiGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp
