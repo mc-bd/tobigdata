@@ -50,7 +50,7 @@
                	  	<c:forEach var="code" items="${cmmnCodes.contentTypeCodes}" varStatus="status">
                 	  	<option value="${code.cmmnCode2}">${code.content}</option>
                	  	</c:forEach>
-               	  </select>	        
+               	  </select>
         	</td>
 	      </tr>
 	      <tr>
