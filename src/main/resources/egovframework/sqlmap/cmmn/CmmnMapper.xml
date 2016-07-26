@@ -5,7 +5,7 @@
 	<select id="selectCmmnCode" parameterType="Map" resultType="egovMap">
 			SELECT
 				*
-			FROM cmmn_code_sub
+			FROM tb_cmmn_code_sub
 			WHERE CMMN_CODE1 = #{cmmnCode1}
 			ORDER BY ORDER_NUM ASC
 	</select>
