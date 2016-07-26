@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
@@ -10,7 +11,7 @@
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -19,14 +20,14 @@
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Adim (홍길동)님 접속중</span>
+              <span class="hidden-xs">${login.userId} (${login.userName})님 접속중</span>
             </a>
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"> <button type="button" class="btn btn-block btn-default btn-xs logout">로그아웃</button></a>
+            <a href="javascript:;" data-toggle="control-sidebar"> <button type="button" class="btn btn-block btn-default btn-xs logout">로그아웃</button></a>
           </li>
         </ul>
       </div>
