@@ -41,34 +41,6 @@
         		<input type="hidden" id="pageIndex">
               <table>
               	<tbody>
-<!--               	
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" ></th>
-	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="Txt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="Txt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="Txt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="Txt" placeholder="">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
- -->	                
 	                <tr>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >일련번호</th>
@@ -78,12 +50,22 @@
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">입수방법</th>
 	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="uploadTypeTxt" placeholder="">
+	                	  <select id="uploadTypeTxt" class="form-control">
+	                	  	<option value="">선택</option>
+	                	  	<c:forEach var="code" items="${cmmnCodes.uploadTypeCodes}" varStatus="status">
+		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+	                	  	</c:forEach>
+	                	  </select>	                 	 
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">종류</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="contentTypeTxt" placeholder="">
+	                	  <select id="contentTypeTxt" class="form-control">
+	                	  	<option value="">선택</option>
+	                	  	<c:forEach var="code" items="${cmmnCodes.contentTypeCodes}" varStatus="status">
+		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+	                	  	</c:forEach>
+	                	  </select>
 	                  </th>
 	                  <th style="width:1%" ></th>
 	                  <th style="width:9%">제목</th>
@@ -153,8 +135,8 @@
                 <tr data-ingest-seq="{{ingestSeq}}">
                   <td>{{rnum}}</td>
                   <td>{{ingestSeq}}</td>
-                  <td>{{uploadType}}</td>
-                  <td>{{contentType}}</td>
+                  <td>{{uploadTypeTxt}}</td>
+                  <td>{{contentTypeTxt}}</td>
                   <td>{{contentTitle}}</td>
                   <td>{{ingetDatetime}}</td>
                 </tr>

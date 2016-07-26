@@ -9,7 +9,9 @@
 					(
 						SELECT INGEST_SEQ
 						       , UPLOAD_TYPE
+						       , (SELECT CONTENT FROM tb_cmmn_code_sub WHERE CMMN_CODE1 = 'UPLOAD_TYPE' AND CMMN_CODE2 = UPLOAD_TYPE) AS UPLOAD_TYPE_TXT
 						       , CONTENT_TYPE
+						       , (SELECT CONTENT FROM tb_cmmn_code_sub WHERE CMMN_CODE1 = 'CONTENT_TYPE' AND CMMN_CODE2 = CONTENT_TYPE) AS CONTENT_TYPE_TXT
 						       , CONTENT_TITLE
 						       , CONTENT_FILENAME
 						       , CONTENT_URL
@@ -62,7 +64,9 @@
 	<select id="selectRecord" parameterType="Map" resultType="egovMap">
 			SELECT INGEST_SEQ
 			       , UPLOAD_TYPE
+			       , (SELECT CONTENT FROM tb_cmmn_code_sub WHERE CMMN_CODE1 = 'UPLOAD_TYPE' AND CMMN_CODE2 = UPLOAD_TYPE) AS UPLOAD_TYPE_TXT
 			       , CONTENT_TYPE
+			       , (SELECT CONTENT FROM tb_cmmn_code_sub WHERE CMMN_CODE1 = 'CONTENT_TYPE' AND CMMN_CODE2 = CONTENT_TYPE) AS CONTENT_TYPE_TXT			       
 			       , CONTENT_TITLE
 			       , CONTENT_FILENAME
 			       , CONTENT_URL

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.CmmnCode;
 import com.alticast.allso.cmmn.PaginationInf;
+import com.alticast.allso.cmmn.service.CmmnService;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.cms.recv.service.RecvService;
 
@@ -30,6 +33,9 @@ public class RecvController {
 	
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RecvController.class);
 	
+	@Resource(name = "cmmnService")
+	private CmmnService cmmnService;
+	
 	@Resource(name = "recvService")
 	private RecvService recvService;
 	
@@ -37,7 +43,9 @@ public class RecvController {
 	public String recvGet(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.CONTENT_TYPE, CmmnCode.UPLOAD_TYPE));
 		return CmmnUtil.sendJSP("/cms/recv/recvList");
 	}
 	
@@ -98,7 +106,9 @@ public class RecvController {
 	public String recvEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.CONTENT_TYPE, CmmnCode.UPLOAD_TYPE));
 		return CmmnUtil.sendJSP("/cms/recv/recvEdit");
 	}
 	
