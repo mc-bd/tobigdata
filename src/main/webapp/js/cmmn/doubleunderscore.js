@@ -177,7 +177,10 @@
 				this.alert(_msg);
 			},
 			resetElement: function(element) {
-				$(element).find('input').val(''); // TODO: 확장 필요; element... 
+				// TODO: 확장 필요; element...
+				$(element).find('input').val('');  
+				$(element).find('textarea').val('');  
+				$(element).find('select').val('');  
 			},
 			showNavigation: function(options) {
 				var _options = options;
@@ -296,7 +299,6 @@
 				for (var i = 0; i < z; i++) {
 					_builder.push('0');
 				}
-				debugger;
 				return (_builder.join('') + number).slice(-z);
 			},
 			getDateString: function(day) {

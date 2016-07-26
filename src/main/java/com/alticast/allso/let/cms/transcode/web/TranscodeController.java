@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.CmmnCode;
 import com.alticast.allso.cmmn.PaginationInf;
+import com.alticast.allso.cmmn.service.CmmnService;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.cms.transcode.service.TranscodeService;
 
@@ -30,6 +33,9 @@ public class TranscodeController {
 	
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(TranscodeController.class);
 	
+	@Resource(name = "cmmnService")
+	private CmmnService cmmnService;
+	
 	@Resource(name = "transcodeService")
 	private TranscodeService transcodeService;
 	
@@ -37,7 +43,10 @@ public class TranscodeController {
 	public String transcodeGet(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+//			, @ModelAttribute Model model
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.TRANS_STATE));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeList");
 	}
 	
@@ -67,6 +76,21 @@ public class TranscodeController {
 		return new Ajax().setData(data).toJSON();
 	}
 	
+	@RequestMapping(value = {"/cnt"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String transcodePostListCnt(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			, @ModelAttribute("searchVO") SampleDefaultVO searchVO
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> data = new LinkedHashMap<>();
+		data.put("params", paramMap);
+		
+		data.put("recordsTotCnt", transcodeService.selectRecordsTotCnt(paramMap));
+		
+		return new Ajax().setData(data).toJSON();
+	}
+	
 	@RequestMapping(value = {"/view"}, method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String transcodeGetDetailByPost(HttpServletRequest req
 			, HttpServletResponse resp
@@ -83,7 +107,9 @@ public class TranscodeController {
 	public String transcodeEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.TRANS_STATE));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeEdit");
 	}
 	

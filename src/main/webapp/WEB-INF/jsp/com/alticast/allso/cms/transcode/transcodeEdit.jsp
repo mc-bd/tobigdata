@@ -41,7 +41,14 @@
 	      </tr>
 	      <tr>
 	        <th>변환 상태</th>
-	        <td><input class="form-control" type="text" placeholder="" id="transState" readonly="readonly"></td>
+	        <td>
+               	  <select class="form-control" id="transState" disabled="disabled">
+               	  	<option value="">선택</option>
+               	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
+                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+               	  	</c:forEach>
+               	  </select>	        
+        	</td>
 	      </tr>
 	      <tr>
 	        <th>변환 요청일</th>

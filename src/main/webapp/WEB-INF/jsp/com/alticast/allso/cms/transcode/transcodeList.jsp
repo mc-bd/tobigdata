@@ -54,19 +54,48 @@
 	                	  <input class="form-control" type="text" id="contentIdTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >변환 상태</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="transStateTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
 	                  <th style="width:9%" >콘텐츠 제목</th>
 	                  <th style="width:12%">
 	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
 	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >변환 상태</th>
+	                  <th style="width:12%">
+	                	  <select id="transStateTxt" class="form-control">
+	                	  	<option value="">선택</option>
+	                	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
+		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+	                	  	</c:forEach>
+	                	  </select>
+	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >변환 요청일</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="reqDatetimeTxt" placeholder="" >
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >변환 완료일</th>
+	                  <th style="width:12%">
+	                	  <input class="form-control" type="text" id="completeDatetimeTxt" placeholder="" >
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" ></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" ></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
 	                 	</th>
 	                  <th style="width:1%"></th>
 	                </tr>
@@ -106,7 +135,7 @@
                   <td>{{transSeq}}</td>
                   <td>{{contentId}}</td>
                   <td>{{contentTitle}}</td>
-                  <td>{{transState}}</td>
+                  <td>{{transStateTxt}}</td>
                   <td>{{reqDatetime}}</td>
                   <td>{{completeDatetime}}</td>
                 </tr>
@@ -145,6 +174,8 @@
 				datepicker: {
 					render: function() {
 						$('#createDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#reqDatetimeTxt').datepicker(__.getDatepickerOptions());
+						$('#completeDatetimeTxt').datepicker(__.getDatepickerOptions());
 					}
 				}
 		} 

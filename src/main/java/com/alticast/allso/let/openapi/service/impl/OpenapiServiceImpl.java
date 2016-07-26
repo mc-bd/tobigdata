@@ -16,35 +16,35 @@ public class OpenapiServiceImpl implements OpenapiService {
 	private OpenapiMapper openapiDao;
 
 	@Override
-	public List<Map<String, Object>> selectSites(
+	public List<Map<String, Object>> selectRecords(
 			Map<String, Object> paramMap) throws Exception {
-		return openapiDao.selectSites(paramMap);
+		return openapiDao.selectRecords(paramMap);
 	}
 
 	@Override
-	public int selectSitesTotCnt(Map<String, Object> paramMap) throws Exception {
-		return openapiDao.selectSitesTotCnt(paramMap);
+	public int selectRecordsTotCnt(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.selectRecordsTotCnt(paramMap);
 	}
 
 	@Override
-	public Map<String, Object> selectSite(Map<String, Object> paramMap)
+	public Map<String, Object> selectRecord(Map<String, Object> paramMap)
 			throws Exception {
-		return openapiDao.selectSite(paramMap);
+		return openapiDao.selectRecord(paramMap);
 	}
 
 	@Override
-	public int insertSite(Map<String, Object> paramMap) throws Exception {
-		return openapiDao.insertSite(paramMap);
+	public int insertRecord(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.insertRecord(paramMap);
 	}
 
 	@Override
-	public int updateSite(Map<String, Object> paramMap) throws Exception {
-		return openapiDao.updateSite(paramMap);
+	public int updateRecord(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.updateRecord(paramMap);
 	}
 
 	@Override
-	public int deleteSite(Map<String, Object> paramMap) throws Exception {
-		return openapiDao.deleteSite(paramMap);
+	public int deleteRecord(Map<String, Object> paramMap) throws Exception {
+		return openapiDao.deleteRecord(paramMap);
 	}
 
 }

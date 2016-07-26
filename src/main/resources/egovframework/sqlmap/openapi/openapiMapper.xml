@@ -2,44 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alticast.allso.let.openapi.service.impl.OpenapiMapper">
     
-   	<select id="selectSampleList" parameterType="searchVO" resultType="egovMap">
-
-			SELECT
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
-			FROM SAMPLE
-			WHERE 1=1
-			<if test="searchKeyword != null and searchKeyword != ''">
-		        <choose>
-		            <when test="searchCondition == 0">
-						AND	ID LIKE '%' || #{searchKeyword} || '%'
-					</when>
-		            <when test="searchCondition == 1">
-						AND	NAME LIKE '%' || #{searchKeyword} || '%'
-					</when>
-				</choose>
-			</if>
-			ORDER BY ID ASC
-			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
-	</select>
-
-	<select id="selectSampleListTotCnt" parameterType="searchVO" resultType="int">
-
-			SELECT COUNT(*) totcnt
-			FROM SAMPLE
-			WHERE 1=1
-			<if test="searchKeyword != null and searchKeyword != ''">
-		        <choose>
-		            <when test="searchCondition == 0">
-						AND ID LIKE '%' || #{searchKeyword} || '%'
-					</when>
-		            <when test="searchCondition == 1">
-						AND	NAME LIKE '%' || #{searchKeyword} || '%'
-					</when>
-				</choose>
-			</if>
-	</select>
-    
-	<select id="selectSites" parameterType="Map" resultType="egovMap">
+	<select id="selectRecords" parameterType="Map" resultType="egovMap">
 		SELECT T.*
 		  FROM (SELECT @RNUM := @RNUM + 1 AS RNUM, a.*
 				FROM
@@ -52,7 +15,7 @@
 						       SERVICE_IP,
 						       PERMISSION_KEY,
 						       CAST(CREATE_DATETIME AS CHAR) AS CREATE_DATETIME
-						  FROM social.tb_service_site
+						  FROM tb_service_site
 						  WHERE 1=1
 						<if test="serviceId != null and serviceId != ''">
 							AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
@@ -76,9 +39,9 @@
 		LIMIT #{searchVO.recordCountPerPage} OFFSET #{searchVO.firstIndex}		
 	</select>
 	
-	<select id="selectSitesTotCnt" parameterType="searchVO" resultType="int">
+	<select id="selectRecordsTotCnt" parameterType="searchVO" resultType="int">
 			SELECT COUNT(*) totcnt
-			  FROM social.tb_service_site
+			  FROM tb_service_site
 			  WHERE 1=1
 			<if test="serviceId != null and serviceId != ''">
 				AND	SERVICE_ID LIKE CONCAT('%', #{serviceId}, '%')
@@ -97,14 +60,14 @@
 			</if>
 	</select>	
 	
-	<select id="selectSite" parameterType="Map" resultType="egovMap">
+	<select id="selectRecord" parameterType="Map" resultType="egovMap">
 			SELECT
 				*
 			FROM tb_service_site
 			WHERE SERVICE_ID = #{serviceId}
 	</select>
 
-    <insert id="insertSite" parameterType="Map">
+    <insert id="insertRecord" parameterType="Map">
        	<selectKey keyProperty="nextval" resultType="int" order="BEFORE">
        	    select ifnull(max(CAST(SERVICE_ID AS DECIMAL)), 0) + 1
 			from tb_service_site
@@ -124,8 +87,8 @@
         )
     </insert>
     
-    <update id="updateSite" parameterType="Map">
-		UPDATE social.tb_service_site
+    <update id="updateRecord" parameterType="Map">
+		UPDATE tb_service_site
 		   SET   SERVICE_NAME = #{serviceName}
 		       , MANAGER_NAME = #{managerName}
 		       , MANAGER_TEL = #{managerTel}
@@ -135,7 +98,7 @@
 		WHERE  SERVICE_ID = #{serviceId}        
     </update>
     
-    <delete id="deleteSite" parameterType="Map">
+    <delete id="deleteRecord" parameterType="Map">
 		DELETE FROM tb_service_site 
 		WHERE  SERVICE_ID = #{serviceId}
     </delete>

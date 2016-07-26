@@ -48,9 +48,14 @@
 	                	  <input class="form-control" type="text" id="deliverySeqTxt" placeholder="" >
 	                  </th>
 	                  <th style="width:1%"></th>
-	                  <th style="width:9%">콘텐츠 유형</th>
+	                  <th style="width:9%">콘텐츠 종류</th>
 	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="contentTypeTxt" placeholder="" >
+	                	  <select id="contentTypeTxt" class="form-control">
+	                	  	<option value="">선택</option>
+	                	  	<c:forEach var="code" items="${cmmnCodes.contentTypeCodes}" varStatus="status">
+		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+	                	  	</c:forEach>
+	                	  </select>	                	  
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:9%">콘텐츠 아이디</th>
@@ -64,8 +69,8 @@
 	                  </th>
 	                  <th style="width:1%"></th>
 	                  <th style="width:3%">
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
-	                  	<a href="#"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
 	                 	</th>
 	                  <th style="width:1%"></th>
 	                </tr>
@@ -90,7 +95,7 @@
 	                <tr>
 	                  <th width="5%">No</th>
 	                  <th width="">일련번호</th>
-	                  <th width="">콘텐츠 유형</th>
+	                  <th width="">콘텐츠 종류</th>
 	                  <th width="">콘텐츠 아이디</th>
 	                  <th width="">콘텐츠 제목</th>
 	                  <th width="15%">배포 일시</th>
@@ -102,7 +107,7 @@
                 <tr data-delivery-seq="{{deliverySeq}}">
                   <td>{{rnum}}</td>
                   <td>{{deliverySeq}}</td>
-                  <td>{{contentType}}</td>
+                  <td>{{contentTypeTxt}}</td>
                   <td>{{contentId}}</td>
                   <td>{{contentTitle}}</td>
                   <td>{{deliveryDatetime}}</td>

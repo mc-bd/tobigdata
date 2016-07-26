@@ -86,20 +86,20 @@
 					var _htmlBuilder = [];
 					
 					// render; list 
-					var _sites = data.data.sites;
+					var _records = data.data.records;
 					_template = $('#openapi-list-tr-template').html();
 					_htmlBuilder = [];
-					for (var i = 0; i < _sites.length; i++) {
+					for (var i = 0; i < _records.length; i++) {
 						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _sites[i]['rnum'])
-									.replace(/{{serviceId}}/gi, _sites[i]['serviceId'])
-									.replace(/{{serviceName}}/gi, _sites[i]['serviceName'])
-									.replace(/{{managerName}}/gi, _sites[i]['managerName'])
-									.replace(/{{serviceIp}}/gi, _sites[i]['serviceIp'])
-									.replace(/{{createDatetime}}/gi, _sites[i]['createDatetime'])
+									.replace(/{{rnum}}/gi, _records[i]['rnum'])
+									.replace(/{{serviceId}}/gi, _records[i]['serviceId'])
+									.replace(/{{serviceName}}/gi, _records[i]['serviceName'])
+									.replace(/{{managerName}}/gi, _records[i]['managerName'])
+									.replace(/{{serviceIp}}/gi, _records[i]['serviceIp'])
+									.replace(/{{createDatetime}}/gi, _records[i]['createDatetime'])
 						);
 					}
-					if (_sites.length == 0) {
+					if (_records.length == 0) {
 						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
 					}
 					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
@@ -119,15 +119,15 @@
 				method: 'POST',
 				data: __.getParams(),
 				success: function(data) {
-					var _site = data.data.site;
-					$('#serviceId').val(_site.serviceId);
-					$('#serviceName').val(_site.serviceName);
-					$('#managerName').val(_site.managerName);
-					$('#managerTel').val(_site.managerTel);
-					$('#managerEmail').val(_site.managerEmail);
-					$('#serviceIp').val(_site.serviceIp);
-					$('#permissionKey').val(_site.permissionKey);
-					$('#createDatetime').val(_site.createDatetime);
+					var _record = data.data.record;
+					$('#serviceId').val(_record.serviceId);
+					$('#serviceName').val(_record.serviceName);
+					$('#managerName').val(_record.managerName);
+					$('#managerTel').val(_record.managerTel);
+					$('#managerEmail').val(_record.managerEmail);
+					$('#serviceIp').val(_record.serviceIp);
+					$('#permissionKey').val(_record.permissionKey);
+					$('#createDatetime').val(_record.createDatetime);
 				}
 			});
 		},
