@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.CmmnCode;
 import com.alticast.allso.cmmn.PaginationInf;
+import com.alticast.allso.cmmn.service.CmmnService;
 import com.alticast.allso.cmmn.util.CmmnUtil;
 import com.alticast.allso.let.cms.board.service.BoardService;
 
@@ -30,6 +33,9 @@ public class BoardController {
 	
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BoardController.class);
 	
+	@Resource(name = "cmmnService")
+	private CmmnService cmmnService;
+	
 	@Resource(name = "boardService")
 	private BoardService boardService;
 	
@@ -37,7 +43,9 @@ public class BoardController {
 	public String boardGet(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.CONTENT_TYPE, CmmnCode.BOARD_TARGET, CmmnCode.CONTENT_EDIT));
 		return CmmnUtil.sendJSP("/cms/board/boardList");
 	}
 	
@@ -98,7 +106,9 @@ public class BoardController {
 	public String boardEdit(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestParam HashMap<String, Object> paramMap
+			, Model model
 			) throws Exception {
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.CONTENT_TYPE, CmmnCode.BOARD_TARGET, CmmnCode.CONTENT_EDIT));
 		return CmmnUtil.sendJSP("/cms/board/boardEdit");
 	}
 	

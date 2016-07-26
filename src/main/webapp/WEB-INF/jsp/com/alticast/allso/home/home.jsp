@@ -80,6 +80,7 @@
                 <tr>
                   <th colspan="4">배포현황</th>
                 </tr>
+<!--                 
                 <tr data-day="0" data-type="M">
                   <td width="18">1.</td>
                   <td width="308">금일 배포 현황</td>
@@ -104,6 +105,18 @@
                   <td>송출</td>
                   <td>-</td>
                 </tr>
+ -->                
+                <tr data-day="0" data-type="B">
+                  <td width="18">1.</td>
+                  <td width="308">금일 배포 현황</td>
+                  <td width="95"></td>
+                  <td width="206">-</td>
+                </tr>
+                <tr data-day="-1" data-type="B">
+                  <td>2.</td>
+                  <td>어제 배포 현황</td>
+                  <td></td>
+                  <td>-</td>
               </table>
             </div>
 		 </div>

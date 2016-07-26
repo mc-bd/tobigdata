@@ -32,8 +32,15 @@
 	        <td><input class="form-control" type="text" placeholder="" id="deliverySeq" readonly="readonly"></td>
 	      </tr>
 	      <tr>
-	        <th>콘텐츠 유형</th>
-	        <td><input class="form-control" type="text" placeholder="" id="contentType" readonly="readonly"></td>
+	        <th>콘텐츠 종류</th>
+	        <td>
+               	  <select class="form-control" id="contentType" disabled="disabled">
+               	  	<option value="">선택</option>
+               	  	<c:forEach var="code" items="${cmmnCodes.contentTypeCodes}" varStatus="status">
+                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+               	  	</c:forEach>
+               	  </select>	        	
+        	</td>
 	      </tr>
 	      <tr>
 	        <th>콘텐츠 아이디</th>

@@ -64,7 +64,7 @@
 			deliverySeq: '배포 일련번호',
 			contentId: '콘텐츠 아이디',
 			contentTitle: '콘텐츠 제목',
-			contentType: '콘텐츠 유형',
+			contentType: '콘텐츠 종류',
 			deliveryDatetime: '배포 일시',
 		},
 		
