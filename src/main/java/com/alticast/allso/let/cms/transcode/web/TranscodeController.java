@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alticast.allso.cmmn.Ajax;
+import com.alticast.allso.cmmn.CmmnCode;
 import com.alticast.allso.cmmn.PaginationInf;
 import com.alticast.allso.cmmn.service.CmmnService;
 import com.alticast.allso.cmmn.util.CmmnUtil;
@@ -45,7 +46,7 @@ public class TranscodeController {
 //			, @ModelAttribute Model model
 			, Model model
 			) throws Exception {
-		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes("TRANS_STATE"));
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.TRANS_STATE));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeList");
 	}
 	
@@ -108,7 +109,7 @@ public class TranscodeController {
 			, @RequestParam HashMap<String, Object> paramMap
 			, Model model
 			) throws Exception {
-		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes("TRANS_STATE"));
+		model.addAttribute("cmmnCodes", cmmnService.selectCmmnCodes(CmmnCode.TRANS_STATE));
 		return CmmnUtil.sendJSP("/cms/transcode/transcodeEdit");
 	}
 	
