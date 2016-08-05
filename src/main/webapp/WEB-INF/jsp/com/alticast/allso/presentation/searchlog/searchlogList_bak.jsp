@@ -152,7 +152,91 @@
 		</div>
     	<!-- // div.row -->
     </section>
-    <!-- // section.content -->
+    <!-- // section.content -->    
+
+
+
+
+	<!-- section.content-search -->
+    <section class="content-search">
+       <div class="box">
+          <div class="box-header"></div>
+            <div class="box-body no-padding">
+        		<input type="hidden" id="connectTime">
+        		<input type="hidden" id="keyWord">
+        		<input type="hidden" id="locationInfo">
+              <table>
+              	<tbody>
+	                <tr>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%" >접속시간</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="connectTimeTxt" placeholder="" readonly="readonly">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">검색어</th>
+	                  <th style="width:12%">
+	                 	 <input class="form-control" type="text" id="keyWordTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%">위치정보</th>
+	                  <th style="width:12%">
+
+	                	  <input class="form-control" type="text" id="locationInfoTxt" placeholder="">
+	                  </th>
+	                  <th style="width:1%" ></th>
+	                  <th style="width:9%"></th>
+	                  <th style="width:12%">
+	                  </th>
+	                  <th style="width:1%"></th>
+	                  <th style="width:3%">
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+	                 	</th>
+	                  <th style="width:1%"></th>
+	                </tr>
+	                <tr>
+	                  <td style="height:20px"></td>
+	                </tr>
+              	</tbody>
+              </table>
+            </div>                   
+        </div>
+    </section>
+    <!-- // section.content-search -->
+    
+    <!-- // div.table-list -->
+    <section class="content-table">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+              	<thead>
+	                <tr>
+	                  <th width="5%">No</th>
+	                  <th width="">접속시간</th>
+	                  <th width="">검색어</th>
+	                  <th width="">위치정보</th>
+	                </tr>
+              	</thead>
+              	<tbody></tbody>
+              </table>
+			<script type="text/template" id="searchlog-list-tr-template">
+                <tr data-service-id="{{connectTime}}">
+                  <td>{{rnum}}</td>
+                  <td>{{connectTime}}</td>
+                  <td>{{keyWord}}</td>
+                  <td>{{locationInfo}}</td>
+                </tr>
+			</script>
+            </div>
+            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- // div.table-list -->
 
   </div>
   <!-- /.content-wrapper -->

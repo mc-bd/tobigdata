@@ -109,7 +109,7 @@
     </section>
     <!-- // section.content-search -->
     
-    <!-- // section.content-table -->
+    <!-- // div.table-list -->
     <section class="content-table">
       <div class="row">
         <div class="col-xs-12">
@@ -146,7 +146,7 @@
         </div>
       </div>
     </section>
-	<!-- // section.content-table -->
+	<!-- // div.table-list -->
 
   </div>
   <!-- /.content-wrapper -->

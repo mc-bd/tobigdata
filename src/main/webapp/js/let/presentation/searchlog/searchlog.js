@@ -28,7 +28,7 @@
 				that.searchlogPostList(e, _page);
 			});
 /*			
-			$('section.content-table').on('click', 'tbody > tr', function(e) {
+			$('div.table-list').on('click', 'tbody > tr', function(e) {
 				var _data = $(e.target).parents('tr').data();
 				var _url = __.convertUrl('/searchlog/edit', _data);
 				__.popup(_url, {
