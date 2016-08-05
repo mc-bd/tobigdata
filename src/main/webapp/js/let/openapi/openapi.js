@@ -16,11 +16,7 @@
 		bindEvent: function() {
 			var that = this;
 			$('#search').on('click', function(e) {
-				$('#serviceId').val($('#serviceIdTxt').val());
-				$('#serviceName').val($('#serviceNameTxt').val());
-				$('#managerName').val($('#managerNameTxt').val());
-				$('#serviceIp').val($('#serviceIpTxt').val());
-				$('#createDatetime').val($('#createDatetimeTxt').val());
+				__.setInputByInputTxt(openapi.model); // TODO: alert(openapi == this == that);
 				that.openapiPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -61,6 +57,21 @@
 		},
 		
 		// =======================================================================
+		// model;
+		// =======================================================================
+		
+		model: {
+			serviceId: '서비스 id',
+			serviceName: '서비스 명',
+			managerName: '담당자 명',
+			managerTel: '담당자 연락처',
+			managerEmail: '담당자 e-mail',
+			serviceIp: 'IP 정보',
+			permissionKey: '서비스 인증키',
+			createDatetime: '생성일',
+		},
+		
+		// =======================================================================
 		// To server side;
 		// =======================================================================
 		
@@ -68,44 +79,16 @@
 			location.href = '/openapi';
 		},
 		openapiPostList: function(e, pageIndex) {
-			// ajax
 			__.ajax({
 				url: '/openapi',
-				dataType: 'json',
 				method: 'POST',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					serviceIp: $('#serviceIp').val(),
-					createDatetime: $('#createDatetime').val(),
+				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
-				},
-				success: function(data) {
-					var _template = '';
-					var _htmlBuilder = [];
-					
-					// render; list 
-					var _records = data.data.records;
-					_template = $('#openapi-list-tr-template').html();
-					_htmlBuilder = [];
-					for (var i = 0; i < _records.length; i++) {
-						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _records[i]['rnum'])
-									.replace(/{{serviceId}}/gi, _records[i]['serviceId'])
-									.replace(/{{serviceName}}/gi, _records[i]['serviceName'])
-									.replace(/{{managerName}}/gi, _records[i]['managerName'])
-									.replace(/{{serviceIp}}/gi, _records[i]['serviceIp'])
-									.replace(/{{createDatetime}}/gi, _records[i]['createDatetime'])
-						);
-					}
-					if (_records.length == 0) {
-						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
-					}
-					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
-					
-					// render; pagination
-					__.renderPagination(data.data.paginationInfo);
+				}),
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.renderList(_data.records);
+					__.renderPagination(_data.paginationInfo);
 				}
 			});
 		},
@@ -118,16 +101,9 @@
 				url: '/openapi/view',
 				method: 'POST',
 				data: __.getParams(),
-				success: function(data) {
-					var _record = data.data.record;
-					$('#serviceId').val(_record.serviceId);
-					$('#serviceName').val(_record.serviceName);
-					$('#managerName').val(_record.managerName);
-					$('#managerTel').val(_record.managerTel);
-					$('#managerEmail').val(_record.managerEmail);
-					$('#serviceIp').val(_record.serviceIp);
-					$('#permissionKey').val(_record.permissionKey);
-					$('#createDatetime').val(_record.createDatetime);
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.setInputByRecord(openapi.model, _data.record); // TODO: alert(openapi == this); 
 				}
 			});
 		},
@@ -138,17 +114,9 @@
 			__.ajax({
 				url: '/openapi/create',
 				method: 'POST',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
-				},
-				success: function(data) {
-					__.alert('등록되었습니다.');
+				data: __.getModelByInput(openapi.model), // TODO: alert(openapi == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.openapi.openapiPostList();
 				}
@@ -159,17 +127,9 @@
 			__.ajax({
 				url: '/openapi',
 				method: 'PUT',
-				data: {
-					serviceId: $('#serviceId').val(),
-					serviceName: $('#serviceName').val(),
-					managerName: $('#managerName').val(),
-					managerTel: $('#managerTel').val(),
-					managerEmail: $('#managerEmail').val(),
-					serviceIp: $('#serviceIp').val(),
-					permissionKey: $('#permissionKey').val(),				
-				},
-				success: function(data) {
-					__.alert('저장되었습니다.');
+				data: __.getModelByInput(openapi.model), // TODO: alert(openapi == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.openapi.openapiPostList();
 				}
@@ -180,11 +140,9 @@
 			__.ajax({
 				url: '/openapi',
 				method: 'DELETE',
-				data: {
-					serviceId: $('#serviceId').val(),
-				},
-				success: function(data) {
-					__.alert('삭제되었습니다.');
+				data: __.getModelByInput(openapi.model), // TODO: alert(openapi == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.openapi.openapiPostList();
 				}
