@@ -102,6 +102,9 @@
 				if (_pathName.indexOf("edit") > -1) {
 					return "U"
 				}
+				if (_pathName.indexOf("popup") > -1) {
+					return "P"
+				}
 				return;
 			},
 			getParams: function() {
@@ -260,7 +263,7 @@
 				if (_records.length == 0) {
 					_htmlBuilder.push('<tr style="height: 10px;"></tr>'); // dummy
 				}
-				$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));				
+				$('div.table-list').find('table').find('tbody').empty().append(_htmlBuilder.join(''));				
 			},
 			regExp: {
 				doubleCurlyBrace: /{{(\S+)}}/gi, // Angular markup: The double curly brace notation
@@ -290,8 +293,36 @@
 				return _model;
 			},
 			setInputByRecord: function(model, record) {
+				var $target, val;
 				for ( var key in model) {
-					$('#' + key).val(record[key]);
+					$target = $('#' + key);
+					val 	= record[key];
+					
+					// validate
+					if(!$target.prop('nodeName')) { continue; }
+					
+					// element
+					switch ($target.prop('nodeName').toLowerCase()) {
+					case 'input':
+						
+						// type
+						switch ($target.prop('type')) {
+						case 'checkbox':
+							$target.prop('checked', val === 'Y' ? true : false);
+							break;
+						case 'text':
+							$target.val(val);
+							break;
+						}
+						
+						break;
+					case 'select':
+						$target.val(val);
+						break;
+					case 'textarea':
+						$target.val(val);
+						break;
+					}
 				}
 			},
 			fixedTo: function(number, z) {
@@ -308,6 +339,28 @@
 				var _month = date.getMonth() + 1;
 				var _date = date.getDate();
 				return _year + '-' + this.fixedTo(_month, 2) + '-' + this.fixedTo(_date, 2);
+			},
+			renderPage: function(obj) {
+				var _fn;
+				for ( var key in obj) {
+					_fn = obj[key]['render'];
+					_fn && typeof _fn === 'function' && _fn();
+				}
+			},
+			numberWithCommas: function(x) {
+			    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			},
+			
+			deleteOnYnSelectOptions: function(options) {
+				var _options = {
+						target: '#onYn',
+						include: [':not([value="Y"])'],
+						exclude: ['']
+				}
+				if ($(_options.target).val() == 'Y') {
+					$(_options.target).find('option').filter(_options.include[0]).hide();
+				}
+				
 			}
 	};
 	window.__ = __;
