@@ -26,127 +26,136 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/navigation.jsp"></jsp:include>
+	
     <!-- Main content -->
-
-	<!-- section.content-search -->
-    <section class="content-search">
-       <div class="box">
-          <div class="box-header"></div>
-            <div class="box-body no-padding">
-        		<input type="hidden" id="transSeq">
-        		<input type="hidden" id="contentId">
-        		<input type="hidden" id="contentTitle">
-        		<input type="hidden" id="reqDatetime">
-        		<input type="hidden" id="transState">
-        		<input type="hidden" id="completeDatetime">
-        		<input type="hidden" id="pageIndex">
-              <table>
-              	<tbody>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >일련번호</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="transSeqTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >콘텐츠 아이디</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="contentIdTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >콘텐츠 제목</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >변환 상태</th>
-	                  <th style="width:12%">
-	                	  <select id="transStateTxt" class="form-control">
-	                	  	<option value="">선택</option>
-	                	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
-		                	  	<option value="${code.cmmnCode2}">${code.content}</option>
-	                	  	</c:forEach>
-	                	  </select>
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >변환 요청일</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="reqDatetimeTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >변환 완료일</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="completeDatetimeTxt" placeholder="" >
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" ></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" ></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
-	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <td style="height:20px"></td>
-	                </tr>
-              	</tbody>
-              </table>
-            </div>                   
-        </div>
+    <!-- section.content -->
+    <section class="content">
+    	<!-- div.row -->
+    	<div class="row">
+    		<!-- div.col -->
+	    	<div class="col-xs-12">
+	    	
+	    		<!-- div.nav-tabs-custom -->
+	    		<!-- // div.nav-tabs-custom -->
+	    		
+		       <!-- div.box -->
+		       <div class="box">
+		          <div class="box-header"></div>
+		            <div class="box-body no-padding">
+		        		<input type="hidden" id="transSeq">
+		        		<input type="hidden" id="contentId">
+		        		<input type="hidden" id="contentTitle">
+		        		<input type="hidden" id="reqDatetime">
+		        		<input type="hidden" id="transState">
+		        		<input type="hidden" id="completeDatetime">
+		        		<input type="hidden" id="pageIndex">
+		              <table>
+		              	<tbody>
+			                <tr>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >일련번호</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="transSeqTxt" placeholder="" >
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >콘텐츠 아이디</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="contentIdTxt" placeholder="" >
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >콘텐츠 제목</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="contentTitleTxt" placeholder="" >
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >변환 상태</th>
+			                  <th style="width:12%">
+			                	  <select id="transStateTxt" class="form-control">
+			                	  	<option value="">선택</option>
+			                	  	<c:forEach var="code" items="${cmmnCodes.transStateCodes}" varStatus="status">
+				                	  	<option value="${code.cmmnCode2}">${code.content}</option>
+			                	  	</c:forEach>
+			                	  </select>
+			                  </th>
+			                  <th style="width:1%"></th>
+			                  <th style="width:3%">
+			                 	</th>
+			                  <th style="width:1%"></th>
+			                </tr>
+			                <tr>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >변환 요청일</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="reqDatetimeTxt" placeholder="" >
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >변환 완료일</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="completeDatetimeTxt" placeholder="" >
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" ></th>
+			                  <th style="width:12%">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" ></th>
+			                  <th style="width:12%">
+			                  </th>
+			                  <th style="width:1%"></th>
+			                  <th style="width:3%">
+			                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+			                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+			                 	</th>
+			                  <th style="width:1%"></th>
+			                </tr>
+			                <tr>
+			                  <td style="height:20px"></td>
+			                </tr>
+		              	</tbody>
+		              </table>
+		            </div>                   
+		        </div>
+		        <!-- // div.box -->	    		
+		        
+				  <!-- div.box -->      
+		          <div class="box table-list">
+		            <div class="box-body table-responsive no-padding">
+		              <table class="table table-hover">
+		              	<thead>
+			                <tr>
+			                  <th class="w-no">No</th>
+			                  <th width="">일련번호</th>
+			                  <th width="">콘텐츠 아이디</th>
+			                  <th width="">콘텐츠 제목</th>
+			                  <th width="">변환 상태</th>
+			                  <th width="15%">변환 요청일</th>
+			                  <th width="15%">변환 완료일</th>
+			                </tr>			                
+		              	</thead>
+		              	<tbody></tbody>
+		              </table>
+					<script type="text/template" id="useradmin-list-tr-template">
+		                <tr data-trans-seq="{{transSeq}}">
+		                  <td>{{rnum}}</td>
+		                  <td>{{transSeq}}</td>
+		                  <td>{{contentId}}</td>
+		                  <td>{{contentTitle}}</td>
+		                  <td>{{transStateTxt}}</td>
+		                  <td>{{reqDatetime}}</td>
+		                  <td>{{completeDatetime}}</td>
+		                </tr>
+					</script>		              
+		            </div>
+		            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
+		          </div>		        
+		          <!-- // div.box -->
+		        
+			</div>
+    		<!-- // div.col -->
+		</div>
+    	<!-- // div.row -->
     </section>
-    <!-- // section.content-search -->
-    
-    <!-- // div.table-list -->
-    <section class="content-table">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-              	<thead>
-	                <tr>
-	                  <th width="5%">No</th>
-	                  <th width="">일련번호</th>
-	                  <th width="">콘텐츠 아이디</th>
-	                  <th width="">콘텐츠 제목</th>
-	                  <th width="">변환 상태</th>
-	                  <th width="15%">변환 요청일</th>
-	                  <th width="15%">변환 완료일</th>
-	                </tr>
-              	</thead>
-              	<tbody></tbody>
-              </table>
-			<script type="text/template" id="transcode-list-tr-template">
-                <tr data-trans-seq="{{transSeq}}">
-                  <td>{{rnum}}</td>
-                  <td>{{transSeq}}</td>
-                  <td>{{contentId}}</td>
-                  <td>{{contentTitle}}</td>
-                  <td>{{transStateTxt}}</td>
-                  <td>{{reqDatetime}}</td>
-                  <td>{{completeDatetime}}</td>
-                </tr>
-			</script>
-            </div>
-            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
-          </div>
-        </div>
-      </div>
-    </section>
-	<!-- // div.table-list -->
+    <!-- // section.content -->
 
   </div>
   <!-- /.content-wrapper -->
@@ -168,7 +177,7 @@
 		var _page = {
 				button: {
 					render: function() {
-						$('#add').show();
+// 						$('#add').show();
 					}
 				},
 				datepicker: {

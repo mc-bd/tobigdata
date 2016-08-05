@@ -26,117 +26,126 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
 	<jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/navigation.jsp"></jsp:include>
+	
     <!-- Main content -->
-
-	<!-- section.content-search -->
-    <section class="content-search">
-       <div class="box">
-          <div class="box-header"></div>
-            <div class="box-body no-padding">
-        		<input type="hidden" id="serviceId">
-        		<input type="hidden" id="serviceName">
-        		<input type="hidden" id="managerName">
-        		<input type="hidden" id="serviceIp">
-        		<input type="hidden" id="createDatetime">
-              <table>
-              	<tbody>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >서비스 ID</th>
-	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">서비스 명</th>
-	                  <th style="width:12%">
-	                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">담당자 명</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%">IP</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%" >등록일</th>
-	                  <th style="width:12%">
-	                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%" ></th>
-	                  <th style="width:9%"></th>
-	                  <th style="width:12%">
-	                  </th>
-	                  <th style="width:1%"></th>
-	                  <th style="width:3%">
-	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
-	                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
-	                 	</th>
-	                  <th style="width:1%"></th>
-	                </tr>
-	                <tr>
-	                  <td style="height:20px"></td>
-	                </tr>
-              	</tbody>
-              </table>
-            </div>                   
-        </div>
+    <!-- section.content -->
+    <section class="content">
+    	<!-- div.row -->
+    	<div class="row">
+    		<!-- div.col -->
+	    	<div class="col-xs-12">
+	    	
+	    		<!-- div.nav-tabs-custom -->
+	    		<!-- // div.nav-tabs-custom -->
+	    		
+		       <!-- div.box -->
+		       <div class="box">
+		          <div class="box-header"></div>
+		            <div class="box-body no-padding">
+		        		<input type="hidden" id="serviceId">
+		        		<input type="hidden" id="serviceName">
+		        		<input type="hidden" id="managerName">
+		        		<input type="hidden" id="serviceIp">
+		        		<input type="hidden" id="createDatetime">
+		              <table>
+		              	<tbody>
+			                <tr>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >서비스 ID</th>
+			                  <th style="width:12%">
+			                 	 <input class="form-control" type="text" id="serviceIdTxt" placeholder="">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%">서비스 명</th>
+			                  <th style="width:12%">
+			                 	 <input class="form-control" type="text" id="serviceNameTxt" placeholder="">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%">담당자 명</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="managerNameTxt" placeholder="">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%">IP</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="serviceIpTxt" placeholder="">
+			                  </th>
+			                  <th style="width:1%"></th>
+			                  <th style="width:3%">
+			                 	</th>
+			                  <th style="width:1%"></th>
+			                </tr>
+			                <tr>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%" >등록일</th>
+			                  <th style="width:12%">
+			                	  <input class="form-control" type="text" id="createDatetimeTxt" placeholder="" readonly="readonly">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%"></th>
+			                  <th style="width:12%">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%"></th>
+			                  <th style="width:12%">
+			                  </th>
+			                  <th style="width:1%" ></th>
+			                  <th style="width:9%"></th>
+			                  <th style="width:12%">
+			                  </th>
+			                  <th style="width:1%"></th>
+			                  <th style="width:3%">
+			                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="reset">초기화</button></a>
+			                  	<a href="javascript:;"><button type="button" class="btn btn-block btn-default" id="search">조회</button></a>
+			                 	</th>
+			                  <th style="width:1%"></th>
+			                </tr>
+			                <tr>
+			                  <td style="height:20px"></td>
+			                </tr>
+		              	</tbody>
+		              </table>
+		            </div>                   
+		        </div>
+		        <!-- // div.box -->	    		
+		        
+				  <!-- div.box -->      
+		          <div class="box table-list">
+		            <div class="box-body table-responsive no-padding">
+		              <table class="table table-hover">
+		              	<thead>
+			                <tr>
+			                  <th class="w-no">No</th>
+			                  <th width="">서비스 ID</th>
+			                  <th width="">서비스 명</th>
+			                  <th width="">담당자 명</th>
+			                  <th width="">IP</th>
+			                  <th width="w-datetime">등록일</th>			                  
+			                </tr>
+		              	</thead>
+		              	<tbody></tbody>
+		              </table>
+					<script type="text/template" id="useradmin-list-tr-template">
+		                <tr data-service-id="{{serviceId}}">
+		                  <td>{{rnum}}</td>
+		                  <td>{{serviceId}}</td>
+		                  <td>{{serviceName}}</td>
+		                  <td>{{managerName}}</td>
+		                  <td>{{serviceIp}}</td>
+		                  <td>{{createDatetime}}</td>
+		                </tr>
+					</script>		              
+		            </div>
+		            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
+		          </div>		        
+		          <!-- // div.box -->
+		        
+			</div>
+    		<!-- // div.col -->
+		</div>
+    	<!-- // div.row -->
     </section>
-    <!-- // section.content-search -->
-    
-    <!-- // div.table-list -->
-    <section class="content-table">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-              	<thead>
-	                <tr>
-	                  <th width="5%">No</th>
-	                  <th width="">서비스 ID</th>
-	                  <th width="">서비스 명</th>
-	                  <th width="">담당자 명</th>
-	                  <th width="">IP</th>
-	                  <th width="15%">등록일</th>
-	                </tr>
-              	</thead>
-              	<tbody></tbody>
-              </table>
-			<script type="text/template" id="openapi-list-tr-template">
-                <tr data-service-id="{{serviceId}}">
-                  <td>{{rnum}}</td>
-                  <td>{{serviceId}}</td>
-                  <td>{{serviceName}}</td>
-                  <td>{{managerName}}</td>
-                  <td>{{serviceIp}}</td>
-                  <td>{{createDatetime}}</td>
-                </tr>
-			</script>
-            </div>
-            <jsp:include page="/WEB-INF/jsp/com/alticast/allso/cmmn/pagination.jsp"></jsp:include>
-          </div>
-        </div>
-      </div>
-    </section>
-	<!-- // div.table-list -->
+    <!-- // section.content -->
 
   </div>
   <!-- /.content-wrapper -->

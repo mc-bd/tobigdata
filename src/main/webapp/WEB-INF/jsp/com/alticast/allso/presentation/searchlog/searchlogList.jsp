@@ -42,59 +42,27 @@
 		       <div class="box">
 		          <div class="box-header"></div>
 		            <div class="box-body no-padding">
-		        		<input type="hidden" id="userId">
-		        		<input type="hidden" id="userName">
-		        		<input type="hidden" id="userGender">
-		        		<input type="hidden" id="userCell">
-		        		<input type="hidden" id="userJoinDate">
-		        		<input type="hidden" id="pageIndex">
+		        		<input type="hidden" id="connectTime">
+		        		<input type="hidden" id="keyWord">
+		        		<input type="hidden" id="locationInfo">
 		              <table>
 		              	<tbody>
 			                <tr>
 			                  <th style="width:1%" ></th>
-			                  <th style="width:9%">아이디</th>
+			                  <th style="width:9%" >접속시간</th>
 			                  <th style="width:12%">
-			                	  <input class="form-control" type="text" id="userIdTxt" placeholder="" >
+			                 	 <input class="form-control" type="text" id="connectTimeTxt" placeholder="" readonly="readonly">
 			                  </th>
 			                  <th style="width:1%" ></th>
-			                  <th style="width:9%">이름</th>
+			                  <th style="width:9%">검색어</th>
 			                  <th style="width:12%">
-			                	  <input class="form-control" type="text" id="userNameTxt" placeholder="" >
+			                 	 <input class="form-control" type="text" id="keyWordTxt" placeholder="">
 			                  </th>
 			                  <th style="width:1%" ></th>
-			                  <th style="width:9%">성별</th>
+			                  <th style="width:9%">위치정보</th>
 			                  <th style="width:12%">
-			                	  <select id="userGenderTxt" class="form-control">
-			                	  	<option value="">선택</option>
-<%-- 			                	  	<c:forEach var="code" items="${cmmnCodes.userGenderCodes}" varStatus="status"> --%>
-			                	  	<c:forEach var="code" items="${cmmnCodes.genderCodes}" varStatus="status">
-				                	  	<option value="${code.cmmnCode2}">${code.content}</option>
-			                	  	</c:forEach>
-			                	  </select>			                  
-			                  </th>
-			                  <th style="width:1%" ></th>
-			                  <th style="width:9%">전화번호</th>
-			                  <th style="width:12%">
-			                	  <input class="form-control" type="text" id="userCellTxt" placeholder="" >
-			                  </th>
-			                  <th style="width:1%"></th>
-			                  <th style="width:3%">
-			                 	</th>
-			                  <th style="width:1%"></th>
-			                </tr>
-			                <tr>
-			                  <th style="width:1%" ></th>
-			                  <th style="width:9%">가입일</th>
-			                  <th style="width:12%">
-			                	  <input class="form-control" type="text" id="userJoinDateTxt" placeholder="" readonly="readonly">
-			                  </th>
-			                  <th style="width:1%" ></th>
-			                  <th style="width:9%"></th>
-			                  <th style="width:12%">
-			                  </th>
-			                  <th style="width:1%" ></th>
-			                  <th style="width:9%"></th>
-			                  <th style="width:12%">
+		
+			                	  <input class="form-control" type="text" id="locationInfoTxt" placeholder="">
 			                  </th>
 			                  <th style="width:1%" ></th>
 			                  <th style="width:9%"></th>
@@ -111,7 +79,7 @@
 			                  <td style="height:20px"></td>
 			                </tr>
 		              	</tbody>
-		              </table>
+		              </table>		            
 		            </div>                   
 		        </div>
 		        <!-- // div.box -->	    		
@@ -123,23 +91,19 @@
 		              	<thead>
 			                <tr>
 			                  <th class="w-no">No</th>
-			                  <th class="">아이디</th>
-			                  <th class="">이름</th>
-			                  <th class="">성별</th>
-			                  <th class="">전화번호</th>
-			                  <th class="w-datetime">가입일</th>
+			                  <th width="">접속시간</th>
+			                  <th width="">검색어</th>
+			                  <th width="">위치정보</th>
 			                </tr>
 		              	</thead>
 		              	<tbody></tbody>
 		              </table>
 					<script type="text/template" id="useradmin-list-tr-template">
-		                <tr data-user-id="{{userId}}">
+		                <tr data-service-id="{{connectTime}}">
 		                  <td>{{rnum}}</td>
-		                  <td>{{userId}}</td>
-		                  <td>{{userName}}</td>
-		                  <td>{{userGenderTxt}}</td>
-		                  <td>{{userCell}}</td>
-		                  <td>{{userJoinDate}}</td>
+		                  <td>{{connectTime}}</td>
+		                  <td>{{keyWord}}</td>
+		                  <td>{{locationInfo}}</td>
 		                </tr>
 					</script>		              
 		            </div>
