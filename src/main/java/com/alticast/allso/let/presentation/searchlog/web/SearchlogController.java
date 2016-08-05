@@ -54,11 +54,11 @@ public class SearchlogController {
 		/* ++ paginationInfo */
 		PaginationInf paginationInf = CmmnUtil.getPagination(searchVO, paramMap);
 		
-		List<?> searchlogs = searchlogService.selectSearchlogs(paramMap);
-		data.put("searchlogs", searchlogs);
+		List<?> records = searchlogService.selectSearchlogs(paramMap);
+		data.put("records", records);
 		
-		int searchlogsTotCnt = searchlogService.selectSearchlogsTotCnt(paramMap);
-		paginationInf.setTotalRecordCount(searchlogsTotCnt);
+		int recordsTotCnt = searchlogService.selectSearchlogsTotCnt(paramMap);
+		paginationInf.setTotalRecordCount(recordsTotCnt);
 		paginationInf.setOthers();
 		
 		data.put("paginationInfo", paginationInf);

@@ -16,9 +16,7 @@
 		bindEvent: function() {
 			var that = this;
 			$('#search').on('click', function(e) {
-				$('#connectTime').val($('#connectTimeTxt').val());
-				$('#keyWord').val($('#keyWordTxt').val());
-				$('#locationInfo').val($('#locationInfoTxt').val());
+				__.setInputByInputTxt(searchlog.model); // TODO: alert(searchlog == this == that);
 				that.searchlogPostList(e);
 			});
 			$('#reset').on('click', function(e) {
@@ -61,6 +59,16 @@
 		},
 		
 		// =======================================================================
+		// model;
+		// =======================================================================
+		
+		model: {
+			connectTime: '접속시간',
+			keyWord: '검색어',
+			locationInfo: '위치정보',
+		},
+		
+		// =======================================================================
 		// To server side;
 		// =======================================================================
 		
@@ -68,40 +76,16 @@
 			location.href = '/searchlog';
 		},
 		searchlogPostList: function(e, pageIndex) {
-			// ajax
 			__.ajax({
 				url: '/searchlog',
-				dataType: 'json',
 				method: 'POST',
-				data: {
-					connectTime: $('#connectTime').val(),
-					keyWord: $('#keyWord').val(),
-					locationInfo: $('#locationInfo').val(),
+				data: $.extend(__.getModelByInput(this.model), {
 					pageIndex: pageIndex || 1
-				},
-				success: function(data) {
-					var _template = '';
-					var _htmlBuilder = [];
-					
-					// render; list 
-					var _searchlogs = data.data.searchlogs;
-					_template = $('#searchlog-list-tr-template').html();
-					_htmlBuilder = [];
-					for (var i = 0; i < _searchlogs.length; i++) {
-						_htmlBuilder.push(_template
-									.replace(/{{rnum}}/gi, _searchlogs[i]['rnum'])
-									.replace(/{{connectTime}}/gi, _searchlogs[i]['connectTime'])
-									.replace(/{{keyWord}}/gi, _searchlogs[i]['keyWord'])
-									.replace(/{{locationInfo}}/gi, _searchlogs[i]['locationInfo'])
-						);
-					}
-					if (_searchlogs.length == 0) {
-						_htmlBuilder.push('<tr style="height: 10px;"></tr>');
-					}
-					$('.content-table').find('table').find('tbody').empty().append(_htmlBuilder.join(''));
-					
-					// render; pagination
-					__.renderPagination(data.data.paginationInfo);
+				}),
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.renderList(_data.records);
+					__.renderPagination(_data.paginationInfo);
 				}
 			});
 		},
@@ -114,11 +98,9 @@
 				url: '/searchlog/view',
 				method: 'POST',
 				data: __.getParams(),
-				success: function(data) {
-					var _site = data.data.site;
-					$('#connectTime').val(_site.connectTime);
-					$('#keyWord').val(_site.keyWord);
-					$('#locationInfo').val(_site.locationInfo);
+				success: function(data, textStatus, jqXHR) {
+					var _data = data.data;
+					__.setInputByRecord(searchlog.model, _data.record); // TODO: alert(searchlog == this); 
 				}
 			});
 		},
@@ -129,13 +111,9 @@
 			__.ajax({
 				url: '/searchlog/create',
 				method: 'POST',
-				data: {
-					connectTime: $('#connectTime').val(),
-					keyWord: $('#keyWord').val(),
-					locationInfo: $('#locationInfo').val()
-				},
-				success: function(data) {
-					__.alert('등록되었습니다.');
+				data: __.getModelByInput(searchlog.model), // TODO: alert(searchlog == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.searchlog.searchlogPostList();
 				}
@@ -146,13 +124,9 @@
 			__.ajax({
 				url: '/searchlog',
 				method: 'PUT',
-				data: {
-					connectTime: $('#connectTime').val(),
-					keyWord: $('#keyWord').val(),
-					locationInfo: $('#locationInfo').val()
-				},
-				success: function(data) {
-					__.alert('저장되었습니다.');
+				data: __.getModelByInput(searchlog.model), // TODO: alert(searchlog == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.searchlog.searchlogPostList();
 				}
@@ -163,11 +137,9 @@
 			__.ajax({
 				url: '/searchlog',
 				method: 'DELETE',
-				data: {
-					connectTime: $('#connectTime').val(),
-				},
-				success: function(data) {
-					__.alert('삭제되었습니다.');
+				data: __.getModelByInput(searchlog.model), // TODO: alert(searchlog == this);
+				success: function(data, textStatus, jqXHR) {
+					__.alertAfterAjax(this);
 					__.close();
 					window.opener.searchlog.searchlogPostList();
 				}
