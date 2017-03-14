@@ -307,5 +307,5 @@
             </plugin>
         </plugins>
     </reporting>
-    <artifactId>cmsadmin</artifactId>
+    <artifactId>tobigdata</artifactId>
 </project>
