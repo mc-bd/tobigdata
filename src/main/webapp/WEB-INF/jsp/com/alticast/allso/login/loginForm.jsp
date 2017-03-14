@@ -230,12 +230,38 @@
             </div>
         </div>
     </section>
-
+    
+<!-- 
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Start Bigdata Project!</h2>
                 <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Start!</a>
+            </div>
+        </div>
+    </aside>
+ -->    
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div id="highchart-section1"></div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div id="highchart-section2"></div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div id="highchart-section3"></div>
             </div>
         </div>
     </aside>
@@ -272,7 +298,13 @@
     <script src="static/common/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="static/common/vendor/startbootstrap-creative/js/creative.min.js"></script>	
+    <script src="static/common/vendor/startbootstrap-creative/js/creative.min.js"></script>
+    
+    <!-- highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<script src="https://code.highcharts.com/modules/drilldown.js"></script>	
+    <script src="static/js/login/login.js"></script>
 	
 </body>
 </html>
