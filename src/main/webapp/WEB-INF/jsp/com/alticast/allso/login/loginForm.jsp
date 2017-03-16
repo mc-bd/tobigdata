@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Bigdata Project</title>
+<title>Asset Management</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="static/common/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,27 +39,23 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Bigdata Project</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Asset Management</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                     <li>
-                        <a class="page-scroll" href="#contact">홈</a>
+                    <li>
+                        <a class="page-scroll" href="#about">about</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">관리자</a>
-                    </li>
-                           <li>
-                        <a class="page-scroll" href="#contact">고객분석</a>
+                        <a class="page-scroll" href="#services">services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">회원가입</a>
+                        <a class="page-scroll" href="#portfolio">portfolio</a>
                     </li>
-               
                     <li>
-                        <a class="page-scroll" href="#contact">Login</a>
+                        <a class="page-scroll" href="#contact">contact</a>
                     </li>
                 </ul>
             </div>
@@ -71,9 +67,9 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Bigdata Project</h1>
+                <h1 id="homeHeading">Asset Management</h1>
                 <hr>
-                <p>Bigdata Project Description</p>
+                <p>자산 관리 분석 서비스</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">More</a>
             </div>
         </div>
@@ -83,10 +79,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">자산분석 프로그램</h2>
+                    <h2 class="section-heading">자산 관리 분석 서비스</h2>
                     <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                    <p class="text-faded">ㅁㄴㅇㅁㄴㅇ</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">서비스 이용하기</a>
                 </div>
             </div>
         </div>
@@ -144,10 +140,9 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                    	수입
+                                    미션
                                 </div>
                             </div>
                         </div>
@@ -159,10 +154,9 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                    	지출
+                                    수입
                                 </div>
                             </div>
                         </div>
@@ -174,10 +168,9 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                    	미션
+                                    지출
                                 </div>
                             </div>
                         </div>
@@ -189,10 +182,9 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                   	분석
+                                    저축
                                 </div>
                             </div>
                         </div>
@@ -204,45 +196,44 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                    	소득별 지출분석
+                                    분석
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+<!--                 
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/6.jpg" class="portfolio-box">
                         <img src="static/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
                                 </div>
                                 <div class="project-name">
-                                   	소득별 저축분석
+                                    Project Name
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+ -->                
             </div>
         </div>
     </section>
     
-<!-- 
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Start Bigdata Project!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Start!</a>
+                <h2>Download Asset Management Source!</h2>
+                <a href="https://github.com/mc-bd" class="btn btn-default btn-xl sr-button">Github!</a>
             </div>
         </div>
     </aside>
- -->    
-    
+ 
+<!--     
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -250,22 +241,7 @@
             </div>
         </div>
     </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section2"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section3"></div>
-            </div>
-        </div>
-    </aside>
+ -->    
 
     <section id="contact">
         <div class="container">
@@ -273,15 +249,15 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>Send us an email and we will get back to you as soon as possible!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <p>-</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:help@help.com">help@help.com</a></p>
                 </div>
             </div>
         </div>
