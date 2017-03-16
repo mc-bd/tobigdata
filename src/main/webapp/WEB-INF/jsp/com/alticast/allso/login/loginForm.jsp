@@ -1,10 +1,10 @@
-                <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+                <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Asset Management</title>
 
     <!-- Bootstrap Core CSS -->
@@ -69,7 +69,7 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Asset Management</h1>
                 <hr>
-                <p>¿⁄ªÍ ∞¸∏Æ ∫–ºÆ º≠∫ÒΩ∫</p>
+                <p>ÏûêÏÇ∞ Í¥ÄÎ¶¨ Î∂ÑÏÑù ÏÑúÎπÑÏä§</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">More</a>
             </div>
         </div>
@@ -79,10 +79,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">¿⁄ªÍ ∞¸∏Æ ∫–ºÆ º≠∫ÒΩ∫</h2>
+                    <h2 class="section-heading">ÏûêÏÇ∞ Í¥ÄÎ¶¨ Î∂ÑÏÑù ÏÑúÎπÑÏä§</h2>
                     <hr class="light">
-                    <p class="text-faded">§±§§§∑§±§§§∑</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">º≠∫ÒΩ∫ ¿ÃøÎ«œ±‚</a>
+                    <p class="text-faded">„ÖÅ„Ñ¥„Öá„ÖÅ„Ñ¥„Öá</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">ÏÑúÎπÑÏä§ Ïù¥Ïö©ÌïòÍ∏∞</a>
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@
                                 <div class="project-category text-faded">
                                 </div>
                                 <div class="project-name">
-                                    πÃº«
+                                    ÎØ∏ÏÖò
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                                 <div class="project-category text-faded">
                                 </div>
                                 <div class="project-name">
-                                    ºˆ¿‘
+                                    ÏàòÏûÖ
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                                 <div class="project-category text-faded">
                                 </div>
                                 <div class="project-name">
-                                    ¡ˆ√‚
+                                    ÏßÄÏ∂ú
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 <div class="project-category text-faded">
                                 </div>
                                 <div class="project-name">
-                                    ¿˙√‡
+                                    Ï†ÄÏ∂ï
                                 </div>
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                                 <div class="project-category text-faded">
                                 </div>
                                 <div class="project-name">
-                                    ∫–ºÆ
+                                    Î∂ÑÏÑù
                                 </div>
                             </div>
                         </div>
@@ -233,7 +233,6 @@
         </div>
     </aside>
  
-<!--     
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -241,7 +240,6 @@
             </div>
         </div>
     </aside>
- -->    
 
     <section id="contact">
         <div class="container">

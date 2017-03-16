@@ -55,7 +55,7 @@ $(document).ready(function(){
 	};
 	
 	
-//	display ('highchart-section1', [{"name":"영화","y":8000},{"name":"About Time","y":10000},{"name":"123","y":100}]);
+	display ('highchart-section1', [{"name":"영화","y":8000},{"name":"About Time","y":10000},{"name":"123","y":100}]);
 //	display ('highchart-section2', [{"name":"영화","y":8000},{"name":"About Time","y":10000},{"name":"123","y":100}]);
 //	display ('highchart-section3', [{"name":"영화","y":8000},{"name":"About Time","y":10000},{"name":"123","y":100}]);
 	
