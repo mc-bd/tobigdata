@@ -45,18 +45,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">Section1</a>
+                     <li>
+                        <a class="page-scroll" href="#contact">홈</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Section2</a>
+                        <a class="page-scroll" href="#about">관리자</a>
+                    </li>
+                           <li>
+                        <a class="page-scroll" href="#contact">고객분석</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Section3</a>
+                        <a class="page-scroll" href="#services">회원가입</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">||</a>
-                    </li>
+               
                     <li>
                         <a class="page-scroll" href="#contact">Login</a>
                     </li>
@@ -82,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
+                    <h2 class="section-heading">자산분석 프로그램</h2>
                     <hr class="light">
                     <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
@@ -146,7 +147,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    	수입
                                 </div>
                             </div>
                         </div>
@@ -161,7 +162,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    	지출
                                 </div>
                             </div>
                         </div>
@@ -176,7 +177,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    	미션
                                 </div>
                             </div>
                         </div>
@@ -191,7 +192,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                   	분석
                                 </div>
                             </div>
                         </div>
@@ -206,7 +207,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    	소득별 지출분석
                                 </div>
                             </div>
                         </div>
@@ -221,7 +222,7 @@
                                     Category
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                   	소득별 저축분석
                                 </div>
                             </div>
                         </div>
