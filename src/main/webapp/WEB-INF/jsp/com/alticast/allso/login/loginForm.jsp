@@ -81,8 +81,8 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">자산 관리 분석 서비스</h2>
                     <hr class="light">
-                    <p class="text-faded">ㅁㄴㅇㅁㄴㅇ</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">서비스 이용하기</a>
+                    <p class="text-faded"></p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">서비스 체험하기</a>
                 </div>
             </div>
         </div>
@@ -133,7 +133,10 @@
 
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
+<!--         
             <div class="row no-gutter popup-gallery">
+ -->            
+            <div class="row no-gutter popup-project">
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/1.jpg" class="portfolio-box">
                         <img src="static/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
@@ -233,6 +236,7 @@
         </div>
     </aside>
  
+<!--  
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -240,6 +244,7 @@
             </div>
         </div>
     </aside>
+ -->    
 
     <section id="contact">
         <div class="container">
