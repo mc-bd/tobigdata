@@ -75,7 +75,8 @@ $(document).ready(function(){
 	$('body').on('click', '.popup-project a', function(event) {
 		event.preventDefault();
 //		var windowObjectReference = window.open(strUrl, strWindowName, [strWindowFeatures]);
-		var windowObjectReference = window.open('project');
+//		var windowObjectReference = window.open('project');
+		var windowObjectReference = window.open('portfolio/analysis');
 	});
 	
 });
