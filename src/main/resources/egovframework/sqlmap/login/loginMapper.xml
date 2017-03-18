@@ -5,9 +5,9 @@
 	<select id="loginUser" parameterType="Map" resultType="egovMap">
 			SELECT
 				*
-			FROM tb_allsotv_user
-			WHERE USER_ID = #{id}
-				AND USER_PASSWORD = #{password}
+			FROM tb_user
+			WHERE ID = #{id}
+				AND PWD = #{password}
 	</select>
 
 </mapper>

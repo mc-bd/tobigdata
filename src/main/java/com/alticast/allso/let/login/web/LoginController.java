@@ -31,6 +31,9 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap) throws Exception {
+		paramMap.put("id", "test");
+		paramMap.put("password", "1234");
+		Map<String, Object> user = loginService.loginUser(paramMap);
 		return CmmnUtil.sendJSP("/login/loginForm");
 	}
 	
