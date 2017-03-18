@@ -15,9 +15,9 @@ import com.alticast.allso.cmmn.util.CmmnUtil;
 
 @Controller
 @RequestMapping("/portfolio")
-public class ProjectController {
+public class PortfolioController {
 	
-	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(ProjectController.class);
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(PortfolioController.class);
 	
 	@RequestMapping(value="/{page}", method = RequestMethod.GET)
 	public String projectGet(HttpServletRequest req, HttpServletResponse resp, @RequestParam HashMap<String, Object> paramMap, @PathVariable("page") String page) throws Exception {

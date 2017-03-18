@@ -33,75 +33,9 @@
 <body id="page-top">
 
     <aside class="bg-dark">
-        <div class="container">
-            <div class="row">
-		        <div class="container text-center col-lg-6 col-md-6">
-		            <div class="call-to-action">
-		            	<div id="highchart-section1-1"></div>
-		            </div>
-		        </div>
-		        <div class="container text-center col-lg-6 col-md-6">
-		            <div class="call-to-action">
-		            	<div id="highchart-section1-2"></div>
-		            </div>
-		        </div>
-            </div>
-        </div>
-    </aside>
-
-    <aside class="bg-dark">
-        <div class="container">
-            <div class="row">
-		        <div class="container text-center col-lg-6 col-md-6">
-		            <div class="call-to-action">
-		            	<div id="highchart-section1-3"></div>
-		            </div>
-		        </div>
-		        <div class="container text-center col-lg-6 col-md-6">
-		            <div class="call-to-action">
-		            	<div id="highchart-section1-4"></div>
-		            </div>
-		        </div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-            	<div id="highchart-section2-1"></div>
-            </div>
-        </div>
-    </aside>
-
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section3-1"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section3-2"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section3-3"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section3-4"></div>
+            	<div id="highchart-section1-1"></div>
             </div>
         </div>
     </aside>
@@ -124,7 +58,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>	
-    <script src="/static/js/portfolio/analysis.js"></script>
+    <script src="/static/js/portfolio/income.js"></script>
 	
 </body>
 </html>
