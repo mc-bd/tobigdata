@@ -124,61 +124,6 @@ $(document).ready(function(){
 		});			
 	};
 	
-	
-	function display(target, serverdata){
-		
-		// Start HighCharts ...
-		
-		Highcharts.chart(target, {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Browser market shares. January, 2015 to May, 2015'
-    },
-    subtitle: {
-        text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-    },
-    xAxis: {
-        type: 'category'
-    },
-    yAxis: {
-        title: {
-            text: 'Total percent market share'
-        }
-
-    },
-    legend: {
-        enabled: false
-    },
-    plotOptions: {
-        series: {
-            borderWidth: 0,
-            dataLabels: {
-                enabled: true,
-                format: '{point.y:.1f}%'
-            }
-        }
-    },
-
-    tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-    },
-
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: serverdata
-        }]
-});
-		
-		//End HighCharts ...
-		
-	};
-	
-	
-	
 	renderPieChart('highchart-section1-1');
 	renderPieChart('highchart-section1-2');
 	renderPieChart('highchart-section1-3');
@@ -190,9 +135,5 @@ $(document).ready(function(){
 	renderPieChart('highchart-section3-2');
 	renderPieChart('highchart-section3-3');
 	renderPieChart('highchart-section3-4');
-	
-	renderPieChart('highchart-section4-1');
-	renderPieChart('highchart-section4-2');
-	
 	
 });

@@ -33,43 +33,35 @@
 <body id="page-top">
 
     <aside class="bg-dark">
-        <div class="container text-center col-lg-3 col-md-6">
-            <div class="call-to-action">
-            	<div id="highchart-section1-1"></div>
-            </div>
-        </div>
-        <div class="container text-center col-lg-3 col-md-6">
-            <div class="call-to-action">
-            	<div id="highchart-section1-2"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center col-lg-3 col-md-6">
-            <div class="call-to-action">
-            	<div id="highchart-section1-3"></div>
-            </div>
-        </div>
-        <div class="container text-center col-lg-3 col-md-6">
-            <div class="call-to-action">
-            	<div id="highchart-section1-4"></div>
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section1-1"></div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section1-2"></div>
+		            </div>
+		        </div>
             </div>
         </div>
     </aside>
-    
+
     <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section1-3"></div>
-            </div>
-        </div>
-    </aside>
-    
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section1-4"></div>
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section1-3"></div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section1-4"></div>
+		            </div>
+		        </div>
             </div>
         </div>
     </aside>
