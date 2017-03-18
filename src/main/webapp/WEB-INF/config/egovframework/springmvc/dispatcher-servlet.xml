@@ -100,13 +100,16 @@
     </mvc:annotation-driven>
     
     <!-- check Auth -->
+<!--     
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
-            <mvc:exclude-mapping path="/login"/>
-            <mvc:exclude-mapping path="/project"/>
+            <mvc:exclude-mapping path="/home"/>
+            <mvc:exclude-mapping path="/portfolio/*"/>
+            <mvc:exclude-mapping path="/service/*"/>
             <bean class="com.alticast.allso.cmmn.LoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
+ -->    
     
 </beans>
