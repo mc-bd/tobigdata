@@ -31,6 +31,14 @@
 </head>
 
 <body id="page-top">
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<h2>소득 별 지출 분석</h2>
+            </div>
+        </div>
+    </aside>
 
     <aside class="bg-dark">
         <div class="container">
@@ -45,6 +53,14 @@
 		            	<div id="highchart-section1-2"></div>
 		            </div>
 		        </div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<h2>소득 별 저축 분석</h2>
             </div>
         </div>
     </aside>
@@ -69,7 +85,23 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
+            	<h2>지출의 영향을 미치는 항목 비교</h2>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
             	<div id="highchart-section2-1"></div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<h2>소득별 지출 항목 비교</h2>
             </div>
         </div>
     </aside>
