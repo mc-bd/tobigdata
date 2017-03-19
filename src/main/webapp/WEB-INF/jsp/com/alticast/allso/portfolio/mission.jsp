@@ -32,6 +32,37 @@
 
 <body id="page-top">
 
+    <aside class="">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div>
+					<table class="table table-hover">
+						<tr>
+							<th>목표금액</th>
+							<td>100,000,000원</td>
+						</tr>
+						<tr>
+							<th>저축기간</th>
+							<td>2017.03.01~2018.03.01</td>
+						</tr>
+						<tr>
+							<th>월저축액</th>
+							<td>2,000,000 원</td>
+						</tr>
+						<tr>
+							<th>적립금</th>
+							<td>50,000,000 원</td>
+						</tr>
+						<tr>
+							<th>달성률</th>
+							<td>50%</td>
+						</tr>
+					</table>
+            	</div>
+            </div>
+        </div>
+    </aside>
+
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
