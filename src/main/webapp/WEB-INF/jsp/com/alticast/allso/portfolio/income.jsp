@@ -32,6 +32,44 @@
 
 <body id="page-top">
 
+    <aside class="">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div>2017년 3월</div>
+            	<div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>구분</th>
+								<th>항목</th>
+								<th>금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>근로소득</td>
+								<td>100,000,000원</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>이자소득</td>
+								<td>100,000,000원</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td>Total</td>
+								<td>200,000,000원</td>
+							</tr>
+						</tfoot>
+					</table>
+            	</div>
+            </div>
+        </div>
+    </aside>
+
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -56,6 +94,8 @@
     
     <!-- highcharts -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>	
     <script src="/static/js/portfolio/income.js"></script>
