@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 	
-	// Percentage area
+	// http://www.highcharts.com/demo/3d-column-stacking-grouping
 	function renderIncomeChart(target) {
 		Highcharts.chart(target, {
 		    chart: {
