@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alticast.allso.let.api.service.impl.ApiMapper">
+
+	<select id="apiUser_backup" parameterType="Map" resultType="egovMap">
+			SELECT
+				*
+			FROM tb_user
+			WHERE ID = #{id}
+				AND PWD = #{password}
+	</select>
+
+	<select id="apiUser" parameterType="Map" resultType="egovMap">
+		SELECT
+		  RESIDENTAL,
+		  MOBILE,
+		  TRANSPORT,
+		  DAILYSUP,
+		  RESTAURENT,
+		  GROCERY,
+		  COFFEE,
+		  ALCOHOL,
+		  FINANCE,
+		  HEALTH,
+		  CLOTHING,
+		  BEAUTY,
+		  EDUCATION,
+		  CULTURE,
+		  SPORTS,
+		  TRAVEL,
+		  TSPEND
+		FROM
+		  BD_MONSPEND
+		WHERE
+		  MSPEND=1
+	</select>
+
+</mapper>
