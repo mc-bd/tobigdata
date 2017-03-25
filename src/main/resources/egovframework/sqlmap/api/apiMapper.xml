@@ -2,15 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alticast.allso.let.api.service.impl.ApiMapper">
 
-	<select id="apiUser_backup" parameterType="Map" resultType="egovMap">
-			SELECT
-				*
-			FROM tb_user
-			WHERE ID = #{id}
-				AND PWD = #{password}
+	<select id="apiMission" parameterType="Map" resultType="egovMap">
+		-- ◀미션▶	
+		SELECT
+		  (MONTARGET*COUNT) CALC_MC,
+		  STARTDATE,
+		  FINISHDATE,
+		  MONTARGET,
+		  NOWTARGET ACHIEVEMENT
+		FROM
+		  BD_GOAL
+		WHERE
+		  PK_GOAL=1
 	</select>
 
-	<select id="apiUser" parameterType="Map" resultType="egovMap">
+	<select id="apiIncome" parameterType="Map" resultType="egovMap">
+		-- ◀수입▶	
+		SELECT
+		  INCOME,
+		  INTEREST_INCOME,
+		  TINCOME
+		FROM
+		  BD_MONINCOMESAVING
+		WHERE
+		  MINCOME=1
+	</select>
+
+	<select id="apiExpense" parameterType="Map" resultType="egovMap">
+		-- ◀지출▶
 		SELECT
 		  RESIDENTAL,
 		  MOBILE,
@@ -33,6 +52,18 @@
 		  BD_MONSPEND
 		WHERE
 		  MSPEND=1
+	</select>
+
+	<select id="apiSave" parameterType="Map" resultType="egovMap">
+		-- ◀저축탭 ▶ 총소득-총지출=저축액
+		SELECT
+		  TINCOME,
+		  TSPEND,
+		  (TINCOME-TSPEND) CALC_SAVE
+		FROM
+		  BD_MONINCOMESAVING
+		WHERE
+		  MINCOME=1
 	</select>
 
 </mapper>

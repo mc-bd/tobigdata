@@ -63,6 +63,9 @@ $(document).ready(function(){
 	
 	$.ajax({
 		url:'/api/mission',
+//		url:'/api/income',
+//		url:'/api/expense',
+//		url:'/api/save',
 		dataType:'json',
 		success:function(data){
 			renderPercentageAreaChart('highchart-section1-1');

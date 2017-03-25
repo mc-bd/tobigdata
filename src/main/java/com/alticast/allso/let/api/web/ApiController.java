@@ -27,18 +27,63 @@ public class ApiController {
 	private ApiService apiService;
 	
 	@RequestMapping(value="mission" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String apiPost(HttpServletRequest req
+	public @ResponseBody String apiMission(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			) throws Exception {
 		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
-		Map<String, Object> user = apiService.apiUser(paramMap);
+		Map<String, Object> mission = apiService.apiMission(paramMap);
 		Ajax ajax = new Ajax();
-		if (user != null) {
-			ajax.setData(user);
+		if (mission != null) {
+			ajax.setData(mission);
 			ajax.setStatus(HttpStatus.OK);
 		}
 		return ajax.toJSON();
-	}	
+	}
+	
+	@RequestMapping(value="income" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String apiIncome(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> income = apiService.apiIncome(paramMap);
+		Ajax ajax = new Ajax();
+		if (income != null) {
+			ajax.setData(income);
+			ajax.setStatus(HttpStatus.OK);
+		}
+		return ajax.toJSON();
+	}
+	
+	@RequestMapping(value="expense" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String apiExpense(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> expense = apiService.apiExpense(paramMap);
+		Ajax ajax = new Ajax();
+		if (expense != null) {
+			ajax.setData(expense);
+			ajax.setStatus(HttpStatus.OK);
+		}
+		return ajax.toJSON();
+	}
+	
+	@RequestMapping(value="save" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String apiSave(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> save = apiService.apiSave(paramMap);
+		Ajax ajax = new Ajax();
+		if (save != null) {
+			ajax.setData(save);
+			ajax.setStatus(HttpStatus.OK);
+		}
+		return ajax.toJSON();
+	}
 
 }
