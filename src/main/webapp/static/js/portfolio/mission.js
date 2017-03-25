@@ -61,13 +61,10 @@ $(document).ready(function(){
 		});
 	};
 	
-//	renderPercentageAreaChart('highchart-section1-1');
-	
 	$.ajax({
-		url:'api/mission',
+		url:'/api/mission',
 		dataType:'json',
 		success:function(data){
-			debugger;
 			renderPercentageAreaChart('highchart-section1-1');
 		}
 	});	
