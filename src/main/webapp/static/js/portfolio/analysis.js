@@ -304,6 +304,7 @@ $(document).ready(function(){
 		beforeSend: function() {
 		},
 		success:function(data){
+			debugger;
 			renderUserExpenseChart('highchart-section1-1');
 		}
 	});		
