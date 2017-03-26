@@ -32,7 +32,7 @@
 
 <body id="page-top">
     
-    <aside class="bg-primary">
+    <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action" id="mission">
             	<h2>미션</h2>
@@ -46,7 +46,7 @@
 		        <div class="container text-center col-lg-6 col-md-6">
 		            <div class="call-to-action">
 		            	<div>
-							<table class="table table-hover">
+							<table class="table table-hover text-muted">
 								<tr>
 									<th>목표금액</th>
 									<td>100,000,000원</td>
@@ -80,7 +80,7 @@
         </div>
     </aside>
     
-    <aside class="bg-primary">
+    <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action" id="income">
             	<h2>수입</h2>
@@ -95,7 +95,7 @@
 		            <div class="call-to-action">
 		            	<div>2017년 3월</div>
 		            	<div>
-							<table class="table table-hover">
+							<table class="table table table-hover text-muted">
 								<thead>
 									<tr>
 										<th>구분</th>
@@ -135,7 +135,7 @@
         </div>
     </aside>
     
-    <aside class="bg-primary">
+    <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action" id="expense">
             	<h2>지출</h2>
@@ -150,7 +150,7 @@
 		            <div class="call-to-action">
 		            	<div>2017년 3월</div>
 		            	<div>
-							<table class="table table-hover">
+							<table class="table table table-hover text-muted">
 								<thead>
 									<tr>
 										<th>구분</th>
@@ -159,31 +159,91 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>주거...</td>
-										<td>100,000,000원</td>
+									<tr class="">
+										<td class=""></td>
+										<td class="">주거/수도/광열</td>
+										<td class="">원</td>
 									</tr>
-									<tr>
-										<td>2</td>
-										<td>통신</td>
-										<td>100,000,000원</td>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
 									</tr>
-									<tr>
-										<td>...</td>
-										<td>...</td>
-										<td>...</td>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
 									</tr>
-									<tr>
-										<td>16</td>
-										<td>여행</td>
-										<td>100,000,000원</td>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
+									</tr>
+									<tr class="">
+										<td class=""></td>
+										<td class=""></td>
+										<td class="">원</td>
 									</tr>
 								</tbody>
 								<tfoot>
 									<tr>
-										<td></td>
 										<td>Total</td>
+										<td></td>
 										<td>1,600,000,000원</td>
 									</tr>
 								</tfoot>
@@ -200,7 +260,7 @@
         </div>
     </aside>
     
-    <aside class="bg-primary">
+    <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action" id="save">
             	<h2>저축</h2>
@@ -215,7 +275,7 @@
 		            <div class="call-to-action">
 		            	<div>2017년 3월</div>
 		            	<div>
-							<table class="table table-hover">
+							<table class="table table table-hover text-muted">
 								<thead>
 									<tr>
 										<th>항목</th>
@@ -225,15 +285,15 @@
 								<tbody>
 									<tr>
 										<td>총 수입</td>
-										<td>100,000,000원</td>
+										<td>5,000,000원</td>
 									</tr>
 									<tr>
 										<td>총 지출</td>
-										<td>100,000,000원</td>
+										<td>4,000,000원</td>
 									</tr>
 									<tr>
 										<td>저축액</td>
-										<td>100,000,000원</td>
+										<td>1,000,000원</td>
 									</tr>
 								</tbody>
 								<tfoot>

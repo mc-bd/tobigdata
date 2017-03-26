@@ -3,13 +3,221 @@
  */
 $(document).ready(function(){
 	
-	function renderPieChart2(target) {
+	function renderUserIncomeChart(target) {
+		Highcharts.chart(target, {
+		    chart: {
+		        type: 'column',
+		        options3d: {
+		            enabled: true,
+		            alpha: 15,
+		            beta: 15,
+		            viewDistance: 25,
+		            depth: 40
+		        }
+		    },
+
+		    title: {
+		        text: 'INCOME'
+		    },
+
+		    xAxis: {
+		        categories: ['2016.11', '2016.12', '2017.01', '2017.02', '2017.03']
+		    },
+
+		    yAxis: {
+		        allowDecimals: false,
+		        min: 0,
+		        title: {
+		            text: 'Total Income Monthly'
+		        }
+		    },
+
+		    tooltip: {
+		        headerFormat: '<b>{point.key}</b><br>',
+		        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+		    },
+
+		    plotOptions: {
+		        column: {
+		            stacking: 'normal',
+		            depth: 40
+		        }
+		    },
+
+		    series: [{
+		        name: '근로소득',
+		        data: [5, 5, 5, 5, 5],
+		        stack: 'male'
+		    }, {
+		        name: '이자소득',
+		        data: [0.01, 0.01, 0.01, 0.01, 0.01],
+		        stack: 'female'
+		    }]
+		});
+	};
+	
+	function renderAvgIncomeChart(target) {
+		Highcharts.chart(target, {
+		    chart: {
+		        type: 'column',
+		        options3d: {
+		            enabled: true,
+		            alpha: 15,
+		            beta: 15,
+		            viewDistance: 25,
+		            depth: 40
+		        }
+		    },
+
+		    title: {
+		        text: 'INCOME'
+		    },
+
+		    xAxis: {
+		        categories: ['2016.11', '2016.12', '2017.01', '2017.02', '2017.03']
+		    },
+
+		    yAxis: {
+		        allowDecimals: false,
+		        min: 0,
+		        title: {
+		            text: 'Total Income Monthly'
+		        }
+		    },
+
+		    tooltip: {
+		        headerFormat: '<b>{point.key}</b><br>',
+		        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+		    },
+
+		    plotOptions: {
+		        column: {
+		            stacking: 'normal',
+		            depth: 40
+		        }
+		    },
+
+		    series: [{
+		        name: '근로소득',
+		        data: [5, 5, 5, 5, 5],
+		        stack: 'male'
+		    }, {
+		        name: '이자소득',
+		        data: [0.01, 0.01, 0.01, 0.01, 0.01],
+		        stack: 'female'
+		    }]
+		});
+	};
+	
+	function renderUserSaveChart(target) {
+		Highcharts.chart(target, {
+		    chart: {
+		        plotBackgroundColor: null,
+		        plotBorderWidth: 0,
+		        plotShadow: false
+		    },
+		    title: {
+		        text: '수입-지출 대<br>저축비율<br>2017년 3월',
+		        align: 'center',
+		        verticalAlign: 'middle',
+		        y: 40
+		    },
+		    tooltip: {
+		        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		    },
+		    plotOptions: {
+		        pie: {
+		            dataLabels: {
+		                enabled: true,
+		                distance: -50,
+		                style: {
+		                    fontWeight: 'bold',
+		                    color: 'white'
+		                }
+		            },
+		            startAngle: -90,
+		            endAngle: 90,
+		            center: ['50%', '75%']
+		        }
+		    },
+		    series: [{
+		        type: 'pie',
+		        name: 'Browser share',
+		        innerSize: '50%',
+		        data: [
+		            ['수입', 500],
+		            ['지출', 400],
+		            ['저축', 100],
+		            {
+		                name: 'Proprietary or Undetectable',
+		                y: 0.2,
+		                dataLabels: {
+		                    enabled: false
+		                }
+		            }
+		        ]
+		    }]
+		});
+	};
+	
+	function renderAvgSaveChart(target) {
+		Highcharts.chart(target, {
+		    chart: {
+		        plotBackgroundColor: null,
+		        plotBorderWidth: 0,
+		        plotShadow: false
+		    },
+		    title: {
+		        text: '수입-지출 대<br>저축비율<br>2017년 3월',
+		        align: 'center',
+		        verticalAlign: 'middle',
+		        y: 40
+		    },
+		    tooltip: {
+		        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		    },
+		    plotOptions: {
+		        pie: {
+		            dataLabels: {
+		                enabled: true,
+		                distance: -50,
+		                style: {
+		                    fontWeight: 'bold',
+		                    color: 'white'
+		                }
+		            },
+		            startAngle: -90,
+		            endAngle: 90,
+		            center: ['50%', '75%']
+		        }
+		    },
+		    series: [{
+		        type: 'pie',
+		        name: 'Browser share',
+		        innerSize: '50%',
+		        data: [
+		            ['수입', 500],
+		            ['지출', 400],
+		            ['저축', 100],
+		            {
+		                name: 'Proprietary or Undetectable',
+		                y: 0.2,
+		                dataLabels: {
+		                    enabled: false
+		                }
+		            }
+		        ]
+		    }]
+		});
+	};
+	
+	function renderAvgComparisonChart(target) {
 		Highcharts.chart(target, {
 		    title: {
 		        text: 'Combination chart'
 		    },
 		    xAxis: {
-		        categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+		        categories: ['ordinary', 'food', 'disposable', 'transportation', 'education']
 		    },
 		    labels: {
 		        items: [{
@@ -23,20 +231,40 @@ $(document).ready(function(){
 		    },
 		    series: [{
 		        type: 'column',
-		        name: 'Jane',
-		        data: [3, 2, 1, 3, 4]
+		        name: '100',
+		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: 'John',
-		        data: [2, 3, 5, 7, 6]
+		        name: '200',
+		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: 'Joe',
-		        data: [4, 3, 3, 9, 0]
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
+		    }, {
+		        type: 'column',
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
+		    }, {
+		        type: 'column',
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
+		    }, {
+		        type: 'column',
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
+		    }, {
+		        type: 'column',
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
+		    }, {
+		        type: 'column',
+		        name: '300',
+		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'spline',
-		        name: 'Average',
-		        data: [3, 2.67, 3, 6.33, 3.33],
+		        name: '400',
+		        data: [700000, 200000, 130000, 60000, 10000],
 		        marker: {
 		            lineWidth: 2,
 		            lineColor: Highcharts.getOptions().colors[3],
@@ -54,86 +282,37 @@ $(document).ready(function(){
 		            y: 23,
 		            color: Highcharts.getOptions().colors[1] // John's color
 		        }, {
+		            name: 'John',
+		            y: 23,
+		            color: Highcharts.getOptions().colors[1] // John's color
+		        }, {
+		            name: 'John',
+		            y: 23,
+		            color: Highcharts.getOptions().colors[1] // John's color
+		        }, {
+		            name: 'John',
+		            y: 23,
+		            color: Highcharts.getOptions().colors[1] // John's color
+		        }, {
 		            name: 'Joe',
 		            y: 19,
 		            color: Highcharts.getOptions().colors[2] // Joe's color
 		        }],
 		        center: [100, 80],
-		        size: 100,
+		        size: 60,
 		        showInLegend: false,
 		        dataLabels: {
 		            enabled: false
 		        }
 		    }]
-		});
-		
-	};
-	
-	function renderPieChart(target) {
-		Highcharts.chart(target, {
-		    chart: {
-		        plotBackgroundColor: null,
-		        plotBorderWidth: null,
-		        plotShadow: false,
-		        type: 'pie'
-		    },
-		    title: {
-		        text: 'Browser market shares January, 2015 to May, 2015'
-		    },
-		    tooltip: {
-		        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-		    },
-		    plotOptions: {
-		        pie: {
-		            allowPointSelect: true,
-		            cursor: 'pointer',
-		            dataLabels: {
-		                enabled: true,
-		                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-		                style: {
-		                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-		                }
-		            }
-		        }
-		    },
-		    series: [{
-		        name: 'Brands',
-		        colorByPoint: true,
-		        data: [{
-		            name: 'Microsoft Internet Explorer',
-		            y: 56.33
-		        }, {
-		            name: 'Chrome',
-		            y: 24.03,
-		            sliced: true,
-		            selected: true
-		        }, {
-		            name: 'Firefox',
-		            y: 10.38
-		        }, {
-		            name: 'Safari',
-		            y: 4.77
-		        }, {
-		            name: 'Opera',
-		            y: 0.91
-		        }, {
-		            name: 'Proprietary or Undetectable',
-		            y: 0.2
-		        }]
-		    }]
 		});			
 	};
 	
-	renderPieChart('highchart-section1-1');
-	renderPieChart('highchart-section1-2');
-	renderPieChart('highchart-section1-3');
-	renderPieChart('highchart-section1-4');
+	renderUserIncomeChart('highchart-section1-1');
+	renderAvgIncomeChart('highchart-section1-2');
+	renderUserSaveChart('highchart-section1-3');
+	renderAvgSaveChart('highchart-section1-4');
 	
-	renderPieChart2('highchart-section2-1');
-	
-	renderPieChart('highchart-section3-1');
-	renderPieChart('highchart-section3-2');
-	renderPieChart('highchart-section3-3');
-	renderPieChart('highchart-section3-4');
+	renderAvgComparisonChart('highchart-section2-1');
 	
 });

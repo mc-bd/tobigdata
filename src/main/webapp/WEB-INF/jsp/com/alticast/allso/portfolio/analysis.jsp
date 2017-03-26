@@ -98,6 +98,7 @@
         </div>
     </aside>
     
+<!--     
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -137,6 +138,7 @@
             </div>
         </div>
     </aside>
+ -->    
 
     <!-- jQuery -->
     <script src="/static/common/vendor/jquery/jquery.min.js"></script>
