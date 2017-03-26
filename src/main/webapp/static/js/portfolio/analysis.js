@@ -27,25 +27,20 @@ $(document).ready(function(){
 		    series: [{
 		        name: 'Delivered amount',
 		        data: [
-		            ['주거/수도/광열', 5],
-		            ['교통/차량', 2],
-		            ['통신', 2],
-		            
-		            ['생활용품/가사서비스', 1],
-		            ['외식', 3],
-		            ['식료품', 1],
-		            ['카페', 1],
-		            ['술/담배/유흥', 1],
-		            
-		            ['금융/보험', 3],
-		            ['의료/건강', 1],
-		           
-		            ['의류/신발', 1],
-		            ['뷰티/미용', 1],
-		            ['학습/교육', 3],
-		            ['문화/예술', 2],
-		            ['스포츠/레져', 1],
-		            ['여행/숙박', 1]
+		               ['주거/수도/광열', 500000],
+		               ['교통/차량', 50000],
+		               ['통신', 100000],
+		               
+		               ['생활용품/가사서비스', 300000],
+		               ['외식', 100000],
+		               ['식료품', 50000],
+		               ['술/담배/유흥', 0],
+		               
+		               ['의료/건강', 100000],
+		               ['의류/신발', 100000],
+		               ['학습/교육', 50000],
+		               ['여가/문화', 100000],
+		               ['기타', 50000]
 		        ]
 		    }]
 		});
@@ -228,27 +223,23 @@ $(document).ready(function(){
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: '300',
+		        name: '400',
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: '300',
+		        name: '500',
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: '300',
+		        name: '600',
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'column',
-		        name: '300',
-		        data: [700000, 200000, 130000, 60000, 10000]
-		    }, {
-		        type: 'column',
-		        name: '300',
+		        name: '700',
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'spline',
-		        name: '400',
+		        name: '0',
 		        data: [700000, 200000, 130000, 60000, 10000],
 		        marker: {
 		            lineWidth: 2,
@@ -259,29 +250,33 @@ $(document).ready(function(){
 		        type: 'pie',
 		        name: 'Total consumption',
 		        data: [{
-		            name: 'Jane',
+		            name: '100',
 		            y: 13,
 		            color: Highcharts.getOptions().colors[0] // Jane's color
 		        }, {
-		            name: 'John',
+		            name: '200',
 		            y: 23,
 		            color: Highcharts.getOptions().colors[1] // John's color
 		        }, {
-		            name: 'John',
+		            name: '300',
 		            y: 23,
-		            color: Highcharts.getOptions().colors[1] // John's color
+		            color: Highcharts.getOptions().colors[2] // John's color
 		        }, {
-		            name: 'John',
+		            name: '400',
 		            y: 23,
-		            color: Highcharts.getOptions().colors[1] // John's color
+		            color: Highcharts.getOptions().colors[3] // John's color
 		        }, {
-		            name: 'John',
+		            name: '500',
 		            y: 23,
-		            color: Highcharts.getOptions().colors[1] // John's color
+		            color: Highcharts.getOptions().colors[4] // John's color
 		        }, {
-		            name: 'Joe',
+		            name: '600',
+		            y: 23,
+		            color: Highcharts.getOptions().colors[5] // John's color
+		        }, {
+		            name: '700',
 		            y: 19,
-		            color: Highcharts.getOptions().colors[2] // Joe's color
+		            color: Highcharts.getOptions().colors[6] // Joe's color
 		        }],
 		        center: [100, 80],
 		        size: 60,
@@ -293,6 +288,8 @@ $(document).ready(function(){
 		});			
 	};
 	
+	renderUserExpenseChart('highchart-section1-1');
+	
 	$.ajax({
 		url:'/hive/selectAvgExpense',
 		contentType: "application/json; charset=UTF-8",
@@ -302,17 +299,49 @@ $(document).ready(function(){
 		}),
 		dataType:'json',
 		beforeSend: function() {
+			var target = document.getElementById('highchart-section1-2')
+			new Spinner({color:'#fff', lines: 12}).spin(target);
 		},
 		success:function(data){
-			debugger;
-			renderUserExpenseChart('highchart-section1-1');
+			renderAvgExpenseChart('highchart-section1-2');
 		}
-	});		
+	});
 	
-	renderAvgExpenseChart('highchart-section1-2');
 	renderUserSaveChart('highchart-section1-3');
-	renderAvgSaveChart('highchart-section1-4');
 	
-	renderAvgComparisonChart('highchart-section2-1');
+	$.ajax({
+		url:'/hive/selectAvgSave',
+		contentType: "application/json; charset=UTF-8",
+		method: 'POST',
+		data: JSON.stringify({
+			level: 200
+		}),
+		dataType:'json',
+		beforeSend: function() {
+			var target = document.getElementById('highchart-section1-4')
+			new Spinner({color:'#fff', lines: 12}).spin(target);
+		},
+		success:function(data){
+			renderAvgSaveChart('highchart-section1-4');
+		}
+	});
+	
+	$.ajax({
+		url:'/hive/selectAvgExpense',
+		contentType: "application/json; charset=UTF-8",
+		method: 'POST',
+		data: JSON.stringify({
+			level: 200
+		}),
+		dataType:'json',
+		beforeSend: function() {
+			var target = document.getElementById('highchart-section2-1')
+			new Spinner({color:'#fff', lines: 12}).spin(target);
+		},
+		success:function(data){
+			renderAvgComparisonChart('highchart-section2-1');
+		}
+	});
+	
 	
 });

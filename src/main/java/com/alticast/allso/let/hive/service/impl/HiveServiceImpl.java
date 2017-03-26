@@ -33,4 +33,23 @@ public class HiveServiceImpl implements HiveService {
 		return HiveUtil.selectList(conn, query);
 	}
 
+	@Override
+	public Map<String, Object> selectAvgSave(Map<String, Object> paramMap) throws Exception {
+		
+		Connection conn = null;
+		
+		try {
+			Class.forName("org.apache.hive.jdbc.HiveDriver");
+			conn = DriverManager.getConnection("jdbc:hive2://70.12.114.98:10000/default","root","111111");
+		} catch (Exception e) {
+			log.debug(e.getMessage());
+		}
+		
+		// query
+		String level = String.valueOf(paramMap.get("level"));
+		String query = "select level,avg(CHACHACHA.consumption) TINCOME,avg(CHACHACHA.nonconsumption) TSPEND,avg(surplus) SAVE from CHACHACHA group by level having level=" + level;  // TODO
+		
+		return HiveUtil.selectList(conn, query);
+	}
+
 }

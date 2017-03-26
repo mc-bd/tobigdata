@@ -41,4 +41,19 @@ public class HiveController {
 		return ajax.toJSON();
 	}
 	
+	@RequestMapping(value="selectAvgSave" ,method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String selectAvgSave(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> predict = hiveService.selectAvgSave(paramMap);
+		Ajax ajax = new Ajax();
+		if (predict != null) {
+			ajax.setData(predict);
+			ajax.setStatus(HttpStatus.OK);
+		}
+		return ajax.toJSON();
+	}
+	
 }

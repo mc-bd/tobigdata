@@ -159,6 +159,9 @@
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>	
     <script src="/static/js/portfolio/analysis.js"></script>
+    
+    <!-- spin.js -->
+	<script src="http://spin.js.org/spin.js"></script>	
 	
 </body>
 </html>
