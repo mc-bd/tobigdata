@@ -82,7 +82,7 @@
 							<form>
 								<div class="form-group row">
 								  <h4>총지출액 예측결과</h4>
-								  <h4 id="predict1-text" class="none"></h4>
+								  <h4 id="predict1-text" class=""></h4>
 								</div>
 							</form>
 		            	</div>
@@ -99,11 +99,48 @@
             </div>
         </div>
     </aside>
-    
+
     <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-            	<div id=""></div>
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>
+							<form>
+								<div class="form-group row">
+								  <label for="clothing" class="col-2 col-form-label">의류</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="clothing">
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="soju" class="col-2 col-form-label">주류</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="soju">
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="nonrecurring" class="col-2 col-form-label">비경상소득</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="nonrecurring">
+								  </div>
+								</div>
+								<button type="button" id="predict2-button" class="btn btn-primary">계산하기</button>
+							</form>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>
+							<form>
+								<div class="form-group row">
+								  <h4 id="predict2-text" class=""></h4>
+								</div>
+							</form>
+		            	</div>
+		            </div>
+		        </div>
             </div>
         </div>
     </aside>
