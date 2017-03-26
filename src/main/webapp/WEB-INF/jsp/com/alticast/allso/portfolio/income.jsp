@@ -78,6 +78,22 @@
         </div>
     </aside>
 
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div id="highchart-section1-2"></div>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+            	<div id="highchart-section1-3"></div>
+            </div>
+        </div>
+    </aside>
+
     <!-- jQuery -->
     <script src="/static/common/vendor/jquery/jquery.min.js"></script>
 
