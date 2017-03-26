@@ -192,6 +192,7 @@ $(document).ready(function(){
 	};
 	
 	function renderAvgComparisonChart(target, data) {
+		var arr = data.data.data;
 		Highcharts.chart(target, {
 		    title: {
 		        text: 'Combination chart'
@@ -239,7 +240,7 @@ $(document).ready(function(){
 		        data: [700000, 200000, 130000, 60000, 10000]
 		    }, {
 		        type: 'spline',
-		        name: '0',
+		        name: 'All',
 		        data: [700000, 200000, 130000, 60000, 10000],
 		        marker: {
 		            lineWidth: 2,
@@ -303,7 +304,7 @@ $(document).ready(function(){
 			new Spinner({color:'#fff', lines: 12}).spin(target);
 		},
 		success:function(data){
-			renderAvgExpenseChart('highchart-section1-2');
+			renderAvgExpenseChart('highchart-section1-2', data);
 		}
 	});
 	
@@ -322,12 +323,12 @@ $(document).ready(function(){
 			new Spinner({color:'#fff', lines: 12}).spin(target);
 		},
 		success:function(data){
-			renderAvgSaveChart('highchart-section1-4');
+			renderAvgSaveChart('highchart-section1-4', data);
 		}
 	});
 	
 	$.ajax({
-		url:'/hive/selectAvgExpense',
+		url:'/hive/selectAllAvgExpense',
 		contentType: "application/json; charset=UTF-8",
 		method: 'POST',
 		data: JSON.stringify({
@@ -339,7 +340,7 @@ $(document).ready(function(){
 			new Spinner({color:'#fff', lines: 12}).spin(target);
 		},
 		success:function(data){
-			renderAvgComparisonChart('highchart-section2-1');
+			renderAvgComparisonChart('highchart-section2-1', data);
 		}
 	});
 	

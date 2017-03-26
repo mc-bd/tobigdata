@@ -8,4 +8,6 @@ public interface HiveService {
 
 	Map<String, Object> selectAvgSave(Map<String, Object> paramMap) throws Exception;
 
+	Map<String, Object> selectAllAvgExpense(Map<String, Object> paramMap) throws Exception;
+
 }
