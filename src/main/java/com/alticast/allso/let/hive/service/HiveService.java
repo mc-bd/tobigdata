@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface HiveService {
 
-	Map<String, Object> hiveUser(Map<String, Object> paramMap) throws Exception;
+	Map<String, Object> selectAvgExpense(Map<String, Object> paramMap) throws Exception;
 
 }

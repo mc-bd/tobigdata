@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 	
-	function renderUserExpenseChart(target) {
+	function renderUserExpenseChart(target, data) {
 		Highcharts.chart(target, {
 		    chart: {
 		        type: 'pie',
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		});
 	};
 	
-	function renderAvgExpenseChart(target) {
+	function renderAvgExpenseChart(target, data) {
 		Highcharts.chart(target, {
 		    chart: {
 		        type: 'pie',
@@ -75,31 +75,26 @@ $(document).ready(function(){
 		    series: [{
 		        name: 'Delivered amount',
 		        data: [
-		            ['주거/수도/광열', 5],
-		            ['교통/차량', 2],
-		            ['통신', 2],
-		            
-		            ['생활용품/가사서비스', 1],
-		            ['외식', 3],
-		            ['식료품', 1],
-		            ['카페', 1],
-		            ['술/담배/유흥', 1],
-		            
-		            ['금융/보험', 3],
-		            ['의료/건강', 1],
-		           
-		            ['의류/신발', 1],
-		            ['뷰티/미용', 1],
-		            ['학습/교육', 3],
-		            ['문화/예술', 2],
-		            ['스포츠/레져', 1],
-		            ['여행/숙박', 1]
+		               ['주거/수도/광열', 5],
+		               ['교통/차량', 2],
+		               ['통신', 2],
+		               
+		               ['생활용품/가사서비스', 1],
+		               ['외식', 3],
+		               ['식료품', 1],
+		               ['술/담배/유흥', 1],
+		               
+		               ['의료/건강', 1],
+		               ['의류/신발', 1],
+		               ['학습/교육', 3],
+		               ['여가/문화', 2],
+		               ['기타', 1]
 		        ]
 		    }]
 		});
 	};
 	
-	function renderUserSaveChart(target) {
+	function renderUserSaveChart(target, data) {
 		Highcharts.chart(target, {
 		    chart: {
 		        plotBackgroundColor: null,
@@ -150,7 +145,7 @@ $(document).ready(function(){
 		});
 	};
 	
-	function renderAvgSaveChart(target) {
+	function renderAvgSaveChart(target, data) {
 		Highcharts.chart(target, {
 		    chart: {
 		        plotBackgroundColor: null,
@@ -201,7 +196,7 @@ $(document).ready(function(){
 		});
 	};
 	
-	function renderAvgComparisonChart(target) {
+	function renderAvgComparisonChart(target, data) {
 		Highcharts.chart(target, {
 		    title: {
 		        text: 'Combination chart'
@@ -298,7 +293,21 @@ $(document).ready(function(){
 		});			
 	};
 	
-	renderUserExpenseChart('highchart-section1-1');
+	$.ajax({
+		url:'/hive/selectAvgExpense',
+		contentType: "application/json; charset=UTF-8",
+		method: 'POST',
+		data: JSON.stringify({
+			level: 200
+		}),
+		dataType:'json',
+		beforeSend: function() {
+		},
+		success:function(data){
+			renderUserExpenseChart('highchart-section1-1');
+		}
+	});		
+	
 	renderAvgExpenseChart('highchart-section1-2');
 	renderUserSaveChart('highchart-section1-3');
 	renderAvgSaveChart('highchart-section1-4');
