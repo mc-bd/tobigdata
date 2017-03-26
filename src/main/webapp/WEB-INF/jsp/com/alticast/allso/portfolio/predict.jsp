@@ -45,12 +45,47 @@
             <div class="row">
 		        <div class="container text-center col-lg-6 col-md-6">
 		            <div class="call-to-action">
-		            	<div id=""></div>
+		            	<div>
+							<form>
+								<div class="form-group row">
+								  <label for="totalincome" class="col-2 col-form-label">소득</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="totalincome">
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="food" class="col-2 col-form-label">식비</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="food">
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="transportation" class="col-2 col-form-label">교통비</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="transportation">
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="education" class="col-2 col-form-label">교육비</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="" id="education">
+								  </div>
+								</div>
+								<button type="button" id="predict1-button" class="btn btn-primary">계산하기</button>
+							</form>
+		            	</div>
 		            </div>
 		        </div>
 		        <div class="container text-center col-lg-6 col-md-6">
 		            <div class="call-to-action">
-		            	<div id=""></div>
+		            	<div>
+							<form>
+								<div class="form-group row">
+								  <h4>총지출액 예측결과</h4>
+								  <h4 id="predict1-text" class="none"></h4>
+								</div>
+							</form>
+		            	</div>
 		            </div>
 		        </div>
             </div>
