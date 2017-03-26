@@ -3,108 +3,98 @@
  */
 $(document).ready(function(){
 	
-	function renderUserIncomeChart(target) {
+	function renderUserExpenseChart(target) {
 		Highcharts.chart(target, {
 		    chart: {
-		        type: 'column',
+		        type: 'pie',
 		        options3d: {
 		            enabled: true,
-		            alpha: 15,
-		            beta: 15,
-		            viewDistance: 25,
-		            depth: 40
+		            alpha: 45
 		        }
 		    },
-
 		    title: {
-		        text: 'INCOME'
+		        text: 'SPEND'
 		    },
-
-		    xAxis: {
-		        categories: ['2016.11', '2016.12', '2017.01', '2017.02', '2017.03']
+		    subtitle: {
+		        text: 'Monthly Spend Categories in Detail'
 		    },
-
-		    yAxis: {
-		        allowDecimals: false,
-		        min: 0,
-		        title: {
-		            text: 'Total Income Monthly'
-		        }
-		    },
-
-		    tooltip: {
-		        headerFormat: '<b>{point.key}</b><br>',
-		        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
-		    },
-
 		    plotOptions: {
-		        column: {
-		            stacking: 'normal',
-		            depth: 40
+		        pie: {
+		            innerSize: 100,
+		            depth: 45
 		        }
 		    },
-
 		    series: [{
-		        name: '근로소득',
-		        data: [5, 5, 5, 5, 5],
-		        stack: 'male'
-		    }, {
-		        name: '이자소득',
-		        data: [0.01, 0.01, 0.01, 0.01, 0.01],
-		        stack: 'female'
+		        name: 'Delivered amount',
+		        data: [
+		            ['주거/수도/광열', 5],
+		            ['교통/차량', 2],
+		            ['통신', 2],
+		            
+		            ['생활용품/가사서비스', 1],
+		            ['외식', 3],
+		            ['식료품', 1],
+		            ['카페', 1],
+		            ['술/담배/유흥', 1],
+		            
+		            ['금융/보험', 3],
+		            ['의료/건강', 1],
+		           
+		            ['의류/신발', 1],
+		            ['뷰티/미용', 1],
+		            ['학습/교육', 3],
+		            ['문화/예술', 2],
+		            ['스포츠/레져', 1],
+		            ['여행/숙박', 1]
+		        ]
 		    }]
 		});
 	};
 	
-	function renderAvgIncomeChart(target) {
+	function renderAvgExpenseChart(target) {
 		Highcharts.chart(target, {
 		    chart: {
-		        type: 'column',
+		        type: 'pie',
 		        options3d: {
 		            enabled: true,
-		            alpha: 15,
-		            beta: 15,
-		            viewDistance: 25,
-		            depth: 40
+		            alpha: 45
 		        }
 		    },
-
 		    title: {
-		        text: 'INCOME'
+		        text: 'SPEND'
 		    },
-
-		    xAxis: {
-		        categories: ['2016.11', '2016.12', '2017.01', '2017.02', '2017.03']
+		    subtitle: {
+		        text: 'Monthly Spend Categories in Detail'
 		    },
-
-		    yAxis: {
-		        allowDecimals: false,
-		        min: 0,
-		        title: {
-		            text: 'Total Income Monthly'
-		        }
-		    },
-
-		    tooltip: {
-		        headerFormat: '<b>{point.key}</b><br>',
-		        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
-		    },
-
 		    plotOptions: {
-		        column: {
-		            stacking: 'normal',
-		            depth: 40
+		        pie: {
+		            innerSize: 100,
+		            depth: 45
 		        }
 		    },
-
 		    series: [{
-		        name: '근로소득',
-		        data: [5, 5, 5, 5, 5],
-		        stack: 'male'
-		    }, {
-		        name: '이자소득',
-		        data: [0.01, 0.01, 0.01, 0.01, 0.01],
-		        stack: 'female'
+		        name: 'Delivered amount',
+		        data: [
+		            ['주거/수도/광열', 5],
+		            ['교통/차량', 2],
+		            ['통신', 2],
+		            
+		            ['생활용품/가사서비스', 1],
+		            ['외식', 3],
+		            ['식료품', 1],
+		            ['카페', 1],
+		            ['술/담배/유흥', 1],
+		            
+		            ['금융/보험', 3],
+		            ['의료/건강', 1],
+		           
+		            ['의류/신발', 1],
+		            ['뷰티/미용', 1],
+		            ['학습/교육', 3],
+		            ['문화/예술', 2],
+		            ['스포츠/레져', 1],
+		            ['여행/숙박', 1]
+		        ]
 		    }]
 		});
 	};
@@ -308,8 +298,8 @@ $(document).ready(function(){
 		});			
 	};
 	
-	renderUserIncomeChart('highchart-section1-1');
-	renderAvgIncomeChart('highchart-section1-2');
+	renderUserExpenseChart('highchart-section1-1');
+	renderAvgExpenseChart('highchart-section1-2');
 	renderUserSaveChart('highchart-section1-3');
 	renderAvgSaveChart('highchart-section1-4');
 	
