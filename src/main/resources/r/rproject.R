@@ -158,7 +158,7 @@ str(t3)
 p3=regsubsets(totalspend~.,data=t3)
 summary(p3)
 
-m2=lm(totalspend~totalincome+food+transportation+education,data=t3)
+m2=lm(totalspend~food+transportation+disposable+education,data=t3)
 anova(m2)
 summary(m2)
 
@@ -191,20 +191,95 @@ emp
 dept
 goal
 
+t3
+df
+###########################################################################################
+
+df<-read.csv('http://www-bcf.usc.edu/~gareth/ISL/Heart.csv')
+str(df)
+head(df)
+install.packages("caret")
+library(caret)
+set.seed(1000)
+intrain<-createDataPartition(y=df$AHD, p=0.7, list=FALSE) 
+train<-df[intrain, ]
+test<-df[-intrain, ]
+ 
+#caret 패키지를 사용해서 데이터를 train 셋과 test 셋으로 구분해 보겠습니다.
+install.packages("tree")
+library(tree)
+treemod<-tree(AHD~., data=train)
+plot(treemod)
+text(treemod)
+#가지치기
+cv.trees<-cv.tree(treemod, FUN=prune.misclass ) # for classification decision tree
+plot(cv.trees)
+
+prune.trees <- prune.misclass(treemod, best=6)  # for regression decision tree, use prune.tree function
+plot(prune.trees)
+text(prune.trees, pretty=0)
+
+#예측하기 모델평가
+install.packages("e1071")
+library(e1071)
+treepred <- predict(prune.trees, test, type='class') #treepred
+confusionMatrix(treepred, test$AHD)
+
+
+
+#party 패키지를 사용한 의사결정나무 분석
+install.packages("party")
+library(party)
+partymod<-ctree(AHD~., data=train)
+plot(partymod)
+partypred<-predict(partymod, test)
+confusionMatrix(partypred, test$AHD) 
 
 
 
 
+##############################시게열분석
+str(AirPassengers)
+plot(AirPassengers)
+plot(stl(AirPassengers, s.window="periodic"))
+install.packages("tseries")
+#“차분” (diff)과 “로그함수”(log)가 바로 그것입니다
+library(tseries)
+adf.test(diff(log(AirPassengers)), alternative="stationary", k=0)
+#
+library(forecast)
+auto.arima(diff(log(AirPassengers)))
+
+Series: diff(log(AirPassengers)) 
+
+
+################의사결정트리
+
+install.packages("rpart")
+install.packages("rpart.plot")
+
+library("rpart")
+library("rpart.plot")
+
+t3
+m1<-rpart(totalspend~.,data=t4)
+anova(m1)
+m1
+
+prp(m1, type = 4 , extra=1, digits = 4 )
+
+str(t3)
+rm(t3$level)
+rm(level)
+rm(t3$level)
+
+rm(x[["level"]])
+t3
+head(t3)
+t4<-t3[,-2]
+head(t4)
 
 
 
 
-
-
-
-
-
-
-
-
-
+data<-rbind()
