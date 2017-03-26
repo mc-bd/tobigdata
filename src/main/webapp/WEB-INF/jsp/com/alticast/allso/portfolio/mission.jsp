@@ -160,91 +160,71 @@
 								</thead>
 								<tbody>
 									<tr class="">
-										<td class=""></td>
+										<td class="">1</td>
 										<td class="">주거/수도/광열</td>
-										<td class="">원</td>
+										<td class="">500000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">2</td>
+										<td class="">교통 차량</td>
+										<td class="">100000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">3</td>
+										<td class="">통신</td>
+										<td class="">50000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">4</td>
+										<td class="">생활용품/가사서비스</td>
+										<td class="">100000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">5</td>
+										<td class="">외식</td>
+										<td class="">300000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">6</td>
+										<td class="">식료품</td>
+										<td class="">100000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">7</td>
+										<td class="">술/담배/유흥</td>
+										<td class="">50000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">8</td>
+										<td class="">의료/건강</td>
+										<td class="">0원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">9</td>
+										<td class="">의류/신발</td>
+										<td class="">100000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">10</td>
+										<td class="">학습/교육</td>
+										<td class="">100000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">11</td>
+										<td class="">여가/문화</td>
+										<td class="">50000원</td>
 									</tr>
 									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
-									</tr>
-									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
-									</tr>
-									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
-									</tr>
-									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
-									</tr>
-									<tr class="">
-										<td class=""></td>
-										<td class=""></td>
-										<td class="">원</td>
+										<td class="">12</td>
+										<td class="">기타</td>
+										<td class="">50000원</td>
 									</tr>
 								</tbody>
 								<tfoot>
 									<tr>
 										<td>Total</td>
 										<td></td>
-										<td>1,600,000,000원</td>
+										<td>1,500,000원</td>
 									</tr>
 								</tfoot>
 							</table>
