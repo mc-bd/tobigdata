@@ -135,6 +135,7 @@
 		            	<div>
 							<form>
 								<div class="form-group row">
+								  <h4>소비등급</h4>
 								  <h4 id="predict2-text" class=""></h4>
 								</div>
 							</form>

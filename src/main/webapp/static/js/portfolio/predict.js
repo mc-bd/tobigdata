@@ -29,9 +29,9 @@ $(document).ready(function(){
 	
 	$('#predict2-button').on('click', function() {
 		
-		var clothing = 100; // 의류
-		var soju = 100; // 주류
-		var nonrecurring = 100; // 비경상소득
+		var clothing = $('clothing').val(); // 의류
+		var soju = $('soju').val(); // 주류
+		var nonrecurring = $('nonrecurring').val(); // 비경상소득
 
 		var totalspend = 0; // 등급
 
@@ -68,7 +68,7 @@ $(document).ready(function(){
 			}
 		}
 
-		$('#predict2-text').text('소비등급 ' + totalspend);
+		$('#predict2-text').text('totalspend' + '등급');
 		
 	});
 	
