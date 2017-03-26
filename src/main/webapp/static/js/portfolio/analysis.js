@@ -47,6 +47,8 @@ $(document).ready(function(){
 	};
 	
 	function renderAvgExpenseChart(target, data) {
+		debugger;
+		var arr = data.data.data;
 		Highcharts.chart(target, {
 		    chart: {
 		        type: 'pie',
@@ -70,20 +72,20 @@ $(document).ready(function(){
 		    series: [{
 		        name: 'Delivered amount',
 		        data: [
-		               ['주거/수도/광열', 5],
-		               ['교통/차량', 2],
-		               ['통신', 2],
+		               ['주거/수도/광열', arr[0]['housing']],
+		               ['교통/차량', arr[0]['transportation']],
+		               ['통신', arr[0]['communication']],
 		               
-		               ['생활용품/가사서비스', 1],
-		               ['외식', 3],
-		               ['식료품', 1],
-		               ['술/담배/유흥', 1],
+		               ['생활용품/가사서비스', arr[0]['supplies']],
+		               ['외식', arr[0]['eatout']],
+		               ['식료품', arr[0]['food']],
+		               ['술/담배/유흥', arr[0]['soju']],
 		               
-		               ['의료/건강', 1],
-		               ['의류/신발', 1],
-		               ['학습/교육', 3],
-		               ['여가/문화', 2],
-		               ['기타', 1]
+		               ['의료/건강', arr[0]['medical']],
+		               ['의류/신발', arr[0]['clothing']],
+		               ['학습/교육', arr[0]['education']],
+		               ['여가/문화', arr[0]['entertainment']],
+		               ['기타', arr[0]['etc']],
 		        ]
 		    }]
 		});
@@ -141,6 +143,8 @@ $(document).ready(function(){
 	};
 	
 	function renderAvgSaveChart(target, data) {
+		debugger;
+		var arr = data.data.data;
 		Highcharts.chart(target, {
 		    chart: {
 		        plotBackgroundColor: null,
@@ -176,9 +180,9 @@ $(document).ready(function(){
 		        name: 'Browser share',
 		        innerSize: '50%',
 		        data: [
-		            ['수입', 500],
-		            ['지출', 400],
-		            ['저축', 100],
+		            ['수입', arr[0]['tincome']],
+		            ['지출', arr[0]['tspend']],
+		            ['저축', arr[0]['save']],
 		            {
 		                name: 'Proprietary or Undetectable',
 		                y: 0.2,
@@ -192,7 +196,13 @@ $(document).ready(function(){
 	};
 	
 	function renderAvgComparisonChart(target, data) {
+		debugger;
 		var arr = data.data.data;
+//		for (var i = 1; i < arr.length; i++) {
+//			for ( var key in arr[i]) {
+//				arr[i][key] = Math.round(arr[i][key]);
+//			}
+//		}
 		Highcharts.chart(target, {
 		    title: {
 		        text: 'Combination chart'
@@ -213,78 +223,42 @@ $(document).ready(function(){
 		    series: [{
 		        type: 'column',
 		        name: '100',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[1]['ordinary'], arr[1]['food'], arr[1]['disposable'], arr[1]['transportation'], arr[1]['education']]
 		    }, {
 		        type: 'column',
 		        name: '200',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[2]['ordinary'], arr[2]['food'], arr[2]['disposable'], arr[2]['transportation'], arr[2]['education']]
 		    }, {
 		        type: 'column',
 		        name: '300',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[3]['ordinary'], arr[3]['food'], arr[3]['disposable'], arr[3]['transportation'], arr[3]['education']]
 		    }, {
 		        type: 'column',
 		        name: '400',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[4]['ordinary'], arr[4]['food'], arr[4]['disposable'], arr[4]['transportation'], arr[4]['education']]
 		    }, {
 		        type: 'column',
 		        name: '500',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[5]['ordinary'], arr[5]['food'], arr[5]['disposable'], arr[5]['transportation'], arr[5]['education']]
 		    }, {
 		        type: 'column',
 		        name: '600',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[6]['ordinary'], arr[6]['food'], arr[6]['disposable'], arr[6]['transportation'], arr[6]['education']]
 		    }, {
 		        type: 'column',
 		        name: '700',
-		        data: [700000, 200000, 130000, 60000, 10000]
+		        data: [arr[7]['ordinary'], arr[7]['food'], arr[7]['disposable'], arr[7]['transportation'], arr[7]['education']]
+/*		    
 		    }, {
 		        type: 'spline',
-		        name: 'All',
-		        data: [700000, 200000, 130000, 60000, 10000],
+		        name: 'avg',
+		        data: [arr[1]['ordinary'], arr[1]['food'], arr[1]['disposable'], arr[1]['transportation'], arr[1]['education']],
 		        marker: {
 		            lineWidth: 2,
 		            lineColor: Highcharts.getOptions().colors[3],
 		            fillColor: 'white'
 		        }
-		    }, {
-		        type: 'pie',
-		        name: 'Total consumption',
-		        data: [{
-		            name: '100',
-		            y: 13,
-		            color: Highcharts.getOptions().colors[0] // Jane's color
-		        }, {
-		            name: '200',
-		            y: 23,
-		            color: Highcharts.getOptions().colors[1] // John's color
-		        }, {
-		            name: '300',
-		            y: 23,
-		            color: Highcharts.getOptions().colors[2] // John's color
-		        }, {
-		            name: '400',
-		            y: 23,
-		            color: Highcharts.getOptions().colors[3] // John's color
-		        }, {
-		            name: '500',
-		            y: 23,
-		            color: Highcharts.getOptions().colors[4] // John's color
-		        }, {
-		            name: '600',
-		            y: 23,
-		            color: Highcharts.getOptions().colors[5] // John's color
-		        }, {
-		            name: '700',
-		            y: 19,
-		            color: Highcharts.getOptions().colors[6] // Joe's color
-		        }],
-		        center: [100, 80],
-		        size: 60,
-		        showInLegend: false,
-		        dataLabels: {
-		            enabled: false
-		        }
+*/		    
 		    }]
 		});			
 	};

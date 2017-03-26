@@ -66,7 +66,7 @@ public class HiveServiceImpl implements HiveService {
 		
 		// query
 //		String level = String.valueOf(paramMap.get("level"));
-		String query = "select level, avg(CHACHACHA.housing) HOUSING, avg(CHACHACHA.ordinary) ORDINARY, avg(CHACHACHA.disposable) DISPOABLE, avg(CHACHACHA.transportation) TRANSPORTATION, avg(CHACHACHA.communication) COMMUNICATION, avg(CHACHACHA.supplies) SUPPLIES, avg(CHACHACHA.eatout) EATOUT, avg(CHACHACHA.food) FOOD, avg(CHACHACHA.soju) SOJU, avg(CHACHACHA.medical) MEDICAL, avg(CHACHACHA.clothing) CLOTHING, avg(CHACHACHA.education) EDUCATION, avg(CHACHACHA.entertainment) ENTERTAINMENT, avg(CHACHACHA.etc) ETC from CHACHACHA group by level order by level";  // TODO
+		String query = "select level, avg(CHACHACHA.housing) HOUSING, avg(CHACHACHA.ordinary) ordinary, avg(CHACHACHA.disposable) disposable, avg(CHACHACHA.transportation) TRANSPORTATION, avg(CHACHACHA.communication) COMMUNICATION, avg(CHACHACHA.supplies) SUPPLIES, avg(CHACHACHA.eatout) EATOUT, avg(CHACHACHA.food) FOOD, avg(CHACHACHA.soju) SOJU, avg(CHACHACHA.medical) MEDICAL, avg(CHACHACHA.clothing) CLOTHING, avg(CHACHACHA.education) EDUCATION, avg(CHACHACHA.entertainment) ENTERTAINMENT, avg(CHACHACHA.etc) ETC from CHACHACHA group by level order by level";  // TODO
 		
 		return HiveUtil.selectList(conn, query);
 	}
