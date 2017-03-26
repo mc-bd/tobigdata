@@ -29,9 +29,9 @@ $(document).ready(function(){
 	
 	$('#predict2-button').on('click', function() {
 		
-		var clothing = $('clothing').val(); // 의류
-		var soju = $('soju').val(); // 주류
-		var nonrecurring = $('nonrecurring').val(); // 비경상소득
+		var clothing = $('#clothing').val(); // 의류
+		var soju = $('#soju').val(); // 주류
+		var nonrecurring = $('#nonrecurring').val(); // 비경상소득
 
 		var totalspend = 0; // 등급
 
@@ -41,34 +41,34 @@ $(document).ready(function(){
 					totalspend=7;
 					console.log("총소비<1014000, 소비등급 7");
 				} else {
-					totalspend=7;
+					totalspend=6;
 					console.log("총소비<1541000, 소비등급6");
 				}
 			} else {
 				if (clothing < 124400) {
-					totalspend=7;
+					totalspend=5;
 					console.log("총소비<2204000 소비등급 5");
 				} else {
-					totalspend=7;
+					totalspend=4;
 					console.log("총소비<2823000, 소비등급 4");
 				}
 			}
 		} else {
 			if (nonrecurring < 259000) {
 				if (clothing < 196900) {
-					totalspend=7;
+					totalspend=3;
 					console.log("총소비 <3451000, 소비등급 3");
 				} else {
-					totalspend=7;
+					totalspend=2;
 					console.log("총소비 <4061000 , 소비등급 2");
 				}
 			} else {
-				totalspend=7;
+				totalspend=1;
 				console.log("총소비>5384000, 소비등급 1");
 			}
 		}
 
-		$('#predict2-text').text('totalspend' + '등급');
+		$('#predict2-text').text(totalspend + '등급');
 		
 	});
 	
