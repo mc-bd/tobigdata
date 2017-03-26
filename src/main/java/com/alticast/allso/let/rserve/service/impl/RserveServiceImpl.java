@@ -33,10 +33,10 @@ public class RserveServiceImpl implements RserveService {
 		rconn.eval("source('" + pathOfRFile + "', encoding = 'UTF-8', echo=TRUE)");
 		
 		// params
-		int totalincome = (int) paramMap.get("totalincome");
-		int food = (int) paramMap.get("food");
-		int transportation = (int) paramMap.get("transportation");
-		int education = (int) paramMap.get("education");	
+		String totalincome = (String) paramMap.get("totalincome");
+		String food = (String) paramMap.get("food");
+		String transportation = (String) paramMap.get("transportation");
+		String education = (String) paramMap.get("education");	
 		
 		// R execute
 		x1 = rconn.eval("pre1(" + totalincome + "," + food + "," + transportation + "," + education + ")");
