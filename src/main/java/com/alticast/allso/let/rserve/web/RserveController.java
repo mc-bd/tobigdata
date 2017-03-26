@@ -23,7 +23,7 @@ public class RserveController {
 	
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RserveController.class);
 	
-	@Resource(name = "RserveService")
+	@Resource(name = "rserveService")
 	private RserveService rserveService;
 
 	@RequestMapping(value="predict1" ,method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
