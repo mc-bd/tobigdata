@@ -147,7 +147,7 @@
             <div class="row no-gutter popup-project">
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot01.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -161,7 +161,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot02.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -175,7 +175,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot03.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot04.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -203,7 +203,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot05.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -217,7 +217,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/project-snapshot05.png" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
