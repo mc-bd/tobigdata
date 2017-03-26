@@ -69,7 +69,7 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Asset Management</h1>
                 <hr>
-                <p>자산 관리 분석</p>
+                <p>Your Best Finance Partner</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">More</a>
             </div>
         </div>
@@ -102,29 +102,29 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>미션</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <h3>Mission</h3>
+                        <p class="text-muted">종잣돈 모으기</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>수입, 지출, 저축 관리</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <h3>Money Flow</h3>
+                        <p class="text-muted">현금흐름 관리</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>자산 관리 분석</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <h3>Asset Analysis</h3>
+                        <p class="text-muted">자산상태 비교분석</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>-</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <h3>Statistic Analysis</h3>
+                        <p class="text-muted">전문가 통계분석</p>
                     </div>
                 </div>
             </div>

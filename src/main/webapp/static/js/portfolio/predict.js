@@ -10,10 +10,10 @@ $(document).ready(function(){
 			contentType: "application/json; charset=UTF-8",
 			method: 'POST',
 			data: JSON.stringify({
-				totalincome: 1,
-				food: 2,
-				transportation: 3,
-				education: 4
+				totalincome: $('#totalincome').val(),
+				food: $('#food').val(),
+				transportation: $('#transportation').val(),
+				education: $('#education').val()
 			}),
 			dataType:'json',
 			beforeSend: function() {
@@ -21,7 +21,7 @@ $(document).ready(function(){
 			},
 			success:function(data){
 				var result = data.data;
-				$('#predict1-text').text(result + '원');
+				$('#predict1-text').text(result.data + '원');
 			}
 		});	
 		
