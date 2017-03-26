@@ -235,6 +235,7 @@
         </div>
     </section>
     
+<!--     
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -243,6 +244,7 @@
             </div>
         </div>
     </aside>
+ -->
 
     <section id="contact">
         <div class="container">

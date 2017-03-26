@@ -31,42 +31,222 @@
 </head>
 
 <body id="page-top">
-
-    <aside class="">
+    
+    <aside class="bg-primary">
         <div class="container text-center">
-            <div class="call-to-action">
-            	<div>
-					<table class="table table-hover">
-						<tr>
-							<th>목표금액</th>
-							<td>100,000,000원</td>
-						</tr>
-						<tr>
-							<th>저축기간</th>
-							<td>2017.03.01~2018.03.01</td>
-						</tr>
-						<tr>
-							<th>월저축액</th>
-							<td>2,000,000 원</td>
-						</tr>
-						<tr>
-							<th>적립금</th>
-							<td>50,000,000 원</td>
-						</tr>
-						<tr>
-							<th>달성률</th>
-							<td>50%</td>
-						</tr>
-					</table>
-            	</div>
+            <div class="call-to-action" id="mission">
+            	<h2>미션</h2>
             </div>
         </div>
     </aside>
 
     <aside class="bg-dark">
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>
+							<table class="table table-hover">
+								<tr>
+									<th>목표금액</th>
+									<td>100,000,000원</td>
+								</tr>
+								<tr>
+									<th>저축기간</th>
+									<td>2017.03.01~2018.03.01</td>
+								</tr>
+								<tr>
+									<th>월저축액</th>
+									<td>2,000,000 원</td>
+								</tr>
+								<tr>
+									<th>적립금</th>
+									<td>50,000,000 원</td>
+								</tr>
+								<tr>
+									<th>달성률</th>
+									<td>50%</td>
+								</tr>
+							</table>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section1-1"></div>
+		            </div>
+		        </div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-primary">
         <div class="container text-center">
-            <div class="call-to-action">
-            	<div id="highchart-section1-1"></div>
+            <div class="call-to-action" id="income">
+            	<h2>수입</h2>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="bg-dark">
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>2017년 3월</div>
+		            	<div>
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>구분</th>
+										<th>항목</th>
+										<th>금액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>근로소득</td>
+										<td>100,000,000원</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>이자소득</td>
+										<td>100,000,000원</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td></td>
+										<td>Total</td>
+										<td>200,000,000원</td>
+									</tr>
+								</tfoot>
+							</table>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section2-1"></div>
+		            </div>
+		        </div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-primary">
+        <div class="container text-center">
+            <div class="call-to-action" id="expense">
+            	<h2>지출</h2>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="bg-dark">
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>2017년 3월</div>
+		            	<div>
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>구분</th>
+										<th>항목</th>
+										<th>금액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>주거...</td>
+										<td>100,000,000원</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>통신</td>
+										<td>100,000,000원</td>
+									</tr>
+									<tr>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+									</tr>
+									<tr>
+										<td>16</td>
+										<td>여행</td>
+										<td>100,000,000원</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td></td>
+										<td>Total</td>
+										<td>1,600,000,000원</td>
+									</tr>
+								</tfoot>
+							</table>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section2-2"></div>
+		            </div>
+		        </div>
+            </div>
+        </div>
+    </aside>
+    
+    <aside class="bg-primary">
+        <div class="container text-center">
+            <div class="call-to-action" id="save">
+            	<h2>저축</h2>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="bg-dark">
+        <div class="container">
+            <div class="row">
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div>2017년 3월</div>
+		            	<div>
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>항목</th>
+										<th>금액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>총 수입</td>
+										<td>100,000,000원</td>
+									</tr>
+									<tr>
+										<td>총 지출</td>
+										<td>100,000,000원</td>
+									</tr>
+									<tr>
+										<td>저축액</td>
+										<td>100,000,000원</td>
+									</tr>
+								</tbody>
+								<tfoot>
+								</tfoot>
+							</table>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="container text-center col-lg-6 col-md-6">
+		            <div class="call-to-action">
+		            	<div id="highchart-section2-3"></div>
+		            </div>
+		        </div>
             </div>
         </div>
     </aside>
