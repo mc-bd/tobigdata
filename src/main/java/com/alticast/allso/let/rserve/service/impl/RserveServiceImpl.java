@@ -52,5 +52,41 @@ public class RserveServiceImpl implements RserveService {
 		return returnMap;
 		
 	}
+
+	@Override
+	public Map<String, Object> predict2(Map<String, Object> paramMap) throws Exception {
+		
+		log.info("R ping"); // TODO delete
+		
+		// to return map
+		Map<String, Object> returnMap = new HashMap();
+		
+		// conn open
+		rconn = new RConnection();
+		
+		// R config
+		String pathOfRFile = "C:/Users/student/git/tobigdata/src/main/resources/r/new1.R"; // R file path config
+		rconn.eval("source('" + pathOfRFile + "', encoding = 'UTF-8', echo=TRUE)");
+		
+		// params
+		int totalincome = (int) paramMap.get("totalincome");
+		int food = (int) paramMap.get("food");
+		int transportation = (int) paramMap.get("transportation");
+		int education = (int) paramMap.get("education");	
+		
+		// R execute
+		x1 = rconn.eval("pre1(" + totalincome + "," + food + "," + transportation + "," + education + ")");
+		
+		// save result
+		returnMap.put("data", x1.asDouble());
+		
+		// conn close
+		rconn.close();
+		
+		log.info("R pong"); // TODO delete
+		
+		return returnMap;
+		
+	}
 	
 }

@@ -215,22 +215,20 @@
                         </div>
                     </a>
                 </div>
-<!--                 
                 <div class="col-lg-4 col-sm-6">
                     <a href="static/img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="static/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <img src="static/img/portfolio/thumbnails/project-snapshot05.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
                                 </div>
-                                <div class="project-name" data-project-name="mission">
-                                    Project Name
+                                <div class="project-name" data-project-name="predict">
+                                    예측
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
- -->                
             </div>
         </div>
     </section>
@@ -254,6 +252,7 @@
                     <hr class="primary">
                     <p>KMY, JHR, CHH</p>
                 </div>
+<!--                 
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
                     <p>-</p>
@@ -262,6 +261,7 @@
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
                     <p><a href="mailto:help@help.com">help@help.com</a></p>
                 </div>
+ -->                
             </div>
         </div>
     </section>

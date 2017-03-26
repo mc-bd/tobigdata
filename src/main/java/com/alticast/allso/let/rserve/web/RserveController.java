@@ -27,7 +27,22 @@ public class RserveController {
 	private RserveService rserveService;
 
 	@RequestMapping(value="predict1" ,method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String apiMission(HttpServletRequest req
+	public @ResponseBody String apiPredict1(HttpServletRequest req
+			, HttpServletResponse resp
+			, @RequestBody String requestBody
+			) throws Exception {
+		Map<String, Object> paramMap = CmmnUtil.jsonToMap(requestBody);
+		Map<String, Object> mission = rserveService.predict1(paramMap);
+		Ajax ajax = new Ajax();
+		if (mission != null) {
+			ajax.setData(mission);
+			ajax.setStatus(HttpStatus.OK);
+		}
+		return ajax.toJSON();
+	}
+
+	@RequestMapping(value="predict2" ,method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String apiPredict2(HttpServletRequest req
 			, HttpServletResponse resp
 			, @RequestBody String requestBody
 			) throws Exception {

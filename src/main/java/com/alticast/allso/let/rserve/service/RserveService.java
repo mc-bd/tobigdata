@@ -5,5 +5,7 @@ import java.util.Map;
 public interface RserveService {
 
 	Map<String, Object> predict1(Map<String, Object> paramMap) throws Exception;
+	
+	Map<String, Object> predict2(Map<String, Object> paramMap) throws Exception;
 
 }
