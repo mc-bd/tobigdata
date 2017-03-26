@@ -96,11 +96,11 @@ $(document).ready(function(){
 
 		    series: [{
 		        name: '근로소득',
-		        data: [5, 5, 5, 5, 5],
+		        data: [2000000, 2000000, 2000000,  2000000,  2000000],
 		        stack: 'male'
 		    }, {
 		        name: '이자소득',
-		        data: [0.01, 0.01, 0.01, 0.01, 0.01],
+		        data: [40000, 40800, 42432, 44129, 45894],
 		        stack: 'female'
 		    }]
 		});
@@ -192,9 +192,9 @@ $(document).ready(function(){
 		        name: 'Browser share',
 		        innerSize: '50%',
 		        data: [
-		            ['수입', 500],
-		            ['지출', 400],
-		            ['저축', 100],
+		            ['수입', 200],
+		            ['지출', 150],
+		            ['저축', 50],
 		            {
 		                name: 'Proprietary or Undetectable',
 		                y: 0.2,

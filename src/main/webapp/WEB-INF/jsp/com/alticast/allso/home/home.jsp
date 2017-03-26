@@ -82,7 +82,7 @@
                     <h2 class="section-heading">자산 관리 분석</h2>
                     <hr class="light">
                     <p class="text-faded"></p>
-                    <a href="/service/login" class="page-scroll btn btn-default btn-xl sr-button" target="_blank">서비스 체험하기(오픈예정)</a>
+                    <a href="#" class="page-scroll btn btn-default btn-xl sr-button" target="_blank">서비스 체험하기(오픈예정)</a>
                 </div>
             </div>
         </div>

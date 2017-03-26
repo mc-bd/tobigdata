@@ -107,19 +107,19 @@
 									<tr>
 										<td>1</td>
 										<td>근로소득</td>
-										<td>100,000,000원</td>
+										<td>2,000,000원</td>
 									</tr>
 									<tr>
 										<td>2</td>
 										<td>이자소득</td>
-										<td>100,000,000원</td>
+										<td>45,894원</td>
 									</tr>
 								</tbody>
 								<tfoot>
 									<tr>
-										<td></td>
 										<td>Total</td>
-										<td>200,000,000원</td>
+										<td></td>
+										<td>2,045,894원</td>
 									</tr>
 								</tfoot>
 							</table>
@@ -265,15 +265,15 @@
 								<tbody>
 									<tr>
 										<td>총 수입</td>
-										<td>5,000,000원</td>
+										<td>2,000,000원</td>
 									</tr>
 									<tr>
 										<td>총 지출</td>
-										<td>4,000,000원</td>
+										<td>1,500,000원</td>
 									</tr>
 									<tr>
 										<td>저축액</td>
-										<td>1,000,000원</td>
+										<td>500,000원</td>
 									</tr>
 								</tbody>
 								<tfoot>
